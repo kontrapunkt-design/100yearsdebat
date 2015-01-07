@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>taligestilling</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link href="/styles/site.css" rel="stylesheet">
+		
+		{{!-- This file provides the default styling for the KeystoneJS Content Editor 
+			- only renders when user is logged in and admin--}}
+		{{{isAdminEditorCSS user}}}
+		
+		{{!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+		//- Safely remove this block if you are not targeting IE8 --}}
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" />
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" />
+		<![endif]-->
+		
+	</head>
+	<body>
+		<div class="container">
+			<nav id="header">
+				{{# each navLinks}}
+					<a href="{{ href }}" {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>{{ label }}</a>
+				{{/each}}
+			</nav>
+
+			<div id="body">
+				<!--
+					Flash messages allow you to display once-off status messages to users, e.g. form
+					validation errors, success messages, etc
+				-->
+				{{#if messages}}
+				<div id="flash-messages" class="container">
+					{{#if messages.info}}
+					<div class="alert alert-info">
+							{{{flashMessages messages.info}}}
+					</div>
+					{{/if}}
+					{{#if messages.success}}
+					<div class="alert alert-success">
+							{{{flashMessages messages.success}}}
+					</div>
+					{{/if}}
+					{{#if messages.warning}}
+					<div class="alert alert-warning">
+							{{{flashMessages messages.warning}}}
+					</div>
+					{{/if}}
+					{{#if messages.error}}
+					<div class="alert alert-danger">
+							{{{flashMessages messages.error}}}
+					</div>
+					{{/if}}
+				</div>
+				{{/if}}
+				<!-- The content block should contain the body of your template's content-->
+				{{{body}}}
+			</div>
+		</div>
+
+		<div class="container">
+			<div id="footer">
+				Ta lige stilling
+			</div>
+		</div>
+		<script type="text/javascript">
+			var script = document.createElement( 'script' );
+			script.type = 'text/javascript';
+			if (window.location.href.indexOf('localhost:3000') > -1) {
+				script.src = '/js/libs/require.js';
+				script.setAttribute('data-main','/js/config');
+			} else {
+				script.src = '/js/amd-app.js';
+				console.log = function() {};
+			}
+			document.body.appendChild(script);
+		</script>
+		{{{isAdminEditorJS user}}}
+	</body>
+</html>

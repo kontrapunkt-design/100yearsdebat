@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'EuclidFlex-UltraLight';
+  src: url('/fonts/EuclidFlex-Ultralight-WebS.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/EuclidFlex-Ultralight-WebS.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/EuclidFlex-Ultralight-WebS.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/EuclidFlex-Ultralight-WebS.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/EuclidFlex-Ultralight-WebS.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/EuclidFlex-Ultralight-WebS.svg#euclidFlexUltraLight') format('svg'); /* Legacy iOS */
+}

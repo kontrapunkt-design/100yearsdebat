@@ -1,0 +1,37 @@
+{{!< default}}
+<header>
+	<h1 class="logo">Ta' lige stilling</h1>
+	<p>
+		<strong>Ta' lige stilling</strong> er din mulighed for at blive hørt
+	</p>
+</header>
+
+<section class="tell-your-story row">
+	<form action="" id="tell-your-story_form">
+		<div class="col-sm-3">
+			<textarea noresize></textarea>
+			<div class="placeholder">
+				Fortæl om <span class="rotate">din oplevelse, din aften, lorem ipsum</span>...
+			</div>
+			<input type="file" class="add-picture" value="C"/>
+			<div class="text-status">
+				<span class="used-char">0</span> / 256 char
+			</div>
+			<button class="fb-connect">Del med facebook connect..</button>
+			<div class="share-or-text">eller</div>
+			<input type="email" class="email" placeholder="Indtast din email adresse"/>
+		</div>
+		<div class="col-sm-9">
+			<div class="tell-your-story--tags">
+				{{# each data.tags }}
+				<a data-id="{{this._id}}">#{{name}} ({{this.storyCount}})</a>
+				{{/each}}
+			</div>
+			Tilføj dit eget: #<input type="string" class="custom-tag" placeholder="dit eget tag"/>
+			<button class="custom-tag-btn">Tilføj</button>
+		</div>
+	</form>
+</section>
+
+
+	<button type="submit" class="tell-your-story--submit">Send afsted</button>

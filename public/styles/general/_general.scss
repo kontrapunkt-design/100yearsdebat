@@ -1,0 +1,39 @@
+body {
+	background:$bg-color;
+	// color:$blue;
+	-webkit-font-smoothing: antialiased;
+	// font-family:$font-family;
+}
+
+input {
+	-webkit-font-smoothing: antialiased;
+}
+
+.container {
+	width:100%;
+	max-width:1024px;
+	nav {	
+		text-align: right;
+		margin-top:$spacing;
+		a {
+			margin-right:$spacing;
+			color:$white;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+	header {
+		text-align:center;
+		.logo {
+			font-size:10rem;
+			text-transform: uppercase;
+			text-align: center;
+			margin-bottom: $spacing;
+			color:$white;
+		}
+		p {
+			font-size:3rem;
+		}
+	}
+}
