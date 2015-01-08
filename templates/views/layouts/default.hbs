@@ -15,6 +15,15 @@
 		<!--[if lt IE 9]>
 			<script src="/js/libs/html5shiv.min.js" />
 			<script src="/js/libs/respond.min.js" />
+			<script>
+				document.createElement('header');
+				document.createElement('nav');
+				document.createElement('section');
+				document.createElement('article');
+				document.createElement('main');
+				document.createElement('aside');
+				document.createElement('footer');
+			</script>
 		<![endif]-->
 		
 	</head>
@@ -68,12 +77,12 @@
 		<script type="text/javascript">
 			var script = document.createElement( 'script' );
 			script.type = 'text/javascript';
-			if (window.location.href.indexOf('localhost:3000') > -1) {
+			if (window.location.href.indexOf('localhost:30100') > -1) {
 				script.src = '/js/libs/require.js';
 				script.setAttribute('data-main','/js/config');
 			} else {
 				script.src = '/js/amd-app.js';
-				// console.log = function() {};
+				console.log = function() {};
 			}
 			document.body.appendChild(script);
 		</script>

@@ -9,6 +9,10 @@ input {
 	-webkit-font-smoothing: antialiased;
 }
 
+header, nav, section, article, aside, footer, main {
+   display:block;
+}
+
 .container {
 	width:100%;
 	max-width:1024px;

@@ -3,7 +3,9 @@ define([
 		"app",
 
 		//Views
-		"views/tell-your-story"
+		"views/tell-your-story",
+
+		"cloudinary"
 	],
 
 	function(
@@ -20,6 +22,9 @@ define([
 				var self = this;
 
 				console.log('init');
+
+				//Init cloudinary
+				$.cloudinary.config({ cloud_name: 'diin', api_key: '967225847829495'});
 
 				app.useLayout("canvas").setViews({
 					".canvas--tell-your-story": new TellYourStoryView({})

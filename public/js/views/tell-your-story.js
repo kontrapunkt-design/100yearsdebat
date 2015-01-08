@@ -55,7 +55,6 @@ define([
 			},
 
 			initialize: function() {
-				$.cloudinary.config({ cloud_name: 'diin', api_key: '967225847829495'});
 			},
 
 			afterRender: function() {
