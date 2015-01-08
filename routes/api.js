@@ -1,7 +1,8 @@
 module.exports = function(app, keystone) {
 	var Story = keystone.list('Story');
 
-	app.get('/api/story', function(req, res) {
+	app.post('/api/story', function(req, res) {
+		console.log('API/STORY CALLED');
 		var data = req.body;
 		var tags = [];
 
@@ -16,11 +17,18 @@ module.exports = function(app, keystone) {
 			author:data.author
 		});
 
-		story.save(function (newStory) {
-			res.json({
-				result:'ok',
-				story: newStory
-			});
+		story.save(function (err, savedStory) {
+			if ( ! err ) {
+				res.json({
+					result:'ok',
+					story: savedStory
+				});
+			} else {
+				res.json( {
+					result:'error',
+					error:err
+				});
+			}
 		});
 	});
 };

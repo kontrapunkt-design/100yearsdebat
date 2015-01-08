@@ -13,7 +13,7 @@ var Story = new keystone.List('Story', {
 
 Story.add({
 	title: { type: String, required: false },
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'published', index: true, hidden: true},
+	state: { type: Types.Select, options: 'submitted, draft, published, archived', default: 'published', index: true, hidden: true},
 	// publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	publishedDate: {type: Types.Datetime, default: Date.now, hidden: true},
 	image: { type: Types.CloudinaryImage, label: 'Image', note: 'JPG, PNG, GIF, BMP, ICO, TIFF or PDF'},

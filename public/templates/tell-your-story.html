@@ -1,0 +1,37 @@
+<form action="/api/story" method="POST" id="tell-your-story_form" enctype="multipart/form-data">
+	<div class="col-sm-3">
+		<textarea noresize></textarea>
+		<div class="placeholder">
+			Fortæl om <span class="rotate">din oplevelse, din aften, lorem ipsum</span>...
+		</div>
+		<br/>
+		<br/>
+		<input type="file" name="file" class="add-picture" id="add-picture" accept="image/jpeg, image/png, image/jpg" />
+		<div class="text-status">
+			<span class="used-char">0</span> / 256 char
+		</div>
+		<br/>
+		<br/>
+		<button class="fb-connect">Del med facebook connect..</button>
+		<br/>
+		<br/>
+		<div class="share-or-text">eller</div>
+		<br/>
+		<br/>
+		<input type="email" class="email" placeholder="Indtast din email adresse"/>
+
+		<br/>
+		<br/>
+		<button type="submit" class="tell-your-story--submit">Send afsted</button>
+	</div>
+	<div class="col-sm-9">
+		<div class="tell-your-story--tags">
+			{{# each data.tags }}
+			<a data-id="{{this._id}}">#{{name}} ({{this.storyCount}})</a>
+			{{/each}}
+		</div>
+		Tilføj dit eget: #<input type="string" class="custom-tag" placeholder="dit eget tag"/>
+		<button class="custom-tag-btn">Tilføj</button>
+	</div>
+	
+</form>

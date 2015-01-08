@@ -12,7 +12,12 @@ require.config({
         jquery: "libs/jquery",
         lodash: "libs/lodash",
         backbone: "libs/backbone",
-        handlebars: "libs/handlebars"
+        handlebars: "libs/handlebars",
+
+        "jquery.iframe-transport": "libs/jquery.iframe-transport",
+        "jquery.ui.widget": "libs/jquery.ui.widget",
+        "jquery.fileupload": "libs/jquery.fileupload",
+        "cloudinary": "libs/jquery.cloudinary"
     },
 
     shim: {
@@ -25,6 +30,11 @@ require.config({
         handlebars: {
             exports: 'Handlebars'
         },
+
+        'jquery.ui.widget': ['jquery'],
+        'jquery.iframe-transport': ['jquery'],
+        'jquery.fileupload': ['jquery','jquery.iframe-transport','jquery.ui.widget'],
+        'cloudinary': ['jquery','jquery.fileupload'],
 
         // Backbone.LayoutManager depends on Backbone.
         "plugins/backbone.layoutmanager": ["backbone"]

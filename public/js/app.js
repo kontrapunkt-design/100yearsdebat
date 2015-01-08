@@ -57,17 +57,6 @@ define([
             }
         });
 
-        //Handlebars helpers
-        Handlebars.registerHelper('parseTime', function(seconds) {
-            seconds = Handlebars.Utils.escapeExpression(seconds);
-
-            var parsedTime = Utils.secondsToMinutesAndSeconds(seconds);
-
-            var result = parsedTime.minutes + ' min. ' + parsedTime.seconds + ' sec.';
-
-            return new Handlebars.SafeString(result);
-        });
-
         // Mix Backbone.Events, modules, and layout management into the app object.
         return _.extend(app, {
             // Create a custom object with a nested Views object.
@@ -97,7 +86,7 @@ define([
                 });
 
                 // Insert into the DOM.
-                $(".container").empty().append(layout.el);
+                $("#canvas").empty().append(layout.el);
 
                 // Render the layout.
                 layout.render();
