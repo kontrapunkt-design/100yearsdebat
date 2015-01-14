@@ -36,10 +36,6 @@
 			</nav>
 
 			<div id="body">
-				<!--
-					Flash messages allow you to display once-off status messages to users, e.g. form
-					validation errors, success messages, etc
-				-->
 				{{#if messages}}
 				<div id="flash-messages" class="container">
 					{{#if messages.info}}
@@ -64,7 +60,6 @@
 					{{/if}}
 				</div>
 				{{/if}}
-				<!-- The content block should contain the body of your template's content-->
 				{{{body}}}
 			</div>
 		</div>

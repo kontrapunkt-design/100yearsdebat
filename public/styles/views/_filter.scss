@@ -1,0 +1,10 @@
+.filter--view {
+}
+
+.filter--tags {
+	a{
+		&.selected {
+			background:gray;
+		}
+	}
+}

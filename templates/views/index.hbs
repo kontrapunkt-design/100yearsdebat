@@ -6,5 +6,11 @@
 	</p>
 </header>
 
-<main class="canvas" id="canvas">
+<main class="canvas container" id="canvas">
 </main>
+
+<script>
+	window.app = window.app || {};
+	window.app.tags={{{data.tagsJson}}};
+	window.app.stories={{{data.storiesJson}}};
+</script>

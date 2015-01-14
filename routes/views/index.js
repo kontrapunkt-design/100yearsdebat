@@ -14,18 +14,23 @@ exports = module.exports = function(req, res) {
 		tags: []
 	};
 
+	// Load stories	
+	view.on('init', function(next) {
+		keystone.list('Story').model.find({state:'published'}).limit(10).exec(function(err, stories) {
+			locals.data.stories=stories;
+			locals.data.storiesJson=JSON.stringify(locals.data.stories);
+			next(err);
+		});
+	});
+
 	// Load all categories
 	view.on('init', function(next) {
 		
-		keystone.list('StoryTag').model.find().sort('name').exec(function(err, results) {
+		keystone.list('StoryTag').model.find({showAsDefault:true}).sort('name').exec(function(err, results) {
 			
 			if (err || !results.length) {
 				return next(err);
 			}
-			
-			// locals.data.categories = results;
-
-			// var categories = [];
 			
 			// Load the counts for each category
 			async.each(results, function(tag, next) {
@@ -41,10 +46,14 @@ exports = module.exports = function(req, res) {
 					locals.data.tags.push(newTag);
 					next(err);
 				});
+
 				
 			}, function(err) {
 				next(err);
+
+				locals.data.tagsJson=JSON.stringify(locals.data.tags);
 			});
+			
 			
 		});
 		

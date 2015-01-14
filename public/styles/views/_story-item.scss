@@ -1,0 +1,9 @@
+.story-item--view {
+	background:white;
+	min-height:140px;
+	min-width:100px;
+	border:3px solid red;
+	&:hover {
+		background:#ccc;
+	}
+}

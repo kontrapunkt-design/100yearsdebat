@@ -1,0 +1,7 @@
+<h1>Filter</h1>
+<div class="filter--tags">
+	{{#each tags }}
+	<a data-id="{{this._id}}" data-name="{{this.name}}">#{{this.name}} ({{this.storyCount}})</a>
+	{{/each}}
+</div>
+<a href="#" class="btn-remove-filering hide">Fjern filtrering</a>

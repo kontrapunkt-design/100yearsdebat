@@ -13,7 +13,7 @@ function(app, Router, Handlebars) {
 	// navigation from this instance.
 	app.router = new Router();
 
-	Backbone.history.start({ pushState: true, root: app.root });
+	// Backbone.history.start({ pushState: true, root: app.root });
 
 	// All navigation that is relative should be passed through the navigate
 	// method, to be processed by the router. If the link has a `data-bypass`

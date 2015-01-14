@@ -13,6 +13,15 @@ require.config({
         lodash: "libs/lodash",
         backbone: "libs/backbone",
         handlebars: "libs/handlebars",
+        deepmodel: "libs/deep-model",
+
+        validate: "libs/jquery.validate",
+
+        modal: "libs/jquery.the-modal",
+        
+        "packery": "libs/packery.pkgd",
+        
+        "slick": "libs/slick",
 
         "jquery.iframe-transport": "libs/jquery.iframe-transport",
         "jquery.ui.widget": "libs/jquery.ui.widget",
@@ -30,6 +39,10 @@ require.config({
         handlebars: {
             exports: 'Handlebars'
         },
+
+        'modal': ['jquery'],
+
+        'slick': ['jquery'],
 
         'jquery.ui.widget': ['jquery'],
         'jquery.iframe-transport': ['jquery'],

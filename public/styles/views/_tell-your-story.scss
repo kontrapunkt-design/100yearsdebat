@@ -1,0 +1,11 @@
+.tell-your-story--view {
+}
+
+.tell-your-story--tags{
+	a {
+		cursor:pointer;
+		&.selected {
+			background:gray;
+		}
+	}
+}

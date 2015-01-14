@@ -6,12 +6,22 @@
 // Libs
 @import "bootstrap/bootstrap";
 @import "libs/simpletextrotator";
+@import "libs/slick";
+@import "libs/the-modal";
 
 // Variables
 @import "general/variables";
+
+// Mxins
+@import "mixins/respond-to";
 
 // General
 @import "general/fonts";
 @import "general/general";
 
 // Modules
+@import "views/tell-your-story";
+@import "views/grid";
+@import "views/story";
+@import "views/story-item";
+@import "views/filter";

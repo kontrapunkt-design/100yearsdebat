@@ -1,6 +1,6 @@
-<form action="/api/story" method="POST" id="tell-your-story_form" enctype="multipart/form-data">
-	<div class="col-sm-3">
-		<textarea noresize></textarea>
+<div class="col-sm-3">
+	<form id="tell-your-story_form" class="tell-your-story_form">
+		<textarea class="input-story" noresize minlength="5" required></textarea>
 		<div class="placeholder">
 			Fortæl om <span class="rotate">din oplevelse, din aften, lorem ipsum</span>...
 		</div>
@@ -18,20 +18,21 @@
 		<div class="share-or-text">eller</div>
 		<br/>
 		<br/>
-		<input type="email" class="email" placeholder="Indtast din email adresse"/>
+		<input type="email" class="input-email" placeholder="Indtast din email adresse" required/>
 
 		<br/>
 		<br/>
 		<button type="submit" class="tell-your-story--submit">Send afsted</button>
-	</div>
-	<div class="col-sm-9">
+	</form>
+</div>
+<div class="col-sm-9">
+	<form id="tell-your-story_form--tags" class="tell-your-story_form--tags">
 		<div class="tell-your-story--tags">
-			{{# each data.tags }}
-			<a data-id="{{this._id}}">#{{name}} ({{this.storyCount}})</a>
+			{{#each tags }}
+			<a data-id="{{this._id}}" data-name="{{this.name}}">#{{this.name}} ({{this.storyCount}})</a>
 			{{/each}}
 		</div>
 		Tilføj dit eget: #<input type="string" class="custom-tag" placeholder="dit eget tag"/>
 		<button class="custom-tag-btn">Tilføj</button>
-	</div>
-	
-</form>
+	</form>
+</div>

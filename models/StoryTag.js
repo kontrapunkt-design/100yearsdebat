@@ -17,4 +17,5 @@ StoryTag.add({
 
 StoryTag.relationship({ ref: 'Story', path: 'tags' });
 
+StoryTag.defaultColumns = 'name, showAsDefault';
 StoryTag.register();

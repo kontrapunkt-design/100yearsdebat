@@ -1,0 +1,9 @@
+.story--view {
+	.story-item--view {
+		opacity: 0.5;
+		transition:opacity 0.2s;
+		&.slick-center {
+			opacity: 1;
+		}
+	}
+}

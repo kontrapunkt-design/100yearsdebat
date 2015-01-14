@@ -23,6 +23,8 @@ define([
 
         // Configure LayoutManager with Backbone Boilerplate defaults.
         Backbone.LayoutManager.configure({
+            manage:true,
+            
             paths: {
                 layout: "/templates/layouts/",
                 template: "/templates/"

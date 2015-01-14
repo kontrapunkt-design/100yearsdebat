@@ -1,0 +1,52 @@
+.grid--view {
+	margin:auto;
+	margin-top:$spacing;
+	.grid-sizer {
+		width:16.66666667%;
+	}
+	.gutter-sizer {
+		width:0px;
+	}
+	.item {
+		border:2px solid $bg-color;
+		width:16.66666667%;
+		min-height:200px;
+		background:$white;
+		padding:$spacing-small;
+		margin:0;
+		overflow: hidden;
+		&.w2 {
+			width:33.3333334%;
+		}
+
+		&.tell-your-story--view {
+			width:33.3333334%;
+			top:0;
+			left:0;
+		}
+		&.filter--view {
+			width:33.3333334%;
+			top:0;
+			right:0;
+		}
+	}
+}
+
+@include respond-to(handhelds-tablets) {
+	.grid--view {
+		.item {
+			width:100% !important;
+			top:auto;
+			left:auto;
+			right:auto;
+		}
+	}
+}
+
+@include respond-to(tablets) {
+	.grid--view {
+		.item {
+			width:50% !important;
+		}
+	}
+}
