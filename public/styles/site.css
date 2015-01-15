@@ -2661,9 +2661,6 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, select
   content: "←"; }
 
 /* Dots */
-.slick-slider {
-  margin-bottom: 30px; }
-
 .slick-dots {
   position: absolute;
   bottom: -45px;
@@ -2720,6 +2717,9 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, select
 .slick-dots li.slick-active button:before {
   color: black;
   opacity: 0.75; }
+
+.modal {
+  height: 100%; }
 
 .themodal-lock {
   /* when modal is opened we're removing scrollbars from the main content */
@@ -2822,7 +2822,7 @@ header, nav, section, article, aside, footer, main {
     overflow: hidden; }
     .grid--view .item.w2 {
       width: 33.33333%; }
-    .grid--view .item.tell-your-story--view {
+    .grid--view .item.tell-your-story--small--view {
       width: 33.33333%;
       top: 0;
       left: 0; }
@@ -2844,11 +2844,13 @@ header, nav, section, article, aside, footer, main {
     width: 50% !important; }
  }
 
-.story--view .story-item--view {
-  opacity: 0.5;
-  transition: opacity 0.2s; }
-  .story--view .story-item--view.slick-center {
-    opacity: 1; }
+.story--view {
+  min-height: 100%; }
+  .story--view .story-item--view {
+    opacity: 0.5;
+    transition: opacity 0.2s; }
+    .story--view .story-item--view.slick-center {
+      opacity: 1; }
 
 .story-item--view {
   background: white;

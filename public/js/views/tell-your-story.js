@@ -15,7 +15,7 @@ define([
 
 			template: "tell-your-story",
 
-			className: "item tell-your-story--view",
+			className: "tell-your-story--view",
 
 			imageUpload: null,
 

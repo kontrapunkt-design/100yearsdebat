@@ -7,13 +7,13 @@ define([
 		"packery",
 
 		'views/story-item',
-		"views/tell-your-story",
+		"views/tell-your-story_small",
 		"views/filter",
 
 		// Plugins.
 		"plugins/backbone.layoutmanager"
 	],
-	function($, Backbone, Handlebars, app, Packery, StoryItemView, TellYourStoryView, FilterView) {
+	function($, Backbone, Handlebars, app, Packery, StoryItemView, TellYourStorySmallView, FilterView) {
 		var View = Backbone.LayoutView.extend({
 
 
@@ -55,11 +55,11 @@ define([
 				var self = this;
 
 				self.filterView = new FilterView({collection:this.tagsCollection, stories:this.storiesCollection});
-				self.tellYourStoryView = new TellYourStoryView({collection:this.tagsCollection});
+				self.tellYourStorySmallView = new TellYourStorySmallView({collection:this.tagsCollection});
 
 				//Insert filter and tell your story views
 				this.insertViews({
-					'': self.tellYourStoryView
+					'': self.tellYourStorySmallView
 				});
 				this.insertViews({
 					'': self.filterView
@@ -79,7 +79,7 @@ define([
 				self.pckry = new Packery( $(this.el)[0], {
 					itemSelector: '.item',
 					gutter: 0,
-					stamp:'.tell-your-story--view, .filter--view'
+					stamp:'.tell-your-story--small--view, .filter--view'
 				});
 			},
 

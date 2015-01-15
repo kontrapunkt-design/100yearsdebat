@@ -21,6 +21,7 @@ define([
 
 			initialize: function(attrs) {
 				this.storyId = attrs.storyId;
+				this.fetchedStory = attrs.fetchedStory;
 			},
 
 			afterRender: function() {
@@ -36,6 +37,15 @@ define([
 						slidesToScroll: 1,
 						centerMode: true,
 						swipeToSlide: true,
+						accessibility: true,
+						responsive: [
+							{
+								breakpoint:768,
+								settings: {
+									slidesToShow:1
+								}
+							}
+						],
 						onAfterChange: function () {
 							app.router.navigate("story/"+$(self.el).find('div.slick-center').data('id'), {trigger: false});
 						},
@@ -49,9 +59,14 @@ define([
 				var self = this;
 				var views = [];
 
-				self.collection.forEach(function(model) {
-					self.insertView(new StoryItemView({model:model})).render();
-				});
+				if ( ! self.fetchedStory ) {
+					self.collection.forEach(function(model) {
+						self.insertView(new StoryItemView({model:model})).render();
+					});
+				} else {
+					self.insertView(new StoryItemView({model:self.fetchedStory})).render();
+				}
+
 
 				setTimeout(function() {
 					callback();
@@ -65,12 +80,6 @@ define([
 			setStory: function (storyId) {
 				console.log('handle change in modal focus');
 				$(this.el).slickGoTo($(this.el).find('div[data-id="'+storyId+'"]').attr('index'));
-			},
-
-			serialize: function() {
-				return {
-					collection:this.collection.toJSON()
-				};
 			}
 		});
 

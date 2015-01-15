@@ -3,11 +3,11 @@ define([
 		"app",
 
 		//Views
-		"views/tell-your-story",
 		"views/grid",
 		"views/story",
 
 		//Models + Collections
+		"models/story",
 		"collections/tags",
 		"collections/stories",
 
@@ -17,9 +17,9 @@ define([
 
 	function(
 		app,
-		TellYourStoryView,
 		GridView,
 		StoryView,
+		StoryModel,
 		TagsCollection,
 		StoriesCollection
 		) {
@@ -73,9 +73,23 @@ define([
 			story: function(storyId) {
 				var self = this;
 
-				console.log('shiiit');
+				if ( ! self.storiesCollection.get(storyId) ) {
+					var fetchedStory = new StoryModel({'_id':storyId});
+					fetchedStory.fetch({
+						success:function() {
+							self.openStory(storyId, fetchedStory);
+						}
+					});
+				} else {
+					self.openStory(storyId, null);
+				}
+			},
+
+			openStory: function (storyId, fetchedStory) {
+				var self = this;
+
 				if ( ! this.modalOpen ) {
-					self.storyView = new StoryView({collection:self.storiesCollection, storyId:storyId});
+					self.storyView = new StoryView({collection:self.storiesCollection, storyId:storyId, fetchedStory:fetchedStory});
 
 					$('#layout').append('<div class="modal" id="modal" style="display:none"></div>');
 
