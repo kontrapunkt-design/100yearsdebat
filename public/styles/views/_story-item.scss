@@ -1,23 +1,34 @@
 .story-item--view {
 	background:white;
 	min-height:140px;
-	min-width:100px;
 	border:3px solid red;
 	&:hover {
 		background:#ccc;
 	}
 
 	.fb-comments {
-		transition-property:max-height, height;
+		transition-property:max-height, height, opacity;
 		transition-duration:0.5s;
 		max-height:0px;
 		overflow: hidden;
+		opacity:0;
 	}
 
 	//When active
 	&.slick-center {
 		.fb-comments {
 			max-height:10000px;
+			opacity:1;
 		}
+	}
+}
+
+.story--view {
+	.story-item--view {
+		width:400px;
+		min-width:280px;
+	}
+	@include respond-to(handhelds) {
+		width:auto;
 	}
 }

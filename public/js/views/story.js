@@ -38,6 +38,7 @@ define([
 						centerMode: true,
 						swipeToSlide: true,
 						accessibility: true,
+						variableWidth: true,
 						responsive: [
 							{
 								breakpoint:768,
@@ -77,9 +78,9 @@ define([
 					});
 				} else {
 					view = new StoryItemView({model:self.fetchedStory, singleStory:true});
-					self.views[model.get('_id')]=view;
+					self.views[self.fetchedStory.get('_id')]=view;
 
-					if ( model.get('_id') === self.storyId ) {
+					if ( self.fetchedStory.get('_id') === self.storyId ) {
 						self.firstSlide = view;
 					}
 

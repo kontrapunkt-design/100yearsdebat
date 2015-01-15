@@ -27,7 +27,8 @@ define([
 
 			this_clickHandler: function (e) {
 				e.preventDefault();
-				$(e.currentTarget).toggleClass('selected');
+				console.log('!');
+				app.trigger('modal:tellyourstory');
 			},
 
 			initialize: function() {

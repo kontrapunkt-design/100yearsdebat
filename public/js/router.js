@@ -3,6 +3,7 @@ define([
 		"app",
 
 		//Views
+		"views/tell-your-story",
 		"views/grid",
 		"views/story",
 
@@ -17,6 +18,7 @@ define([
 
 	function(
 		app,
+		TellYourStoryView,
 		GridView,
 		StoryView,
 		StoryModel,
@@ -61,6 +63,9 @@ define([
 				}).render(function() {
 					Backbone.history.start({ pushState: true, root: app.root });
 				});
+
+				//Trigger to open tell your story modal
+				app.on('modal:tellyourstory', this.openTellYourStory, this);
 			},
 
 			index: function() {
@@ -76,7 +81,10 @@ define([
 				if ( ! self.storiesCollection.get(storyId) ) {
 					var fetchedStory = new StoryModel({'_id':storyId});
 					fetchedStory.fetch({
-						success:function() {
+						success:function(a1,a2,a3) {
+							console.log(a1);
+							console.log(a2);
+							console.log(a3);
 							self.openStory(storyId, fetchedStory);
 						}
 					});
@@ -110,7 +118,14 @@ define([
 				$('#modal').modal().close();
 				this.modalOpen=false;
 
-				$('#layout').append('<div class="modal" id="modal" style="display:none"></div>');
+				$('#layout').append('<div class="modal tell-your-story--modal" id="modal" style="display:none"></div>');
+
+				app.layout.setView(
+					'#modal', new TellYourStoryView({collection:this.tagsCollection})
+				).render(function() {
+					$('#modal').modal().open();
+					self.modalOpen=true;
+				});
 			}
 		});
 

@@ -26,6 +26,13 @@ define([
 
 			initialize: function(attrs) {
 				this.singleStory = attrs.singleStory;
+
+				this.model.on('fetched:commentCount', this.fbComments_fetchedHandler, this);
+			},
+
+			fbComments_fetchedHandler: function () {
+				console.log('asdassadasd::: '+this.model.get('commentCount'));
+				$(this.el).find('.fb-comment-count').text(this.model.get('commentCount'));
 			},
 
 			afterRender: function() {
@@ -40,7 +47,7 @@ define([
 			},
 
 			setInactive: function () {
-				
+
 			},
 
 			serialize: function() {

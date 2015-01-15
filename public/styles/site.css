@@ -2855,17 +2855,25 @@ header, nav, section, article, aside, footer, main {
 .story-item--view {
   background: white;
   min-height: 140px;
-  min-width: 100px;
   border: 3px solid red; }
   .story-item--view:hover {
     background: #ccc; }
   .story-item--view .fb-comments {
-    transition-property: max-height, height;
-    transition-duration: 0.4s;
+    transition-property: max-height, height, opacity;
+    transition-duration: 0.5s;
     max-height: 0px;
-    overflow: hidden; }
+    overflow: hidden;
+    opacity: 0; }
   .story-item--view.slick-center .fb-comments {
-    max-height: 10000px; }
+    max-height: 10000px;
+    opacity: 1; }
+
+.story--view .story-item--view {
+  width: 400px;
+  min-width: 280px; }
+@media only screen and (max-width: 767px) {
+  .story--view {
+    width: auto; } }
 
 .filter--tags a.selected {
   background: gray; }
