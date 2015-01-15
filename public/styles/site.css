@@ -2859,6 +2859,13 @@ header, nav, section, article, aside, footer, main {
   border: 3px solid red; }
   .story-item--view:hover {
     background: #ccc; }
+  .story-item--view .fb-comments {
+    transition-property: max-height, height;
+    transition-duration: 0.4s;
+    max-height: 0px;
+    overflow: hidden; }
+  .story-item--view.slick-center .fb-comments {
+    max-height: 10000px; }
 
 .filter--tags a.selected {
   background: gray; }

@@ -24,7 +24,7 @@ define([
 				this.fetchedStory = attrs.fetchedStory;
 			},
 
-			afterRender: function() {
+			afterRender: function() {	
 				var self = this;
 
 				this.addElements(function () {
@@ -47,9 +47,12 @@ define([
 							}
 						],
 						onAfterChange: function () {
-							app.router.navigate("story/"+$(self.el).find('div.slick-center').data('id'), {trigger: false});
+							var slideId = $(self.el).find('div.slick-center').data('id');
+							app.router.navigate("story/"+slideId, {trigger: false});
+							self.views[slideId].setActive();
 						},
 						onInit: function () {
+							self.firstSlide.setActive();
 						}
 					});
 				});
@@ -57,15 +60,32 @@ define([
 
 			addElements: function (callback) {
 				var self = this;
-				var views = [];
+				var view;
+				this.views = [];
 
 				if ( ! self.fetchedStory ) {
 					self.collection.forEach(function(model) {
-						self.insertView(new StoryItemView({model:model})).render();
+
+						view = new StoryItemView({model:model, singleStory:true});
+						self.views[model.get('_id')]=view;
+						
+						if ( model.get('_id') === self.storyId ) {
+							self.firstSlide = view;
+						}
+						
+						self.insertView(view).render();
 					});
 				} else {
-					self.insertView(new StoryItemView({model:self.fetchedStory})).render();
+					view = new StoryItemView({model:self.fetchedStory, singleStory:true});
+					self.views[model.get('_id')]=view;
+
+					if ( model.get('_id') === self.storyId ) {
+						self.firstSlide = view;
+					}
+
+					self.insertView(view).render();
 				}
+
 
 
 				setTimeout(function() {

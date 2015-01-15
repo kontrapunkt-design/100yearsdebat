@@ -104,6 +104,13 @@ define([
 					//handle change in modal focus
 					self.storyView.setStory(storyId);
 				}
+			},
+
+			openTellYourStory: function (argument) {
+				$('#modal').modal().close();
+				this.modalOpen=false;
+
+				$('#layout').append('<div class="modal" id="modal" style="display:none"></div>');
 			}
 		});
 

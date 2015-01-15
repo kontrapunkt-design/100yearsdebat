@@ -6,4 +6,18 @@
 	&:hover {
 		background:#ccc;
 	}
+
+	.fb-comments {
+		transition-property:max-height, height;
+		transition-duration:0.5s;
+		max-height:0px;
+		overflow: hidden;
+	}
+
+	//When active
+	&.slick-center {
+		.fb-comments {
+			max-height:10000px;
+		}
+	}
 }

@@ -3,3 +3,9 @@
 {{/if}}
 <strong>{{model.title}}</strong>
 {{model.story}}
+
+{{#if singleStory}}
+<div class="fb-comments">
+	<fb:comments href="http://taligestilling.herokuapp.com/story/{{model._id}}" numposts="2" colorscheme="light" width="100%"></fb:comments>
+</div>
+{{/if}}
