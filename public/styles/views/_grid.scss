@@ -10,12 +10,10 @@
 	.item {
 		border:2px solid $bg-color;
 		width:16.66666667%;
-		min-height:200px;
-		background:$white;
-		padding:$spacing-small;
 		margin:0;
 		overflow: hidden;
-		&.w2 {
+		
+		&.featured {
 			width:33.3333334%;
 		}
 
@@ -28,6 +26,12 @@
 			width:33.3333334%;
 			top:0;
 			right:0;
+		}
+
+		h3 {
+			font-weight: bold;
+			font-size: 32px;
+			margin-top: 0;
 		}
 	}
 }

@@ -1,14 +1,31 @@
 {{#if model.image}}
 <img src="{{model.image.url}}" alt="" width="100%" />
 {{/if}}
-<strong>{{model.title}}</strong>
-<p>
-{{model.story}}
-</p>
-Comments (<span class="fb-comment-count">{{model.commentCount}}</span>)
+<div class="text">
+	<h3>{{model.title}}</h3>
+	<h4>{{model.subtitle}}</h4>
+	<p>
+	{{model.story}}
+	</p>
+</div>
+
+<div class="social">
+	<div class="social--item">
+		<span class="fb-likes">1</span> <span class="social--item--icon likes"></span>
+	</div>
+
+	<div class="social--item">
+		<span class="fb-comment-count">{{model.commentCount}}</span> <span class="social--item--icon comments"></span>
+	</div>
+</div>
 
 {{#if singleStory}}
 <div class="fb-comments">
 	<fb:comments href="http://taligestilling.herokuapp.com/story/{{model._id}}" mobile="auto" numposts="2" colorscheme="light" width="100%"></fb:comments>
+</div>
+{{else}}
+<div class="hover-overlay">
+	<div class="expand-icon"></div>
+	<div class="expand-text">LÆS MERE</div>
 </div>
 {{/if}}

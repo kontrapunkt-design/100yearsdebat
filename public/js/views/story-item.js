@@ -21,6 +21,9 @@ define([
 			},
 
 			this_clickHandler: function () {
+				if ( this.singleStory ) {
+					return false;
+				}
 				app.router.navigate("story/"+this.model.get('_id'), {trigger: true});
 			},
 
@@ -35,8 +38,12 @@ define([
 				$(this.el).find('.fb-comment-count').text(this.model.get('commentCount'));
 			},
 
-			afterRender: function() {
+			beforeRender: function() {
 				$(this.el).attr('data-id',this.model.get('_id'));
+
+				if ( ! this.singleStory && this.model.get('featureStory') === true ) {
+					$(this.el).addClass('featured');
+				}
 			},
 
 			setActive: function () {

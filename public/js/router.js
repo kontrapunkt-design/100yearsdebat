@@ -50,7 +50,6 @@ define([
 				$.modal({
 					cloning:false,
 					closeOnEsc:true,
-					closeOnOverlayClick: false,
 					onBeforeClose: function() {
 						app.router.navigate('/', {trigger: true});
 						return true;
@@ -118,7 +117,7 @@ define([
 				$('#modal').modal().close();
 				this.modalOpen=false;
 
-				$('#layout').append('<div class="modal tell-your-story--modal" id="modal" style="display:none"></div>');
+				$('#layout').append('<div class="modal" id="modal" style="display:none"></div>');
 
 				app.layout.setView(
 					'#modal', new TellYourStoryView({collection:this.tagsCollection})

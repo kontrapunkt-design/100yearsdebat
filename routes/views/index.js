@@ -16,7 +16,15 @@ exports = module.exports = function(req, res) {
 
 	// Load stories	
 	view.on('init', function(next) {
-		keystone.list('Story').model.find({state:'published'}).limit(10).exec(function(err, stories) {
+		keystone.list('Story').model.findOne({frontpageStory:true}).sort('submitDate').limit(1).exec(function(err, story) {
+			locals.data.frontpageStory=story;
+			next(err);
+		});
+	});
+
+	// Load stories	
+	view.on('init', function(next) {
+		keystone.list('Story').model.find({state:'published'}).sort('order submitDate').limit(10).exec(function(err, stories) {
 			locals.data.stories=stories;
 			locals.data.storiesJson=JSON.stringify(locals.data.stories);
 			next(err);

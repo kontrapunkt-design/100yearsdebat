@@ -3,14 +3,15 @@
 
 // Bootstrap can be removed entirely by deleting this line.
 
+// Variables
+//Placed in bootstrap/variables
+
 // Libs
 @import "bootstrap/bootstrap";
 @import "libs/simpletextrotator";
 @import "libs/slick";
 @import "libs/the-modal";
 
-// Variables
-@import "general/variables";
 
 // Mxins
 @import "mixins/respond-to";
@@ -21,7 +22,9 @@
 
 // Modules
 @import "views/tell-your-story";
+@import "views/tell-your-story_small";
 @import "views/grid";
 @import "views/story";
 @import "views/story-item";
 @import "views/filter";
+@import "views/frontpage-story";

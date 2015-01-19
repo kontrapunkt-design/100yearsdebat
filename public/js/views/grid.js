@@ -43,7 +43,7 @@ define([
 
 				//Insert stories
 				setTimeout(function() {
-					self.storiesCollection.forEach(function(model) {
+					self.storiesCollection.sort(this.comparator).forEach(function(model) {
 						self.insertView(new StoryItemView({model:model})).render();
 					});
 
@@ -66,7 +66,7 @@ define([
 				});
 
 				//Insert stories
-				self.storiesCollection.forEach(function(model) {
+				self.storiesCollection.sort(this.comparator).forEach(function(model) {
 					self.insertView(new StoryItemView({model:model}));
 				});
 

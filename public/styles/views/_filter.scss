@@ -1,10 +1,44 @@
 .filter--view {
+	background:white;
+	color:$red;
+	padding:$spacing-small;
+	padding-top:$spacing;
+	.btn-remove-filering {
+		color:$red;
+		text-decoration: none;
+		border:2px solid $red;
+		padding:3px $spacing-small;
+		font-weight: bold;
+		text-transform: uppercase;
+		margin-top:$spacing-small;
+		display: inline-block;
+		&:hover {
+			color:$blue;
+			border-color:$blue;
+		}
+	}
 }
 
 .filter--tags {
-	a{
+	a {
+		display: inline-block;
+		margin-right:8px;
+		font-size:20px;
+		font-weight: bold;
+		color:$red;
+		cursor: pointer;
+		&:hover, &:active, &:focus {
+			text-decoration:none;
+			color:$blue;
+		}
 		&.selected {
-			background:gray;
+			background:$red;
+			color:white;
+		}
+		span {
+			font-weight: normal;
+			vertical-align:super;
+			font-size:16px;
 		}
 	}
 }

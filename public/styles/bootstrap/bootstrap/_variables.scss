@@ -12,10 +12,26 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
 //
 //## Gray and brand colors for use across Bootstrap.
 
+$font-family: 'Euclid Flex', Helvetica, Arial, Verdana;
+
+$spacing: 30px;
+$spacing-small: $spacing*0.5;
+$spacing-big: $spacing*2;
+$border-size: 2px;
+
+$red: #cc3333;
+$red-light: #f69c97;
+$red-dark: #b72825;
+$blue: #333366;
+$gray: #b3b3b3;
+$gray-light: #cccccc;
+$gray-dark: #999999;
+$white: white;
+$black: black;
+
+$bg-color:$red;
+
 $gray-darker:            lighten(#000, 13.5%) !default; // #222
-$gray-dark:              lighten(#000, 20%) !default;   // #333
-$gray:                   lighten(#000, 33.5%) !default; // #555
-$gray-light:             lighten(#000, 46.7%) !default; // #777
 $gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 
 $brand-primary:         #428bca !default;
@@ -50,7 +66,7 @@ $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-$font-size-base:          14px !default;
+$font-size-base:          16px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 
@@ -590,7 +606,7 @@ $modal-content-border-color:                   rgba(0,0,0,.2) !default;
 $modal-content-fallback-border-color:          #999 !default;
 
 //** Modal backdrop background color
-$modal-backdrop-bg:rgba(0,0,0,0.3) !default;
+$modal-backdrop-bg:rgba($blue,0.8) !default;
 //** Modal backdrop opacity
 $modal-backdrop-opacity:      .5 !default;
 //** Modal header border color

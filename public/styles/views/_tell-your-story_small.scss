@@ -1,0 +1,47 @@
+.tell-your-story--small--view {
+	background:$blue;
+	color:$red;
+	padding:$spacing $spacing-small $spacing-big $spacing-small;
+	.placeholder {
+		display: block;
+		border:2px solid white;
+		padding:5px 10px;
+		font-size:24px;
+		color:white;
+
+		.line{
+			display: inline-block;
+			width:1px;
+			height:100%;
+			background:white;
+			margin: -4px 0;
+			height: 28px;
+			animation:tell-your-story--small--line 1s infinite;
+			-webkit-animation:tell-your-story--small--line 1s infinite;
+		}
+	}
+}
+
+@-webkit-keyframes tell-your-story--small--line {
+	0% {
+		opacity:1;
+	}
+	50% {
+		opacity:0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes tell-your-story--small--line {
+	0% {
+		opacity:1;
+	}
+	50% {
+		opacity:0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

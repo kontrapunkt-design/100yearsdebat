@@ -1,7 +1,7 @@
-<h1>Filter</h1>
+<h3>Filter</h3>
 <div class="filter--tags">
 	{{#each tags }}
-	<a data-id="{{this._id}}" data-name="{{this.name}}">#{{this.name}} ({{this.storyCount}})</a>
+	<a data-id="{{this._id}}" data-name="{{this.name}}">#{{this.name}} <span>({{this.storyCount}})</span></a>
 	{{/each}}
 </div>
-<a href="#" class="btn-remove-filering hide">Fjern filtrering</a>
+<a href="#" class="btn-remove-filering hide">Vis alle</a>

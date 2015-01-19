@@ -36,7 +36,7 @@ define([
 						slidesToShow:3,
 						slidesToScroll: 1,
 						centerMode: true,
-						swipeToSlide: true,
+						swipeToSlide: false,
 						accessibility: true,
 						variableWidth: true,
 						responsive: [

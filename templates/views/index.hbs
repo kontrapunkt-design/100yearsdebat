@@ -1,12 +1,20 @@
 {{!< default}}
 <header>
-	<h1 class="logo">Ta' lige stilling</h1>
-	<p>
-		<strong>Ta' lige stilling</strong> er din mulighed for at blive hørt
-	</p>
+	<h1 class="logo-text">Ta' <strong>lige stilling</strong></h1>
+	<div class="logo"></div>
+
+	<div class="frontpage-story">
+		<div class="frontpage-story--image" style="background-image:url({{data.frontpageStory.frontpageImage.url}})">
+			
+		</div>
+		<a href="/story/{{data.frontpageStory._id}}" class="frontpage-story--text" data-id="{{data.frontpageStory._id}}">
+			<h2>{{data.frontpageStory.title}}</h2>
+			<p>{{data.frontpageStory.story}}</p>
+		</a>
+	</div>
 </header>
 
-<main class="canvas container" id="canvas">
+<main class="canvas" id="canvas">
 </main>
 
 <script>

@@ -62,7 +62,7 @@ module.exports = function(app, keystone) {
 	});
 
 	app.get('/api/stories', function (req, res) {
-		Story.model.find({state:'published'}).limit(10).exec(function(err, stories) {
+		Story.model.find({state:'published'}).sort('order submitDate').limit(10).exec(function(err, stories) {
 			if ( ! err ) {
 				res.json(stories);
 			} else {
