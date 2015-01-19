@@ -27,9 +27,14 @@
 				opacity:1;
 			}
 		}
+
 	}
 	@include respond-to(handhelds) {
-		width:auto;
+		.story-item--view {
+			width:280px;
+			animation:none !important;
+			-webkit-animation:none !important;
+		}
 		padding-top:0;
 	}
 }

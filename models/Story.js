@@ -14,7 +14,7 @@ Story.add({
 	//Hidden
 	submitDate: {type: Types.Datetime, default: Date.now, hidden: true},
 
-	type: {type: Types.Select, options: 'story, poll', default:'story', initial:true},
+	type: {type: Types.Select, options: 'story, poll', required: true, default:'story', initial:true},
 
 	title: { type: String, required: false },
 
