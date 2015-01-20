@@ -2721,16 +2721,8 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, select
 .modal {
   height: 100%; }
 
-.main-content {
-  transition-property: filter, -webkit-filter;
-  transition-duration: 0.4s; }
-
 .themodal-lock {
-  /* when modal is opened we're removing scrollbars from the main content */
   overflow: hidden; }
-  .themodal-lock .main-content {
-    filter: blur(10px);
-    -webkit-filter: blur(10px); }
 
 .themodal-overlay {
   /* overlay will stay fixed and will take all the space available */
@@ -2958,11 +2950,11 @@ header, nav, section, article, aside, footer, main {
     min-width: 280px;
     opacity: 0.5;
     transition: opacity 0.2s; }
-    .story--view .story-item--view .social {
+    .story--view .story-item--view .story-item--view--social {
       padding: 15px;
       padding-top: 0;
       margin-bottom: 10px; }
-      .story--view .story-item--view .social .social--item {
+      .story--view .story-item--view .story-item--view--social .social--item {
         float: none;
         margin-left: 0;
         margin-right: 15px; }
@@ -3019,32 +3011,6 @@ header, nav, section, article, aside, footer, main {
     font-weight: bold;
     margin: 0;
     margin-bottom: 5px; }
-  .story-item--view .social {
-    padding: 0 10px 10px 10px;
-    height: 32px; }
-    .story-item--view .social .social--item {
-      float: right;
-      margin-left: 15px;
-      display: inline-block;
-      font-size: 12px;
-      color: #b3b3b3;
-      height: 20px;
-      line-height: 20px; }
-      .story-item--view .social .social--item span {
-        display: inline-block;
-        height: 23px;
-        line-height: 20px; }
-    .story-item--view .social .social--item--icon {
-      background-size: 100% auto;
-      background-repeat: no-repeat;
-      width: 26px;
-      vertical-align: middle; }
-      .story-item--view .social .social--item--icon.comments {
-        background-image: url(/images/comment-icon.png);
-        background-image: linear-gradient(transparent, transparent), url(/images/comment-icon.svg); }
-      .story-item--view .social .social--item--icon.likes {
-        background-image: url(/images/facebook-icon.png);
-        background-image: linear-gradient(transparent, transparent), url(/images/facebook-icon.svg); }
   .story-item--view .author {
     text-align: center;
     font-size: 14px;
@@ -3075,7 +3041,8 @@ header, nav, section, article, aside, footer, main {
     .story-item--view .embed-video.playing {
       display: none; }
   .story-item--view .embed-video--player {
-    display: none; }
+    display: none;
+    background: black; }
     .story-item--view .embed-video--player.playing {
       display: block; }
   .story-item--view .hover-overlay {
@@ -3503,6 +3470,8 @@ header, nav, section, article, aside, footer, main {
       position: relative;
       top: 0;
       max-width: 100%; } }
+  .frontpage-story--text .story-item--view--social {
+    padding: 0; }
 
 .frontpage-story--image {
   margin: auto;
@@ -3516,3 +3485,30 @@ header, nav, section, article, aside, footer, main {
   @media only screen and (max-width: 767px) {
     .frontpage-story--image {
       height: 200px; } }
+
+.story-item--view--social {
+  padding: 0 10px 10px 10px;
+  height: 32px; }
+  .story-item--view--social .social--item {
+    float: right;
+    margin-left: 15px;
+    display: inline-block;
+    font-size: 12px;
+    color: #b3b3b3;
+    height: 20px;
+    line-height: 20px; }
+    .story-item--view--social .social--item span {
+      display: inline-block;
+      height: 23px;
+      line-height: 20px; }
+  .story-item--view--social .social--item--icon {
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    width: 26px;
+    vertical-align: middle; }
+    .story-item--view--social .social--item--icon.comments {
+      background-image: url(/images/comment-icon.png);
+      background-image: linear-gradient(transparent, transparent), url(/images/comment-icon.svg); }
+    .story-item--view--social .social--item--icon.likes {
+      background-image: url(/images/facebook-icon.png);
+      background-image: linear-gradient(transparent, transparent), url(/images/facebook-icon.svg); }

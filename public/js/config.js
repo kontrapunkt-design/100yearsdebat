@@ -30,6 +30,8 @@ require.config({
 
         'jquery.fitvids': 'libs/jquery.fitvids',
 
+        'imagesloaded': 'libs/imagesloaded.pkgd',
+
         'modernizr': 'libs/modernizr.min'
     },
 

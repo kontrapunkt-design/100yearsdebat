@@ -10,6 +10,8 @@ define([
 		"views/tell-your-story_small",
 		"views/filter",
 
+		"imagesloaded",
+
 		// Plugins.
 		"plugins/backbone.layoutmanager"
 	],
@@ -81,6 +83,10 @@ define([
 					itemSelector: '.item',
 					gutter: 0,
 					stamp:'.tell-your-story--small--view, .filter--view'
+				});
+
+				$(this.el).imagesLoaded(function() {
+					self.pckry.layout();
 				});
 			},
 

@@ -34,6 +34,7 @@ define([
 
 			this_closeHandler: function (e) {
 				e.preventDefault();
+				this.setInactive();
 				app.trigger('modal:close');
 			},
 

@@ -1,0 +1,32 @@
+.story-item--view--social {
+	padding:0 ($spacing-small - 5px) ($spacing-small - 5px) ($spacing-small - 5px);
+	height:32px;
+	.social--item {
+		float:right;
+		margin-left:$spacing-small;
+		display: inline-block;
+		font-size:12px;
+		color:$gray;
+		height:20px;
+		line-height:20px;
+		span {
+			display: inline-block;
+			height:23px;
+			line-height:20px;
+		}
+	}
+	.social--item--icon {
+		background-size:100% auto;
+		background-repeat:no-repeat;
+		width:26px;
+		vertical-align: middle;
+		&.comments {
+			background-image: url(/images/comment-icon.png);
+			background-image: linear-gradient(transparent, transparent), url(/images/comment-icon.svg);
+		}
+		&.likes {
+			background-image: url(/images/facebook-icon.png);
+			background-image: linear-gradient(transparent, transparent), url(/images/facebook-icon.svg);
+		}
+	}
+}
