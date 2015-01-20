@@ -1,7 +1,8 @@
 .story--view {
 	min-height:100%;
-	padding-top:200px;
+	// padding-top:200px;
 	.story-item--view {
+		position: relative;
 		border:none;
 		width:600px;
 		min-width:280px;
@@ -19,12 +20,52 @@
 			}
 		}
 
+		.author {
+			text-align:left;
+			overflow: auto;
+		}
+		.author--profile {
+			margin: 0;
+			margin-right:10px;
+			float:left;
+		}
+		.author--name {
+			padding-top:14px;
+		}
+
+		.close-btn {
+			display: block;
+			float:right;
+			width:50px;
+			height:50px;
+			background:$red;
+			background-image: url(/images/close-icon.png);
+			background-image: linear-gradient(transparent, transparent), url(/images/close-icon.svg);
+			background-repeat:no-repeat;
+			background-position:center center;
+			opacity:0;
+			transition:opacity 0.3s;
+			z-index:1;
+			&:hover {
+				background-color:darken($red,7%);
+			}
+			&.w-media {
+				position: absolute;
+				right:0;
+				top:0;
+				float:none;
+			}
+		}
+
 		//When active
 		&.slick-center {
 			opacity: 1;
 			.fb-comments {
 				max-height:10000px;
 				opacity:1;
+			}
+			.close-btn {
+				opacity: 1;
 			}
 		}
 

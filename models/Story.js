@@ -41,10 +41,10 @@ Story.add({
 	youtube: { type: String , dependsOn: {'type':'story'}},
 	
 
-	author: { type: String, required: false , dependsOn: {'type':'story'}},
-	email: { type: String, required: false, index: true, note: 'Gets filled out when a user submits a story with his/her email.', noedit:true , dependsOn: {'type':'story'}},
-	facebookName: { type: String, required: false, index: true, note: 'Gets filled out when a user submits a story with Facebook.', noedit:true, dependsOn: {'type':'story'}},
-	facebookId: { type: String, note: 'Gets filled out when a user submits a story with Facebook.', hidden:true , dependsOn: {'type':'story'}},
+	// author: { type: String, required: false , dependsOn: {'type':'story'}},
+	email: { type: String, required: false, index: true, note: 'Gets filled out when a user submits a story with his/her email.', noedit:false , dependsOn: {'type':'story'}},
+	facebookName: { type: String, required: false, index: true, note: 'Gets filled out when a user submits a story with Facebook.', noedit:false, dependsOn: {'type':'story'}},
+	facebookId: { type: String, note: 'Gets filled out when a user submits a story with Facebook.', hidden:false , dependsOn: {'type':'story'}},
 
 
 	//Grid stuff

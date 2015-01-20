@@ -43,6 +43,52 @@
 		}
 	}
 
+	.author {
+		text-align: center;
+		font-size:14px;
+		color:$black;
+		font-weight: bold;
+		padding:$spacing-small;
+	}
+	.author--profile {
+		width:50px;
+		height:50px;
+		border-radius:25px;
+		margin:auto;
+		margin-bottom: 10px;
+	}
+
+	.embed-video {
+		position: relative;
+		cursor: pointer;
+		.play-btn {
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin:-41px 0 0 -41px;
+			width:82px;
+			height:82px;
+			background-image: url(/images/play-icon.png);
+			background-image: linear-gradient(transparent, transparent), url(/images/play-icon.svg);
+			transition: opacity 0.2s;
+		}
+		&:hover {
+			.play-btn {
+				opacity:0.6;
+			}
+		}
+		&.playing {
+			display: none;
+		}
+	}
+
+	.embed-video--player {
+		display:none;
+		&.playing {
+			display: block;
+		}
+	}
+
 	.hover-overlay {
 		visibility: hidden;
 		position: absolute;
@@ -59,10 +105,10 @@
 			position: absolute;
 			top:50%;
 			left:50%;
-			margin-top:-40px;
-			margin-left:-40px;
-			width:80px;
-			height:80px;
+			margin-top:-30px;
+			margin-left:-30px;
+			width:60px;
+			height:60px;
 			background-size:100% auto;
 			background-repeat:no-repeat;
 			background-image: url(/images/expand-icon.png);
@@ -83,7 +129,45 @@
 			text-align: center;
 			transition:opacity 0.3s;
 			transition-delay: 0.2s;
-			opacity: 0;
+			opacity: 1;
+		}
+		.expand-social {
+			position: absolute;
+			bottom:10px;
+			right:10px;
+			color:white;
+		}
+		.expand-social--item {
+			margin-left:$spacing-small;
+			display: inline-block;
+			font-size:16px;
+			font-weight: bold;
+			text-align: center;
+			margin-left:15px;
+			span {
+				margin-top:5px;
+				display: block;
+			}
+		}
+		.expand-social--item--icon {
+			background-size:100% auto;
+			background-repeat:no-repeat;
+			width:40px;
+			height:30px;
+			&.comments {
+				background-image: url(/images/comment-icon_big.png);
+				background-image: linear-gradient(transparent, transparent), url(/images/comment-icon_big.svg);
+			}
+			&.likes {
+				background-image: url(/images/facebook-icon_big.png);
+				background-image: linear-gradient(transparent, transparent), url(/images/facebook-icon_big.svg);
+			}
+		}
+	}
+
+	html.touch & {
+		.hover-overlay {
+			display: none;
 		}
 	}
 

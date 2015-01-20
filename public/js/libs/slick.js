@@ -288,9 +288,9 @@
                 _.applyTransition();
 
                 if (_.options.vertical === false) {
-                    animProps[_.animType] = 'translate3d(' + targetLeft + 'px, 0px, 0px)';
+                    animProps[_.animType] = 'translate3d(' + Math.round(targetLeft) + 'px, 0px, 0px)';
                 } else {
-                    animProps[_.animType] = 'translate3d(0px,' + targetLeft + 'px, 0px)';
+                    animProps[_.animType] = 'translate3d(0px,' + Math.round(targetLeft) + 'px, 0px)';
                 }
                 _.$slideTrack.css(animProps);
 

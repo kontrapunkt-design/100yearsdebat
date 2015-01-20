@@ -65,6 +65,7 @@ define([
 
 				//Trigger to open tell your story modal
 				app.on('modal:tellyourstory', this.openTellYourStory, this);
+				app.on('modal:close', this.closeModal, this);
 			},
 
 			index: function() {
@@ -72,6 +73,10 @@ define([
 
 				$('#modal').modal().close();
 				this.modalOpen=false;
+			},
+
+			closeModal: function() {
+				$('#modal').modal().close();
 			},
 
 			story: function(storyId) {

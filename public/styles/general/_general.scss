@@ -70,4 +70,31 @@ header, nav, section, article, aside, footer, main {
 			font-weight: bold;
 		}
 	}
+
+	@include respond-to(tablets) {
+		header {
+			.logo-text {
+				font-size:8rem;
+			}
+		}
+	}
+
+	@include respond-to(handhelds) {
+		header {
+			.logo-text {
+				font-size:3.3rem;
+				padding-left:35px;
+			}
+			.logo {
+				top: 19px;
+				width: 86px;
+				height: 86px;
+			}
+		}
+		.nav {
+			position: relative;
+			margin-top: 0;
+			padding: 0;
+		}
+	}
 }

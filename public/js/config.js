@@ -2,38 +2,42 @@
 require.config({
 
     // Initialize the application with the main application file.
-    deps: ["main"],
+    deps: ['main', 'modernizr'],
 
     paths: {
         // JavaScript folders.
-        libs: "libs",
+        libs: 'libs',
 
         // Libraries.
-        jquery: "libs/jquery",
-        lodash: "libs/lodash",
-        backbone: "libs/backbone",
-        handlebars: "libs/handlebars",
-        deepmodel: "libs/deep-model",
+        jquery: 'libs/jquery',
+        lodash: 'libs/lodash',
+        backbone: 'libs/backbone',
+        handlebars: 'libs/handlebars',
+        deepmodel: 'libs/deep-model',
 
-        validate: "libs/jquery.validate",
+        validate: 'libs/jquery.validate',
 
-        modal: "libs/jquery.the-modal",
+        modal: 'libs/jquery.the-modal',
         
-        "packery": "libs/packery.pkgd",
+        'packery': 'libs/packery.pkgd',
         
-        "slick": "libs/slick",
+        'slick': 'libs/slick',
 
-        "jquery.iframe-transport": "libs/jquery.iframe-transport",
-        "jquery.ui.widget": "libs/jquery.ui.widget",
-        "jquery.fileupload": "libs/jquery.fileupload",
-        "cloudinary": "libs/jquery.cloudinary"
+        'jquery.iframe-transport': 'libs/jquery.iframe-transport',
+        'jquery.ui.widget': 'libs/jquery.ui.widget',
+        'jquery.fileupload': 'libs/jquery.fileupload',
+        'cloudinary': 'libs/jquery.cloudinary',
+
+        'jquery.fitvids': 'libs/jquery.fitvids',
+
+        'modernizr': 'libs/modernizr.min'
     },
 
     shim: {
         // Backbone library depends on lodash and jQuery.
         backbone: {
-            deps: ["lodash", "jquery"],
-            exports: "Backbone"
+            deps: ['lodash', 'jquery'],
+            exports: 'Backbone'
         },
 
         handlebars: {
@@ -49,8 +53,11 @@ require.config({
         'jquery.fileupload': ['jquery','jquery.iframe-transport','jquery.ui.widget'],
         'cloudinary': ['jquery','jquery.fileupload'],
 
+        'jquery.fitvids': ['jquery'],
+
         // Backbone.LayoutManager depends on Backbone.
-        "plugins/backbone.layoutmanager": ["backbone"]
+        'plugins/backbone.layoutmanager': ['backbone'],
+        'plugins/backbone.touch': ['backbone']
     }
 
 });

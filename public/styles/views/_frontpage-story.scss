@@ -26,6 +26,16 @@
 		color:$red;
 		text-decoration:none;
 	}
+
+	@include respond-to(tablets) {
+		top:100px;
+	}
+
+	@include respond-to(handhelds) {
+		position: relative;
+		top:0;
+		max-width:100%;
+	}
 }
 
 .frontpage-story--image {
@@ -34,4 +44,12 @@
 	height:500px;
 	background-position:top center;
 	background-size:cover;
+
+	@include respond-to(tablets) {
+		height: 350px;
+	}
+
+	@include respond-to(handhelds) {
+		height: 200px;
+	}
 }

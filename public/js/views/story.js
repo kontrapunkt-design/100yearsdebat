@@ -50,6 +50,13 @@ define([
 						onAfterChange: function () {
 							var slideId = $(self.el).find('div.slick-center').data('id');
 							app.router.navigate("story/"+slideId, {trigger: false});
+
+							for (var view in self.views) {
+								try {
+									self.views[view].setInactive();
+								} catch(e) {};
+							}
+
 							self.views[slideId].setActive();
 						},
 						onInit: function () {

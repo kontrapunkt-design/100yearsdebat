@@ -48,6 +48,7 @@ define([
 					});
 
 					self.pckry.appended($(self.el).find('.story-item--view'));
+					self.pckry.layout();
 				},500);
 			},
 

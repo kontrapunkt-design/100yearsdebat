@@ -1,12 +1,23 @@
 .modal {
 	height:100%;
 }
+
+.main-content {
+	transition-property:filter, -webkit-filter;
+	transition-duration:0.4s;
+}
+
 .themodal-lock {
 	/* when modal is opened we're removing scrollbars from the main content */
 	overflow: hidden;
-	.container {
-		// filter: blur(2px);
-		// -webkit-filter: blur(2px);
+	// .container {
+	// 	filter: blur(2px);
+	// 	-webkit-filter: blur(2px);
+	// }
+
+	.main-content {
+		filter: blur(8px);
+		-webkit-filter: blur(8px);
 	}
 }
 

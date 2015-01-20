@@ -1,13 +1,42 @@
+{{#if singleStory}}
+<a href="#" class="close-btn {{#if model.image}}w-media{{/if}}{{#if model.youtube}}w-media{{/if}}"></a>
+{{/if}}
+
 {{#if model.image}}
 <img src="{{model.image.url}}" alt="" width="100%" />
+{{else}}
+	{{#if model.youtube}}
+		<div class="embed-video">
+			<img src="http://img.youtube.com/vi/{{model.youtube}}/mqdefault.jpg" width="100%"/>
+			<div class="play-btn"></div>
+		</div>
+		{{#if singleStory}}
+		<div class="embed-video--player">
+			Player
+		</div>
+		{{/if}}
+	{{/if}}
 {{/if}}
 <div class="text">
-	<h3>{{model.title}}</h3>
-	<h4>{{model.subtitle}}</h4>
+	{{#if model.title}}<h3>{{model.title}}</h3>{{/if}}
+	{{#if model.subtitle}}<h4>{{model.subtitle}}</h4>{{/if}}
 	<p>
-	{{model.story}}
+	{{#if model.story}}{{model.story}}{{/if}}
 	</p>
 </div>
+
+{{#if model.facebookName}}
+	<div class="author">
+		<img class="author--profile" src="http://graph.facebook.com/{{model.facebookId}}/picture" alt="{{model.facebookName}}" />
+		<div class="author--name">{{model.facebookName}}</div>
+	</div>
+{{/if}}
+
+{{#if model.email}}
+	<div class="author">
+		<div class="author--name">{{model.email}}</div>
+	</div>
+{{/if}}
 
 <div class="social">
 	<div class="social--item">
@@ -27,5 +56,15 @@
 <div class="hover-overlay">
 	<div class="expand-icon"></div>
 	<div class="expand-text">LÆS MERE</div>
+	<div class="expand-social">
+		<div class="expand-social--item">
+			<span class="expand-social--item--icon comments"></span>
+			<span class="fb-comment-count">{{model.commentCount}}</span> 
+		</div>
+		<div class="expand-social--item">
+			<span class="expand-social--item--icon likes"></span>
+			<span class="fb-likes">0</span> 
+		</div>
+	</div>
 </div>
 {{/if}}

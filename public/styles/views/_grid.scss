@@ -54,3 +54,14 @@
 		}
 	}
 }
+
+@include respond-to(handhelds) {
+	.grid--view {
+		.tell-your-story--small--view {
+			height:250px;
+		}
+		.filter--view {
+			top:250px !important;
+		}
+	}
+}
