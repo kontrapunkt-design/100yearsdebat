@@ -137,9 +137,9 @@ define([
 				$('#addPicture').unsigned_cloudinary_upload('userstory', 
 					{
 						cloud_name: 'diin',
-						callback: window.location.origin + '/cloudinary_cors.html'
+						callback: 'http://taligestilling.herokuapp.com/cloudinary_cors.html'
 					}, 
-					{ multiple: false, callback: window.location.origin + '/cloudinary_cors.html' }
+					{ multiple: false, callback: 'http://taligestilling.herokuapp.com/cloudinary_cors.html' }
 				).bind('cloudinarydone', function(e, data) {
 					self.imageUpload = data.result;
 					console.log(self.imageUpload);
