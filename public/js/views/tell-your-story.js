@@ -134,7 +134,7 @@ define([
 				var self = this;
 
 				//Enable file upload
-				$('#add-picture').unsigned_cloudinary_upload('userstory', 
+				$('#addPicture').unsigned_cloudinary_upload('userstory', 
 					{
 						cloud_name: 'diin',
 						callback: window.location.origin + '/cloudinary_cors.html'
