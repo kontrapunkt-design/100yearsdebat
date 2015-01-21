@@ -45,7 +45,7 @@ define([
 
 			addPicture_clickHandler: function (e) {
 				e.preventDefault();
-				$('#add-picture').click();
+				$('#addPicture').click();
 			},
 
 			addVideo_clickHandler: function (e) {
