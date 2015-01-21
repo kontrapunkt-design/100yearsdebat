@@ -694,6 +694,8 @@
 
     if (initializing) {
       this.bind("fileuploaddone", function(e, data) {
+        console.log('here');
+        console.log(data);
         if (data.result.error) return;
         data.result.path = ["v", data.result.version, "/", data.result.public_id,
                             data.result.format ? "." + data.result.format : ""].join("");
