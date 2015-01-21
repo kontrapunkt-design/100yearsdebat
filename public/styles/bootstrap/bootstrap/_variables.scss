@@ -12,7 +12,8 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
 //
 //## Gray and brand colors for use across Bootstrap.
 
-$font-family: 'Euclid Flex', Helvetica, Arial, Verdana;
+$font-family: 'EuclidFlex-Regular', Helvetica, Arial, Verdana;
+$font-family-bold: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
 
 $spacing: 30px;
 $spacing-small: $spacing*0.5;

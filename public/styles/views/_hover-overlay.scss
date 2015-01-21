@@ -30,7 +30,7 @@
 	}
 	.expand-text {
 		color:white;
-		font-weight: bold;
+		font-family: $font-family-bold;
 		position: absolute;
 		top:50%;
 		left:0;			
@@ -51,7 +51,7 @@
 		margin-left:$spacing-small;
 		display: inline-block;
 		font-size:16px;
-		font-weight: bold;
+		font-family: $font-family-bold;
 		text-align: center;
 		margin-left:15px;
 		span {

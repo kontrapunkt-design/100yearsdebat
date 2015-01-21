@@ -19,6 +19,11 @@ header, nav, section, article, aside, footer, main {
    display:block;
 }
 
+strong {
+	font-weight: normal;
+	font-family: $font-family-bold;
+}
+
 .container {
 	width:100%;
 	max-width:1400px;

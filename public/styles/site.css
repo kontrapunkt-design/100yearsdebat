@@ -2756,10 +2756,17 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, select
     opacity: 1; } }
 
 @font-face {
-  font-family: 'EuclidFlex-UltraLight';
-  src: url('/fonts/EuclidFlex-Ultralight-WebS.eot');
+  font-family: 'EuclidFlex-Regular';
+  src: url('/fonts/EuclidFlex-Regular-WebS.eot');
   /* IE9 Compat Modes */
-  src: url('/fonts/EuclidFlex-Ultralight-WebS.eot?#iefix') format('embedded-opentype'), url('/fonts/EuclidFlex-Ultralight-WebS.woff2') format('woff2'), url('/fonts/EuclidFlex-Ultralight-WebS.woff') format('woff'), url('/fonts/EuclidFlex-Ultralight-WebS.ttf') format('truetype'), url('/fonts/EuclidFlex-Ultralight-WebS.svg#euclidFlexUltraLight') format('svg');
+  src: url('/fonts/EuclidFlex-Regular-WebS.eot?#iefix') format('embedded-opentype'), url('/fonts/EuclidFlex-Regular-WebS.woff2') format('woff2'), url('/fonts/EuclidFlex-Regular-WebS.woff') format('woff'), url('/fonts/EuclidFlex-Regular-WebS.ttf') format('truetype'), url('/fonts/EuclidFlex-Regular-WebS.svg#euclidFlexRegular') format('svg');
+  /* Legacy iOS */ }
+
+@font-face {
+  font-family: 'EuclidFlex-Bold';
+  src: url('/fonts/EuclidFlex-Bold-WebXL.eot');
+  /* IE9 Compat Modes */
+  src: url('/fonts/EuclidFlex-Bold-WebXL.eot?#iefix') format('embedded-opentype'), url('/fonts/EuclidFlex-Bold-WebXL.woff2') format('woff2'), url('/fonts/EuclidFlex-Bold-WebXL.woff') format('woff'), url('/fonts/EuclidFlex-Bold-WebXL.ttf') format('truetype'), url('/fonts/EuclidFlex-Bold-WebXL.svg#euclidFlexBold') format('svg');
   /* Legacy iOS */ }
 
 * {
@@ -2771,13 +2778,17 @@ body {
   background: #cc3333;
   color: #333366;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Euclid Flex', Helvetica, Arial, Verdana; }
+  font-family: 'EuclidFlex-Regular', Helvetica, Arial, Verdana; }
 
 input {
   -webkit-font-smoothing: antialiased; }
 
 header, nav, section, article, aside, footer, main {
      display: block; }
+
+strong {
+  font-weight: normal;
+  font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana; }
 
 .container {
   width: 100%;
@@ -2860,7 +2871,7 @@ header, nav, section, article, aside, footer, main {
     font-size: 60px; }
   .tell-your-story--view h2 {
     font-size: 24px;
-    font-weight: bold; }
+    font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana; }
   .tell-your-story--view .close-btn {
     display: block;
     position: absolute;
@@ -2966,7 +2977,7 @@ header, nav, section, article, aside, footer, main {
   height: 80px;
   line-height: 80px;
   text-transform: uppercase;
-  font-weight: bold;
+  font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
   text-align: center;
   font-size: 24px;
   left: 0;
@@ -2988,7 +2999,7 @@ header, nav, section, article, aside, footer, main {
   display: inline-block;
   margin-right: 8px;
   font-size: 20px;
-  font-weight: bold;
+  font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
   color: #7777bb;
   cursor: pointer; }
   .tell-your-story--tags a:hover, .tell-your-story--tags a:active, .tell-your-story--tags a:focus {
@@ -2997,7 +3008,7 @@ header, nav, section, article, aside, footer, main {
   .tell-your-story--tags a.selected {
     color: white; }
   .tell-your-story--tags a span {
-    font-weight: normal;
+    font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
     vertical-align: super;
     font-size: 16px; }
 
@@ -3078,7 +3089,7 @@ header, nav, section, article, aside, footer, main {
       top: 0;
       right: 0; }
     .grid--view .item h3 {
-      font-weight: bold;
+      font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
       font-size: 32px;
       margin-top: 0; }
 
@@ -3173,14 +3184,14 @@ header, nav, section, article, aside, footer, main {
   cursor: pointer; }
   .story-item--view h3 {
     font-size: 24px;
-    font-weight: bold;
+    font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
     margin: 0;
     margin-bottom: 5px; }
   .story-item--view .author {
     text-align: center;
     font-size: 14px;
     color: black;
-    font-weight: bold;
+    font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
     padding: 15px; }
   .story-item--view .author--profile {
     width: 50px;
@@ -3529,7 +3540,7 @@ header, nav, section, article, aside, footer, main {
     opacity: 0; }
   .hover-overlay .expand-text {
     color: white;
-    font-weight: bold;
+    font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
     position: absolute;
     top: 50%;
     left: 0;
@@ -3548,7 +3559,7 @@ header, nav, section, article, aside, footer, main {
     margin-left: 15px;
     display: inline-block;
     font-size: 16px;
-    font-weight: bold;
+    font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
     text-align: center;
     margin-left: 15px; }
     .hover-overlay .expand-social--item span {
@@ -3589,7 +3600,7 @@ html.touch .hover-overlay {
     text-decoration: none;
     border: 2px solid #cc3333;
     padding: 3px 15px;
-    font-weight: bold;
+    font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
     text-transform: uppercase;
     margin-top: 15px;
     display: inline-block; }
@@ -3601,7 +3612,7 @@ html.touch .hover-overlay {
   display: inline-block;
   margin-right: 8px;
   font-size: 20px;
-  font-weight: bold;
+  font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
   color: #cc3333;
   cursor: pointer; }
   .filter--tags a:hover, .filter--tags a:active, .filter--tags a:focus {
@@ -3634,7 +3645,7 @@ html.touch .hover-overlay {
   text-decoration: none !important; }
   .frontpage-story--text h2 {
     font-size: 24px;
-    font-weight: bold;
+    font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
     margin: 0;
     margin-bottom: 5px; }
   .frontpage-story--text:hover, .frontpage-story--text:active, .frontpage-story--text:focus {
