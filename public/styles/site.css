@@ -2909,7 +2909,11 @@ strong {
     .tell-your-story--story-box textarea:focus {
       color: #333366; }
   .tell-your-story--story-box .story-image {
-    display: none; }
+    display: none;
+    max-height: 400px;
+    overflow: hidden; }
+    .tell-your-story--story-box .story-image img {
+      width: 100%; }
     .tell-your-story--story-box .story-image .remove-btn {
       display: block;
       position: absolute;
