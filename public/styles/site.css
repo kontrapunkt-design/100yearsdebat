@@ -2928,9 +2928,6 @@ strong {
         background-color: #ededed; }
     .tell-your-story--story-box .story-image.has-image {
       display: block; }
-  .tell-your-story--story-box #add-picture {
-    visibility: hidden;
-    height: 1px; }
   .tell-your-story--story-box .add-picture {
     display: block;
     position: absolute;

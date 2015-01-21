@@ -69,6 +69,11 @@
 	}
 	.story-image {
 		display: none;
+		max-height:400px;
+		overflow: hidden;
+		img {
+			width:100%;
+		}
 		.remove-btn {
 			display: block;
 			position: absolute;
