@@ -59,6 +59,12 @@
 	.grid--view {
 		.tell-your-story--small--view {
 			height:250px;
+			h3 {
+				font-size:28px;
+			}
+			.placeholder {
+				font-size: 20px;
+			}
 		}
 		.filter--view {
 			top:250px !important;

@@ -3,11 +3,11 @@
 	<h1 class="logo-text">Ta' <strong>lige stilling</strong></h1>
 	<div class="logo"></div>
 
-	<div class="frontpage-story">
+	<div class="frontpage-story" data-id="{{data.frontpageStory._id}}">
 		<div class="frontpage-story--image" style="background-image:url({{data.frontpageStory.frontpageImage.url}})">
 			
 		</div>
-		<a href="/story/{{data.frontpageStory._id}}" class="frontpage-story--text" data-id="{{data.frontpageStory._id}}">
+		<a href="/story/{{data.frontpageStory._id}}" class="frontpage-story--text">
 			<h2>{{data.frontpageStory.title}}</h2>
 			<p>{{data.frontpageStory.story}}</p>
 			
@@ -18,6 +18,20 @@
 
 				<div class="social--item">
 					<span class="fb-comment-count">0</span> <span class="social--item--icon comments"></span>
+				</div>
+			</div>
+			<div class="hover-overlay">
+				<div class="expand-icon"></div>
+				<div class="expand-text">LÆS MERE</div>
+				<div class="expand-social">
+					<div class="expand-social--item">
+						<span class="expand-social--item--icon comments"></span>
+						<span class="fb-comment-count">{{model.commentCount}}</span> 
+					</div>
+					<div class="expand-social--item">
+						<span class="expand-social--item--icon likes"></span>
+						<span class="fb-likes">{{model.shareCount}}</span> 
+					</div>
 				</div>
 			</div>
 		</a>

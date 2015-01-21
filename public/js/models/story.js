@@ -16,14 +16,16 @@ function(Backbone,app) {
 
 		getShareCount: function () {
 			var self = this;
-			$.get('https://graph.facebook.com/v2.1/?fields=share{comment_count}&id=http://taligestilling.herokuapp.com/story/'+this.get('_id'), function(data) {
-				self.set('commentCount',data.share.comment_count);
-				self.trigger('fetched:commentCount');
+			$.get('http://graph.facebook.com/?id=http://taligestilling.herokuapp.com/story/'+this.get('_id'), function(data) {
+				self.set('commentCount',data.comments || 0);
+				self.set('shareCount',data.shares > 0 ? Number(Number(data.shares)-Number(data.comments)) : 0);
+				self.trigger('fetched:socialCount');
 			});
 		},
 
 		defaults: {
-			fbCount: null
+			commentCount: 0,
+			shareCount: 0
 		},
 
 		idAttribute: "_id"

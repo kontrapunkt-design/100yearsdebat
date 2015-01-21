@@ -2843,16 +2843,177 @@ header, nav, section, article, aside, footer, main {
 
 .tell-your-story--view {
   position: relative;
-  margin: 20px auto;
-  max-width: 630px;
-  background-color: #fff;
+  margin: auto;
+  max-width: 940px;
+  background-color: #333366;
   height: auto;
-  overflow: auto; }
+  overflow: auto;
+  color: white;
+  text-align: center;
+  padding-bottom: 140px;
+  animation: tell-your-story--animate-in 0.5s;
+  animation-fill-mode: both;
+  -webkit-animation: tell-your-story--animate-in 0.5s;
+  -webkit-animation-fill-mode: both; }
+  .tell-your-story--view h1 {
+    color: #cc3333;
+    font-size: 60px; }
+  .tell-your-story--view h2 {
+    font-size: 24px;
+    font-weight: bold; }
+  .tell-your-story--view .close-btn {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background: #cc3333;
+    background-image: url(/images/close-icon.png);
+    background-image: linear-gradient(transparent, transparent), url(/images/close-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 1; }
+    .tell-your-story--view .close-btn:hover {
+      background-color: #af2c2c; }
+
+.tell-your-story--story-box {
+  position: relative;
+  background: white;
+  padding-bottom: 10px; }
+  .tell-your-story--story-box .text-wrapper {
+    position: relative; }
+  .tell-your-story--story-box .textarea-wrapper {
+    width: 100%;
+    height: 200px;
+    padding: 15px 58px 17px 15px; }
+  .tell-your-story--story-box textarea {
+    border: 0;
+    color: #9999cc;
+    font-size: 24px;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    outline: none; }
+    .tell-your-story--story-box textarea:focus {
+      color: #333366; }
+  .tell-your-story--story-box .story-image {
+    display: none; }
+    .tell-your-story--story-box .story-image .remove-btn {
+      display: block;
+      position: absolute;
+      left: auto;
+      right: 0;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      background: white;
+      background-image: url(/images/close-icon_blue.png);
+      background-image: linear-gradient(transparent, transparent), url(/images/close-icon_blue.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      z-index: 1; }
+      .tell-your-story--story-box .story-image .remove-btn:hover {
+        background-color: #ededed; }
+    .tell-your-story--story-box .story-image.has-image {
+      display: block; }
+  .tell-your-story--story-box #add-picture {
+    visibility: hidden;
+    height: 1px; }
+  .tell-your-story--story-box .add-picture {
+    display: block;
+    position: absolute;
+    left: auto;
+    width: 44px;
+    height: 29px;
+    right: 15px;
+    top: 15px;
+    background-image: url(/images/picture-icon.png);
+    background-image: linear-gradient(transparent, transparent), url(/images/picture-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-decoration: none; }
+    .tell-your-story--story-box .add-picture.uploading {
+      background: none; }
+    .tell-your-story--story-box .add-picture:hover {
+      opacity: 0.8; }
+  .tell-your-story--story-box .add-video {
+    position: absolute;
+    width: 44px;
+    height: 35px;
+    display: block;
+    right: 15px;
+    top: 65px;
+    background-image: url(/images/video-icon.png);
+    background-image: linear-gradient(transparent, transparent), url(/images/video-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center; }
+    .tell-your-story--story-box .add-video:hover {
+      opacity: 0.8; }
+  .tell-your-story--story-box .fb-connect {
+    display: block;
+    background: #3b5998;
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    font-size: 18px;
+    margin: 0 15px 10px 15px;
+    margin-bottom: 10px; }
+
+.tell-your-story--submit {
+  display: block;
+  position: absolute;
+  height: 80px;
+  line-height: 80px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  font-size: 24px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  color: #333366 !important;
+  opacity: 0.5;
+  text-decoration: none !important;
+  cursor: default; }
+  .tell-your-story--submit.clickable {
+    cursor: pointer;
+    opacity: 1; }
+    .tell-your-story--submit.clickable:hover {
+      color: white !important;
+      background: #cc3333; }
 
 .tell-your-story--tags a {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #7777bb;
   cursor: pointer; }
+  .tell-your-story--tags a:hover, .tell-your-story--tags a:active, .tell-your-story--tags a:focus {
+    text-decoration: none;
+    color: #5555aa; }
   .tell-your-story--tags a.selected {
-    background: gray; }
+    color: white; }
+  .tell-your-story--tags a span {
+    font-weight: normal;
+    vertical-align: super;
+    font-size: 16px; }
+
+@-webkit-keyframes tell-your-story--animate-in {
+  0% {
+    transform: translateY(-500px); }
+
+  100% {
+    transform: translateY(0px); } }
+
+@keyframes tell-your-story--animate-in {
+  0% {
+    transform: translateY(-500px); }
+
+  100% {
+    transform: translateY(0px); } }
 
 .tell-your-story--small--view {
   background: #333366;
@@ -2937,6 +3098,10 @@ header, nav, section, article, aside, footer, main {
 @media only screen and (max-width: 767px) {
   .grid--view .tell-your-story--small--view {
     height: 250px; }
+    .grid--view .tell-your-story--small--view h3 {
+      font-size: 28px; }
+    .grid--view .tell-your-story--small--view .placeholder {
+      font-size: 20px; }
   .grid--view .filter--view {
     top: 250px !important; }
  }
@@ -3045,74 +3210,6 @@ header, nav, section, article, aside, footer, main {
     background: black; }
     .story-item--view .embed-video--player.playing {
       display: block; }
-  .story-item--view .hover-overlay {
-    visibility: hidden;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: #333366;
-    z-index: 12;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none; }
-    .story-item--view .hover-overlay .expand-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -30px;
-      margin-left: -30px;
-      width: 60px;
-      height: 60px;
-      background-size: 100% auto;
-      background-repeat: no-repeat;
-      background-image: url(/images/expand-icon.png);
-      background-image: linear-gradient(transparent, transparent), url(/images/expand-icon.svg);
-      transition-property: opacity, margin, width, height;
-      transition-duration: 0.3s;
-      transition-delay: 0.1s;
-      opacity: 0; }
-    .story-item--view .hover-overlay .expand-text {
-      color: white;
-      font-weight: bold;
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      margin-top: -8px;
-      text-align: center;
-      transition: opacity 0.3s;
-      transition-delay: 0.2s;
-      opacity: 1; }
-    .story-item--view .hover-overlay .expand-social {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      color: white; }
-    .story-item--view .hover-overlay .expand-social--item {
-      margin-left: 15px;
-      display: inline-block;
-      font-size: 16px;
-      font-weight: bold;
-      text-align: center;
-      margin-left: 15px; }
-      .story-item--view .hover-overlay .expand-social--item span {
-        margin-top: 5px;
-        display: block; }
-    .story-item--view .hover-overlay .expand-social--item--icon {
-      background-size: 100% auto;
-      background-repeat: no-repeat;
-      width: 40px;
-      height: 30px; }
-      .story-item--view .hover-overlay .expand-social--item--icon.comments {
-        background-image: url(/images/comment-icon_big.png);
-        background-image: linear-gradient(transparent, transparent), url(/images/comment-icon_big.svg); }
-      .story-item--view .hover-overlay .expand-social--item--icon.likes {
-        background-image: url(/images/facebook-icon_big.png);
-        background-image: linear-gradient(transparent, transparent), url(/images/facebook-icon_big.svg); }
-  html.touch .story-item--view .hover-overlay {
-    display: none; }
   .story-item--view:hover .hover-overlay {
     visibility: visible;
     opacity: 0.95; }
@@ -3401,6 +3498,87 @@ header, nav, section, article, aside, footer, main {
   100% {
     transform: translateY(0px); } }
 
+.hover-overlay {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #333366;
+  z-index: 12;
+  opacity: 0;
+  transition: opacity 0.4s;
+  transition-delay: 0s;
+  pointer-events: none; }
+  .hover-overlay .expand-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -30px;
+    margin-left: -30px;
+    width: 60px;
+    height: 60px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-image: url(/images/expand-icon.png);
+    background-image: linear-gradient(transparent, transparent), url(/images/expand-icon.svg);
+    transition-property: opacity, margin, width, height;
+    transition-duration: 0.3s;
+    transition-delay: 0.1s;
+    opacity: 0; }
+  .hover-overlay .expand-text {
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-top: -8px;
+    text-align: center;
+    transition: opacity 0.3s;
+    transition-delay: 0.2s;
+    opacity: 1; }
+  .hover-overlay .expand-social {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white; }
+  .hover-overlay .expand-social--item {
+    margin-left: 15px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 15px; }
+    .hover-overlay .expand-social--item span {
+      margin-top: 5px;
+      display: block; }
+  .hover-overlay .expand-social--item--icon {
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 30px; }
+    .hover-overlay .expand-social--item--icon.comments {
+      background-image: url(/images/comment-icon_big.png);
+      background-image: linear-gradient(transparent, transparent), url(/images/comment-icon_big.svg); }
+    .hover-overlay .expand-social--item--icon.likes {
+      background-image: url(/images/facebook-icon_big.png);
+      background-image: linear-gradient(transparent, transparent), url(/images/facebook-icon_big.svg); }
+
+body.themodal-lock .hover-overlay {
+  opacity: 0 !important;
+  transition-delay: 0.2s; }
+  body.themodal-lock .hover-overlay .expand-icon {
+    margin-top: -100px !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    height: 200px !important;
+    opacity: 0 !important; }
+
+html.touch .hover-overlay {
+  display: none !important; }
+
 .filter--view {
   background: white;
   color: #cc3333;
@@ -3452,16 +3630,15 @@ header, nav, section, article, aside, footer, main {
   background: white;
   z-index: 11;
   padding: 15px;
-  cursor: pointer; }
+  cursor: pointer;
+  text-decoration: none !important; }
   .frontpage-story--text h2 {
     font-size: 24px;
     font-weight: bold;
     margin: 0;
     margin-bottom: 5px; }
-  .frontpage-story--text:hover {
-    background: #333366;
-    color: #cc3333;
-    text-decoration: none; }
+  .frontpage-story--text:hover, .frontpage-story--text:active, .frontpage-story--text:focus {
+    color: #333366; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .frontpage-story--text {
       top: 100px; } }
@@ -3472,6 +3649,17 @@ header, nav, section, article, aside, footer, main {
       max-width: 100%; } }
   .frontpage-story--text .story-item--view--social {
     padding: 0; }
+  .frontpage-story--text:hover .hover-overlay {
+    visibility: visible;
+    opacity: 0.95; }
+    .frontpage-story--text:hover .hover-overlay .expand-icon {
+      opacity: 1;
+      margin-top: -52px;
+      margin-left: -52px;
+      width: 104px;
+      height: 104px; }
+    .frontpage-story--text:hover .hover-overlay .expand-text {
+      opacity: 1; }
 
 .frontpage-story--image {
   margin: auto;

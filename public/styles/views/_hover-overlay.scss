@@ -1,0 +1,96 @@
+.hover-overlay {
+	visibility: hidden;
+	position: absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	background:$blue;
+	z-index:12;
+	opacity:0;
+	transition:opacity 0.4s;
+	transition-delay: 0s;
+	pointer-events:none;
+	.expand-icon {
+		position: absolute;
+		top:50%;
+		left:50%;
+		margin-top:-30px;
+		margin-left:-30px;
+		width:60px;
+		height:60px;
+		background-size:100% auto;
+		background-repeat:no-repeat;
+		background-image: url(/images/expand-icon.png);
+		background-image: linear-gradient(transparent, transparent), url(/images/expand-icon.svg);
+		transition-property: opacity, margin, width, height;
+		transition-duration: 0.3s;
+		transition-delay: 0.1s;
+		opacity: 0;
+	}
+	.expand-text {
+		color:white;
+		font-weight: bold;
+		position: absolute;
+		top:50%;
+		left:0;			
+		right:0;
+		margin-top:-8px;
+		text-align: center;
+		transition:opacity 0.3s;
+		transition-delay: 0.2s;
+		opacity: 1;
+	}
+	.expand-social {
+		position: absolute;
+		bottom:10px;
+		right:10px;
+		color:white;
+	}
+	.expand-social--item {
+		margin-left:$spacing-small;
+		display: inline-block;
+		font-size:16px;
+		font-weight: bold;
+		text-align: center;
+		margin-left:15px;
+		span {
+			margin-top:5px;
+			display: block;
+		}
+	}
+	.expand-social--item--icon {
+		background-size:100% auto;
+		background-repeat:no-repeat;
+		width:40px;
+		height:30px;
+		&.comments {
+			background-image: url(/images/comment-icon_big.png);
+			background-image: linear-gradient(transparent, transparent), url(/images/comment-icon_big.svg);
+		}
+		&.likes {
+			background-image: url(/images/facebook-icon_big.png);
+			background-image: linear-gradient(transparent, transparent), url(/images/facebook-icon_big.svg);
+		}
+	}
+}
+
+body.themodal-lock {
+	.hover-overlay {
+		opacity: 0 !important;
+		transition-delay: 0.2s;
+		.expand-icon{
+			margin-top:-100px !important;
+			margin-left:-100px !important;
+			width:200px !important;
+			height:200px !important;
+			opacity: 0 !important;
+		}
+	}
+}
+
+html.touch {
+	.hover-overlay {
+		display: none !important;
+	}
+}

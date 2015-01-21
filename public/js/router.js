@@ -29,6 +29,8 @@ define([
 		var Router = Backbone.Router.extend({
 			modalOpen: false,
 
+			frontpageStoryLoaded: false,
+
 			routes: {
 				"": "index",
 				"story/:storyId": "story"
@@ -49,7 +51,7 @@ define([
 				//Story view
 				$.modal({
 					cloning:false,
-					closeOnEsc:true,
+					closeOnEsc:false,
 					onBeforeClose: function() {
 						app.router.navigate('/', {trigger: true});
 						return true;
@@ -68,11 +70,36 @@ define([
 				app.on('modal:close', this.closeModal, this);
 			},
 
+			loadFrontpageStory: function (argument) {
+				var self = this;
+				if ( ! this.frontpageStoryLoaded ) {
+					this.frontpageStoryLoaded=true;
+
+					var frontpageStoryId = $('.frontpage-story').data('id');
+
+					//Make sure story opens correctly
+					$('.frontpage-story a').on('click touchend', function (e) {
+						e.preventDefault();
+						app.router.navigate('story/'+frontpageStoryId, {trigger: true});
+					});
+
+					//Get share/comments count
+					var frontpageStoryModel = new StoryModel({'_id':frontpageStoryId});
+					frontpageStoryModel.on('fetched:socialCount', function() {
+						$('.frontpage-story').find('.fb-comment-count').text(frontpageStoryModel.get('commentCount'));
+						$('.frontpage-story').find('.fb-likes').text(frontpageStoryModel.get('shareCount'));
+					}, this);
+					frontpageStoryModel.getShareCount();
+				}
+			},
+
 			index: function() {
 				console.log('index');
 
 				$('#modal').modal().close();
 				this.modalOpen=false;
+			
+				this.loadFrontpageStory();
 			},
 
 			closeModal: function() {

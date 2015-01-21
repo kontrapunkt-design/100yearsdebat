@@ -15,16 +15,16 @@
 	z-index:11;
 	padding:$spacing-small;
 	cursor: pointer;
+	text-decoration:none !important;
 	h2 {
 		font-size:24px;
 		font-weight: bold;
 		margin:0;
 		margin-bottom: 5px;
 	}
-	&:hover {
-		background:$blue;
-		color:$red;
-		text-decoration:none;
+
+	&:hover, &:active, &:focus {
+		color:$blue;
 	}
 
 	@include respond-to(tablets) {
@@ -38,6 +38,23 @@
 	}
 	.story-item--view--social {
 		padding:0;
+	}
+
+	&:hover {
+		.hover-overlay {
+			visibility: visible;
+			opacity:0.95;
+			.expand-icon {
+				opacity: 1;
+				margin-top:-52px;
+				margin-left:-52px;
+				width:104px;
+				height:104px;
+			}
+			.expand-text {
+				opacity: 1;
+			}
+		}
 	}
 }
 

@@ -1,17 +1,211 @@
 .tell-your-story--view {
 	position: relative;
-	margin: 20px auto;
-	max-width:630px;
-	background-color:#fff;
+	margin: auto;
+	max-width:940px;
+	background-color:$blue;
 	height:auto;
 	overflow: auto;
+	color:white;
+	text-align:center;
+
+	padding-bottom:80px + $spacing-big;
+
+	animation: tell-your-story--animate-in 0.5s;
+	animation-fill-mode: both;
+	-webkit-animation: tell-your-story--animate-in 0.5s;
+	-webkit-animation-fill-mode: both;
+
+	h1 {
+		color:$red;
+		font-size:60px;
+	}
+	h2 {
+		font-size: 24px;
+		font-weight: bold;
+	}
+
+	.close-btn {
+		display: block;
+		position: absolute;
+		left:0;
+		top:0;
+		width:50px;
+		height:50px;
+		background:$red;
+		background-image: url(/images/close-icon.png);
+		background-image: linear-gradient(transparent, transparent), url(/images/close-icon.svg);
+		background-repeat:no-repeat;
+		background-position:center center;
+		z-index:1;
+		&:hover {
+			background-color:darken($red,7%);
+		}
+	}
+}
+
+.tell-your-story--story-box {
+	position: relative;
+	background: white;
+	padding-bottom:$spacing-small - 5px;
+	.text-wrapper {
+		position: relative;
+	}
+	.textarea-wrapper {
+		width:100%;
+		height:200px;
+		padding:$spacing-small 58px ($spacing-small + 2px) $spacing-small;
+	}
+	textarea {
+		border:0;
+		color:lighten($blue,40%);
+		font-size: 24px;
+		width:100%;
+		height:100%;
+		resize: none;
+		outline: none;
+		&:focus {
+			color:$blue;
+		}
+	}
+	.story-image {
+		display: none;
+		.remove-btn {
+			display: block;
+			position: absolute;
+			left:auto;
+			right:0;
+			top:0;
+			width:50px;
+			height:50px;
+			background:$white;
+			background-image: url(/images/close-icon_blue.png);
+			background-image: linear-gradient(transparent, transparent), url(/images/close-icon_blue.svg);
+			background-repeat:no-repeat;
+			background-position:center center;
+			z-index:1;
+			&:hover {
+				background-color:darken($white,7%);
+			}
+		}
+		&.has-image {
+			display: block;
+		}
+	}
+	#add-picture {
+		visibility: hidden;
+		height:1px;
+	}
+	.add-picture {
+		display: block;
+		position: absolute;
+		left:auto;
+		width:44px;
+		height:29px;
+		right:$spacing-small;
+		top:$spacing-small;
+		background-image: url(/images/picture-icon.png);
+		background-image: linear-gradient(transparent, transparent), url(/images/picture-icon.svg);
+		background-repeat:no-repeat;
+		background-position:center center;
+		text-decoration: none;
+		&.uploading {
+			background:none;
+		}
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+	.add-video {
+		position: absolute;
+		width:44px;
+		height:35px;
+		display: block;
+		right:$spacing-small;
+		top:$spacing-small+50px;
+		background-image: url(/images/video-icon.png);
+		background-image: linear-gradient(transparent, transparent), url(/images/video-icon.svg);
+		background-repeat:no-repeat;
+		background-position:center center;
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+	.fb-connect {
+		display: block;
+		background: $blue-special;
+		text-align: center;
+		color:white;
+		padding:10px 0;
+		font-size:18px;
+		margin:0 $spacing-small ($spacing-small - 5px) $spacing-small;
+		margin-bottom: $spacing-small - 5px;
+	}
+}
+
+.tell-your-story--submit {
+	display:block;
+	position: absolute;
+	height:80px;
+	line-height:80px;
+	text-transform:uppercase;
+	font-weight:bold;
+	text-align:center;
+	font-size:24px;
+	left:0;
+	right:0;
+	bottom:0;
+	background:white;
+	color:$blue !important;
+	opacity:0.5;
+	text-decoration:none !important;
+	cursor: default;
+	&.clickable {
+		cursor: pointer;
+		opacity: 1;
+		&:hover {
+			color:white !important;
+			background:$red;
+		}
+	}
 }
 
 .tell-your-story--tags{
 	a {
-		cursor:pointer;
-		&.selected {
-			background:gray;
+		display: inline-block;
+		margin-right:8px;
+		font-size:20px;
+		font-weight: bold;
+		color:lighten($blue,30%);
+		cursor: pointer;
+		&:hover, &:active, &:focus {
+			text-decoration:none;
+			color:lighten($blue,20%);
 		}
+		&.selected {
+			color:white;
+		}
+		span {
+			font-weight: normal;
+			vertical-align:super;
+			font-size:16px;
+		}
+	}
+}
+
+@-webkit-keyframes tell-your-story--animate-in {
+	0% {
+		transform:translateY(-500px);
+	}
+	100% {
+		transform:translateY(0px);
+	}
+}
+
+@keyframes tell-your-story--animate-in {
+	0% {
+		transform:translateY(-500px);
+	}
+	100% {
+		transform:translateY(0px);
 	}
 }

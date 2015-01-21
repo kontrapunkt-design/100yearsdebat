@@ -56,11 +56,12 @@ define([
 			initialize: function(attrs) {
 				this.singleStory = attrs.singleStory;
 
-				this.model.on('fetched:commentCount', this.fbComments_fetchedHandler, this);
+				this.model.on('fetched:socialCount', this.socialCount_fetchedHandler, this);
 			},
 
-			fbComments_fetchedHandler: function () {
+			socialCount_fetchedHandler: function () {
 				$(this.el).find('.fb-comment-count').text(this.model.get('commentCount'));
+				$(this.el).find('.fb-likes').text(this.model.get('shareCount'));
 			},
 
 			beforeRender: function() {

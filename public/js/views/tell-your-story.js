@@ -24,7 +24,32 @@ define([
 			events: {
 				'submit .tell-your-story_form':'form_submitHandler',
 				'submit .tell-your-story_form--tags': 'customTags_submit',
-				'click .tell-your-story--tags a': 'tag_clickHandler'
+				'click .close-btn':'this_closeHandler',
+				'click .tell-your-story--tags a': 'tag_clickHandler',
+				'click a.add-picture': 'addPicture_clickHandler',
+				'click a.add-video': 'addVideo_clickHandler',
+				'click .story-image .remove-btn': 'storyImageRemoveBtn_clickHandler'
+			},
+
+			storyImageRemoveBtn_clickHandler: function (e) {
+				console.log('yoo');
+				e.preventDefault();
+				this.imageUpload=null;
+				$(this.el).find('.story-image').removeClass('has-image').find('img').remove();
+			},
+
+			this_closeHandler: function (e) {
+				e.preventDefault();
+				app.trigger('modal:close');
+			},
+
+			addPicture_clickHandler: function (e) {
+				e.preventDefault();
+				$('#add-picture').click();
+			},
+
+			addVideo_clickHandler: function (e) {
+				e.preventDefault();
 			},
 
 			form_submitHandler: function (e) {
@@ -109,7 +134,7 @@ define([
 				var self = this;
 
 				//Enable file upload
-				$('.add-picture').unsigned_cloudinary_upload('userstory', 
+				$('#add-picture').unsigned_cloudinary_upload('userstory', 
 					{
 						cloud_name: 'diin',
 						callback: window.location.origin + '/cloudinary_cors.html'
@@ -118,8 +143,12 @@ define([
 				).bind('cloudinarydone', function(e, data) {
 					self.imageUpload = data.result;
 					console.log(self.imageUpload);
+					$(self.el).find('.add-picture').text('');
+					$(self.el).find('.add-picture').removeClass('uploading');
+					
+					$(self.el).find('.story-image').addClass('has-image').append('<img src="'+data.result.url+'" width="100%"/>');
 				}).bind('cloudinaryprogress', function(e, data) {
-					console.log(Math.round((data.loaded * 100.0) / data.total) + '%'); 
+					$(self.el).find('.add-picture').addClass('uploading').text(Math.round((data.loaded * 100.0) / data.total) + '%');
 				});
 
 				// Set validation
