@@ -2953,7 +2953,8 @@ strong {
       opacity: 0;
       filter: alpha(opacity=0);
       font-size: 300px;
-      height: 200px; }
+      width: 44px;
+      height: 29px; }
     .tell-your-story--story-box .add-picture.uploading {
       background: none; }
     .tell-your-story--story-box .add-picture:hover {
