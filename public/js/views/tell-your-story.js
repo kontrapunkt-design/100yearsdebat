@@ -139,14 +139,14 @@ define([
 					console.log('hello hello');
 					self.imageUpload = data.result;
 					console.log(self.imageUpload);
-					$(self.el).find('.add-picture').text('');
+					$(self.el).find('.add-picture .status').text('');
 					$(self.el).find('.add-picture').removeClass('uploading');
 					
 					$(self.el).find('.story-image img').remove();
 					$(self.el).find('.story-image').addClass('has-image').append($.cloudinary.image(data.result.public_id, { width: 453 }));
 				}).bind('cloudinaryprogress', function(e, data) {
 					console.log('22222');
-					$(self.el).find('.add-picture').addClass('uploading').text(Math.round((data.loaded * 100.0) / data.total) + '%');
+					$(self.el).find('.add-picture').addClass('uploading').find('.status').text(Math.round((data.loaded * 100.0) / data.total) + '%');
 				});
 
 				// Set validation
