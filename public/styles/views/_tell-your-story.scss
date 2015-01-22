@@ -96,10 +96,6 @@
 			display: block;
 		}
 	}
-	#addPicture {
-		// visibility: hidden;
-		// height:1px;
-	}
 	.add-picture {
 		display: block;
 		position: absolute;
@@ -113,6 +109,16 @@
 		background-repeat:no-repeat;
 		background-position:center center;
 		text-decoration: none;
+		input {
+			position: absolute;
+			top: 0;
+			right: 0;
+			cursor: pointer;
+			opacity: 0.0;
+			filter: alpha(opacity=0);
+			font-size: 300px;
+			height: 200px;
+		}
 		&.uploading {
 			background:none;
 		}

@@ -2945,6 +2945,15 @@ strong {
     background-repeat: no-repeat;
     background-position: center center;
     text-decoration: none; }
+    .tell-your-story--story-box .add-picture input {
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0);
+      font-size: 300px;
+      height: 200px; }
     .tell-your-story--story-box .add-picture.uploading {
       background: none; }
     .tell-your-story--story-box .add-picture:hover {

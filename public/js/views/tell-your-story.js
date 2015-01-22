@@ -26,14 +26,8 @@ define([
 				'submit .tell-your-story_form--tags': 'customTags_submit',
 				'click .close-btn':'this_closeHandler',
 				'click .tell-your-story--tags a': 'tag_clickHandler',
-				'click a.add-picture': 'addPicture_clickHandler',
 				'click a.add-video': 'addVideo_clickHandler',
 				'click .story-image .remove-btn': 'storyImageRemoveBtn_clickHandler'
-			},
-
-			addPictureInput_changeHandler: function (argument) {
-				console.log('add pciture inptu change');
-				$('#addPicture').trigger('fileuploadstart');
 			},
 
 			storyImageRemoveBtn_clickHandler: function (e) {
@@ -48,10 +42,6 @@ define([
 				app.trigger('modal:close');
 			},
 
-			addPicture_clickHandler: function (e) {
-				e.preventDefault();
-				$('#addPicture').click();
-			},
 
 			addVideo_clickHandler: function (e) {
 				e.preventDefault();
@@ -138,8 +128,6 @@ define([
 			afterRender: function() {
 				var self = this;
 
-				$('#addPicture').on('change onchange', this.addPictureInput_changeHandler);
-
 				//Enable file upload
 				$('#addPicture').unsigned_cloudinary_upload('userstory', 
 					{
@@ -148,6 +136,7 @@ define([
 					}, 
 					{ multiple: false, callback: 'http://taligestilling.herokuapp.com/cloudinary_cors.html' }
 				).bind('cloudinarydone', function(e, data) {
+					console.log('hello hello');
 					self.imageUpload = data.result;
 					console.log(self.imageUpload);
 					$(self.el).find('.add-picture').text('');
@@ -156,6 +145,7 @@ define([
 					$(self.el).find('.story-image img').remove();
 					$(self.el).find('.story-image').addClass('has-image').append($.cloudinary.image(data.result.public_id, { width: 453 }));
 				}).bind('cloudinaryprogress', function(e, data) {
+					console.log('22222');
 					$(self.el).find('.add-picture').addClass('uploading').text(Math.round((data.loaded * 100.0) / data.total) + '%');
 				});
 
