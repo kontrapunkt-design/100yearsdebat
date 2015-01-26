@@ -1,4 +1,4 @@
-<a href="#" class="close-btn"></a>
+<a href="#" class="close-btn modal-close"></a>
 <h1>Tag <strong>lige stilling</strong></h1>
 <div class="state-submit">
 	<div class="col-sm-6">
@@ -7,10 +7,11 @@
 			<div class="tell-your-story--story-box">
 				<div class="story-image">
 					<a href="#" class="remove-btn"></a>
+					<div class="play-btn"></div>
 				</div>
 				<div class="text-wrapper">
 					<div class="textarea-wrapper">
-						<textarea class="input-story" noresize minlength="5" required>Din historie...</textarea>
+						<textarea class="input-story" noresize minlength="5" data-placeholder="Din historie..." minlength="10" placeholder="Din historie..." required></textarea>
 					</div>
 					<a href="#" class="add-picture">
 						<span class="status"></span>
@@ -18,27 +19,35 @@
 					</a>
 					<a href="#" class="add-video"></a>
 				</div>
-				<a href="#" class="fb-connect">Login med facebook connect</a>
-				
-				<div class="input-email-wrapper">
-					<input type="email" class="input-email" placeholder="Indtast din email adresse" required/>
-					<div class="input-email--indicator">V</div>
+
+				<div class="author-input">
+					<a href="#" class="fb-connect">Login med facebook connect <i class="icon"></i></a>
+					
+					<div class="input-email-wrapper">
+						<input type="email" class="input-email" name="input-email" placeholder="Eller indtast din email adresse" required/>
+						<div class="input-email--indicator"></div>
+					</div>
+					<div class="input-email-checkbox">
+						<span class="input-email-checkbox--checkbox"></span> Din email adresse vil altid være skjult
+					</div>
+				</div>
+				<div class="facebook-author hide">
+					<div class="facebook-author--img"></div>
+					Du poster som <strong class="name"></strong>
 				</div>
 			</div>
-
-
 		</form>
 	</div>
 	<div class="col-sm-6">
 		<form id="tell-your-story_form--tags" class="tell-your-story_form--tags">
 			<h2>Tag din post her</h2>
+			<div class="error-msg">Vælg mindst ét tag</div>
 			<div class="tell-your-story--tags">
 				{{#each tags }}
 				<a data-id="{{this._id}}" data-name="{{this.name}}">#{{this.name}} ({{this.storyCount}})</a>
 				{{/each}}
 			</div>
-			Tilføj dit eget: #<input type="string" class="custom-tag" placeholder="dit eget tag"/>
-			<button class="custom-tag-btn">Tilføj</button>
+			<input type="string" class="custom-tag" placeholder="Dit eget tag.."/>
 		</form>
 	</div>
 
@@ -46,6 +55,32 @@
 </div>
 <div class="state-done hide">
 	<p>
-		Mange tak for dit bidrag! Du kan dele din histori på: <a href="#">www.myurl.dk/history01</a> eller på facebook
+		Mange tak for dit bidrag! Du kan dele din historie på: <a href="" target="_blank" class="story-link"></a> eller på facebook
 	</p>
+	<div class="story-item--view">
+		<div class="embed-video">
+			<div class="play-btn"></div>
+		</div>
+
+		<div class="text">
+			<p>
+			Text text
+			</p>
+		</div>
+
+		<div class="author">
+			<div class="author--name"></div>
+		</div>
+	</div>
+
+	<a href="#" class="tell-your-story--share">Del på Facebook</a>
+</div>
+<div class="tell-your-story--video-modal">
+	<form id="tell-your-story_form--video" class="tell-your-story_form--video">
+		<div class="tell-your-story--video-modal--box">
+			<a href="#" class="close-btn"></a>
+			<input type="text" class="tell-your-story--video-modal--input" placeholder="Indsæt din Youtube-URL">
+			<a href="#" class="tell-your-story--video-modal--submit-btn"></a>
+		</div>
+	</form>
 </div>

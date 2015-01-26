@@ -9,9 +9,19 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>taligestilling</title>
+		<title>Ta' lige stilling</title>
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 		<link href="/styles/site.css" rel="stylesheet">
+
+		<meta property="fb:app_id" content="354297244758727" />
+		<meta property="og:site_name" content="Ta' lige stilling" />
+		<meta property="og:title" content="Ta' lige stilling" />
+
+		{{#if data.singleStory}}
+		<meta property="og:type" content="article" />
+		<meta property="og:description" content="{{data.singleStory.story}}" />
+		<meta property="og:url" content="http://taligestilling.herokuapp.com/story/{{data.singleStory._id}}" />
+		{{/if}}
 		
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor 
 			- only renders when user is logged in and admin--}}

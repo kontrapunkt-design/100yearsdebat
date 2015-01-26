@@ -27,7 +27,7 @@
 	.close-btn {
 		display: block;
 		position: absolute;
-		left:0;
+		right:0;
 		top:0;
 		width:50px;
 		height:50px;
@@ -39,6 +39,14 @@
 		z-index:1;
 		&:hover {
 			background-color:darken($red,7%);
+		}
+	}
+
+	@include respond-to(handhelds) {
+		h1 {
+			font-size: 26px;
+			margin-top: 11px;
+			margin-bottom: 28px;
 		}
 	}
 }
@@ -53,7 +61,7 @@
 	.textarea-wrapper {
 		width:100%;
 		height:200px;
-		padding:$spacing-small 58px ($spacing-small + 2px) $spacing-small;
+		padding:$spacing-small 70px ($spacing-small + 2px) $spacing-small;
 	}
 	textarea {
 		border:0;
@@ -63,12 +71,68 @@
 		height:100%;
 		resize: none;
 		outline: none;
+		&.error {
+			color:$red;
+		}
 		&:focus {
 			color:$blue;
 		}
 	}
+	.input-email-wrapper {
+		border: 2px solid $gray-dark;
+		position: relative;
+		margin:0 $spacing-small;
+
+		input {
+			border: none;
+			outline: none;
+			width:100%;
+			bottom:0;
+			font-size:18px;
+			padding:8px 45px 8px 10px;
+			color:$gray-dark;
+			&:focus {
+				color:$gray-darker;
+			}
+		}
+
+		&.error {
+			border-color:$red;
+			color:$red;
+		}
+
+		&.valid {
+			input {
+				padding-right:10px;
+			}
+			.input-email--indicator {
+				display: block;
+			}
+		}
+	}
+	.input-email--indicator {
+		display: none;
+		position: absolute;
+		right:0;
+		top:0;
+		left:auto;
+		bottom:0;
+		width:45px;
+		border-left:2px solid $gray-dark;
+		background-image: url(/images/checkbox-icon.png);
+		background-image: linear-gradient(transparent, transparent), url(/images/checkbox-icon.svg);
+		background-repeat:no-repeat;
+		background-position:center center;
+	}
+	.input-email-checkbox{
+		font-size:14px;
+		color:$blue;
+		text-align:left;
+		margin:($spacing-small - 5px) $spacing-small 0 $spacing-small;
+	}
 	.story-image {
 		display: none;
+		position: relative;
 		max-height:400px;
 		overflow: hidden;
 		img {
@@ -92,9 +156,43 @@
 				background-color:darken($white,7%);
 			}
 		}
-		&.has-image {
+		.play-btn {
+			display: none;
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin:-41px 0 0 -41px;
+			width:82px;
+			height:82px;
+			background-image: url(/images/play-icon.png);
+			background-image: linear-gradient(transparent, transparent), url(/images/play-icon.svg);
+			transition: opacity 0.2s;
+		}
+		&.has-image, &.has-video {
 			display: block;
 		}
+		&.has-video {
+			.play-btn {
+				display: block;
+			}
+		}
+	}
+	.facebook-author {
+		text-align: left;
+		margin:$spacing-small;
+		font-size: 14px;
+		color: black;
+		line-height: 32px;
+	}
+	.facebook-author--img {
+		float:left;
+		background-size:cover;
+		background-repeat:no-repeat;
+		background-position: center center;
+		width:32px;
+		height:32px;
+		display: inline-block;
+		margin-right:$spacing-small;
 	}
 	.add-picture {
 		display: block;
@@ -109,6 +207,7 @@
 		background-repeat:no-repeat;
 		background-position:center center;
 		text-decoration: none;
+		overflow: hidden;
 		input {
 			position: absolute;
 			top: 0;
@@ -147,10 +246,25 @@
 		background: $blue-special;
 		text-align: center;
 		color:white;
-		padding:10px 0;
+		padding:10px 10px;
 		font-size:18px;
 		margin:0 $spacing-small ($spacing-small - 5px) $spacing-small;
 		margin-bottom: $spacing-small - 5px;
+		i.icon{
+			width:10px;
+			height:21px;
+			margin-left:$spacing-small;
+			display:inline-block;
+			vertical-align: text-bottom;
+			background-image: url(/images/facebook-btn-icon.png);
+			background-image: linear-gradient(transparent, transparent), url(/images/facebook-btn-icon.svg);
+			background-repeat:no-repeat;
+			background-position:center center;
+		}
+		&:hover,&:active,&:focus {
+			background:darken($blue-special,10%);
+			text-decoration: none;
+		}
 	}
 }
 
@@ -181,6 +295,70 @@
 	}
 }
 
+.tell-your-story--share {
+	display:block;
+	position: absolute;
+	height:80px;
+	line-height:80px;
+	text-transform:uppercase;
+	font-family: $font-family-bold;
+	text-align:center;
+	font-size:24px;
+	left:0;
+	right:0;
+	bottom:0;
+	background:white;
+	color:$blue !important;
+	text-decoration:none !important;
+	&:hover {
+		color:white !important;
+		background:$red;
+	}
+}
+
+.tell-your-story_form--tags {
+	.error-msg {
+		display:none;
+		color: $red;
+		margin-bottom:$spacing-small;
+		font-size: 20px;
+	}
+	&.error {
+		.error-msg {
+			display: block;
+		}
+	}
+	.custom-tag {
+		margin-top:$spacing-small;
+		width:100%;
+		display: block;
+		padding:8px 10px;
+		text-align:center;
+		background:$blue;
+		color:white;
+		font-size: 18px;
+		outline:none;
+		border:0;
+		border-bottom:2px solid white;
+		&::-webkit-input-placeholder {
+			color: lighten($blue,40%);
+		}
+
+		&:-moz-placeholder { /* Firefox 18- */
+			color: lighten($blue,40%);
+		}
+
+		&::-moz-placeholder {  /* Firefox 19+ */
+			color: lighten($blue,40%);
+		}
+
+		&:-ms-input-placeholder {  
+			color: lighten($blue,40%);
+		}
+
+	}
+}
+
 .tell-your-story--tags{
 	a {
 		display: inline-block;
@@ -201,6 +379,88 @@
 			vertical-align:super;
 			font-size:16px;
 		}
+	}
+}
+
+.tell-your-story--video-modal {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top:0;
+	bottom: 0;
+	background:rgba($blue,0.8);
+	.close-btn {
+		right:auto;
+		left:0;
+	}
+	display:none;
+	&.open {
+		display: block;
+	}
+}
+
+.tell-your-story--video-modal--box {
+	position: absolute;
+	left:50%;
+	top:50%;
+	width:650px;
+	height:50px;
+	margin-left:-325px;
+	margin-top:-25px;
+	background:white;
+	@include respond-to(handhelds) {
+		width:300px;
+		margin-left:-150px;
+		top:180px;
+	}
+}
+
+.tell-your-story--video-modal--submit-btn {
+	position: absolute;
+	right:0;
+	top:0;
+	width:50px;
+	height:50px;
+	background-color:$green;
+	&:hover, &:active, &:focus {
+		background-color:darken($green,20%);
+	}
+}
+
+.tell-your-story--video-modal--input {
+	width:100%;
+	display:block;
+	padding:0 60px;
+	height:50px;
+	color:$black;
+	text-align:center;
+	outline:none;
+	border:0;
+}
+
+.tell-your-story--view .story-item--view {
+	width:280px;
+	background: none;
+	border-color:white;
+	margin:auto;
+	font-size:24px;
+	max-width:442px;
+	width:100%;
+	.embed-video img {
+		width:100%;
+	}
+	.author--name {
+		color:white;
+	}
+}
+
+.tell-your-story--view .state-done {
+	font-size:24px;
+	max-width:442px;
+	margin:auto;
+	a.story-link {
+		color:$red;
+		font-size:18px;
 	}
 }
 

@@ -41,6 +41,9 @@ module.exports = function(app, keystone) {
 					email:data.email,
 					image:data.image,
 					facebookId:data.facebookId,
+					facebookName:data.facebookName,
+					youtube:data.youtube,
+					image:data.image,
 					author:data.author
 				});
 

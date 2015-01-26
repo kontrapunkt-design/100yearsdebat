@@ -67,9 +67,11 @@
 
 	@include respond-to(tablets) {
 		height: 350px;
+		margin:0 $spacing;
 	}
 
 	@include respond-to(handhelds) {
-		height: 200px;
+		height: 180px;
+		margin:0 $spacing;
 	}
 }

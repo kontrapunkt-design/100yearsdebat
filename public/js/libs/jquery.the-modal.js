@@ -84,7 +84,7 @@
 				oMargin[$this.prop('tagName').toLowerCase()] = parseInt($this.css('margin-right'));
 			});
 			$('html').css('margin-right', oMargin['html'] + sbWidth);
-			overlay.css('left', 0 - sbWidth);
+			// overlay.css('left', 0 - sbWidth);
 		}
 	}
 

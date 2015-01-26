@@ -31,6 +31,14 @@ exports = module.exports = function(req, res) {
 		});
 	});
 
+	//Load specific story (for SEO and FB deeplinking)
+	view.on('init', function(next) {
+		keystone.list('Story').model.findOne({'_id':req.params.storyId}).exec(function(err, story) {
+			locals.data.singleStory=story;
+			next(err);
+		});
+	});
+
 	// Load all categories
 	view.on('init', function(next) {
 		
