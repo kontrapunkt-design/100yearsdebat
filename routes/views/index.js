@@ -51,7 +51,7 @@ exports = module.exports = function(req, res) {
 			// Load the counts for each category
 			async.each(results, function(tag, next) {
 
-				keystone.list('Story').model.count().where('tags').in([tag.id]).exec(function(err, count) {
+				keystone.list('Story').model.count().where('tags').in([tag.id]).where('state').equals('published').exec(function(err, count) {
 					tag.assetCount = count;
 					var newTag = {
 						'_id':tag._id,
