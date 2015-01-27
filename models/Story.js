@@ -20,13 +20,13 @@ Story.add({
 
 	//Poll stuff
 	answer1: {type: String, required:false, dependsOn:{'type':'poll'}},
-	answer1Votes: {type: Number, required:false, hidden:false, default:0},
+	answer1Votes: {type: Number, required:false, hidden:true, default:0, dependsOn:{'type':'poll'}},
 	answer2: {type: String, required:false, dependsOn:{'type':'poll'}},
-	answer2Votes: {type: Number, required:false, hidden:false, default:0},
+	answer2Votes: {type: Number, required:false, hidden:true, default:0, dependsOn:{'type':'poll'}},
 	answer3: {type: String, required:false, dependsOn:{'type':'poll'}},
-	answer3Votes: {type: Number, required:false, hidden:false, default:0},
+	answer3Votes: {type: Number, required:false, hidden:true, default:0, dependsOn:{'type':'poll'}},
 	answer4: {type: String, required:false, dependsOn:{'type':'poll'}},
-	answer4Votes: {type: Number, required:false, hidden:false, default:0},
+	answer4Votes: {type: Number, required:false, hidden:true, default:0, dependsOn:{'type':'poll'}},
 
 	//Story stuff
 	subtitle: { type: String, required: false, dependsOn: {'type':'story'}},
