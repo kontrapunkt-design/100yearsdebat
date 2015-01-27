@@ -1,6 +1,7 @@
 define([
   "backbone",
-  "deepmodel"
+  "deepmodel",
+  "jquery.cookie"
 ],
 
 function(Backbone,app) {
@@ -20,6 +21,25 @@ function(Backbone,app) {
 				self.set('commentCount',data.comments || 0);
 				self.set('shareCount',data.shares > 0 ? Number(Number(data.shares)-Number(data.comments)) : 0);
 				self.trigger('fetched:socialCount');
+			});
+		},
+
+		pollVote: function (answerId) {
+			var self = this;
+			$.post('/api/stories/'+this.get('_id')+'/poll',
+				{
+					answerId: answerId
+				}
+			).done(function (data) {
+				console.log('Story model:: Vote submitted.');
+				if ( data.result === 'ok' ) {
+					$.cookie('pollVote'+self.get('_id'), answerId, { expires: 99999, path: '/' });
+					var vote = Number(self.get('answer'+answerId+'Votes')) || 0;
+					self.set('answer'+answerId+'Votes', vote+1);
+					self.trigger('pollChange');
+				}
+			}).fail(function (data) {
+				console.log('Story model:: Error trying to post vote.');
 			});
 		},
 

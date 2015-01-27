@@ -21,7 +21,7 @@ define([
 				$(this.el).find('.filter--tags a').removeClass('selected');
 				$(this.el).find('.btn-remove-filering').addClass('hide');
 
-				this.storiesCollection.tagIdFilter=null;
+				this.storiesCollection.setTagIdFilter(null);
 				this.storiesCollection.fetch();
 			},
 
@@ -32,7 +32,7 @@ define([
 
 				$(e.target).addClass('selected');
 
-				this.storiesCollection.tagIdFilter=$(e.target).data('id');
+				this.storiesCollection.setTagIdFilter($(e.target).data('id'));
 				this.storiesCollection.fetch();
 			},
 

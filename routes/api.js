@@ -2,6 +2,7 @@ module.exports = function(app, keystone) {
 	var async = require('async');
 	var Story = keystone.list('Story');
 	var StoryTag = keystone.list('StoryTag');
+	var storiesPerPage = 20;
 
 	var saveStory = function (argument) {
 		
@@ -64,8 +65,31 @@ module.exports = function(app, keystone) {
 		});
 	});
 
+	app.post('/api/stories/:storyId/poll', function (req, res) {
+		var selectedAnswer = 'answer' + Number(req.body.answerId) + 'Votes';
+
+		var dynSet = {$inc: {}};
+		dynSet.$inc[selectedAnswer] = 1;
+
+		Story.model.update({'_id':req.params.storyId}, dynSet, function(err, story) {
+			if(!err) {
+				res.json({
+					result:'ok',
+					story: story
+				});
+			} else {
+				res.json({
+					result:'error',
+					error: err
+				});
+			}
+		});
+	});
+
 	app.get('/api/stories', function (req, res) {
-		Story.model.find({state:'published'}).sort('order submitDate').limit(10).exec(function(err, stories) {
+		var page = req.query.page || 0;
+
+		Story.model.find({state:'published'}).sort('order submitDate').limit(storiesPerPage).skip(page*storiesPerPage).exec(function(err, stories) {
 			if ( ! err ) {
 				res.json(stories);
 			} else {
@@ -91,7 +115,9 @@ module.exports = function(app, keystone) {
 	});
 	
 	app.get('/api/stories/tag/:tagId', function (req, res) {
-		Story.model.find({state:'published', tags:req.params.tagId}).limit(10).exec(function(err, story) {
+		var page = req.query.page || 0;
+
+		Story.model.find({state:'published', tags:req.params.tagId}).limit(storiesPerPage).skip(page*storiesPerPage).exec(function(err, story) {
 			if ( ! err ) {
 				res.json(story);
 			} else {

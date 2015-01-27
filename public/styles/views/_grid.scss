@@ -36,6 +36,19 @@
 	}
 }
 
+.grid--load-more {
+	display: block;
+	clear:both;
+	width:200px;
+	padding:8px 0;
+	background:$blue;
+	color:$red;
+	font-family:$font-family-bold;
+	text-align:center;
+	margin:auto;
+	margin-top:$spacing;
+}
+
 @include respond-to(handhelds-tablets) {
 	.grid--view {
 		.item {

@@ -25,6 +25,10 @@ define([
 
 			tags: null,
 
+			modelIdsInView: null,
+
+			filterRefresh: false,
+
 			events: {
 			},
 
@@ -34,24 +38,50 @@ define([
 
 				console.log('!!');
 
-				this.storiesCollection.on('sync', this.stories_changeHandler, this);
+				// this.storiesCollection.on('add', this.stories_addHandler, this);
+				this.storiesCollection.on('sync', this.stories_addHandler, this);
+				this.storiesCollection.on('filter:change', this.stories_filterChangeHandler, this);
+				app.on('grid:relayout', this.grid_relayoutHandler, this);
 			},
 
-			stories_changeHandler: function (argument) {
-				var self = this;
-				console.log('chaaange');
-				self.pckry.remove($(self.el).find('.story-item--view'));
-				self.pckry.layout();
+			grid_relayoutHandler: function () {
+				this.pckry.layout();
+			},
 
-				//Insert stories
+			stories_addHandler: function () {
+				var self = this;
+				console.log('stories_addHandler');
+
+				if ( this.filterRefresh ) {
+					self.modelIdsInView=[];
+					self.pckry.remove($(self.el).find('.story-item--view'));
+					self.pckry.layout();
+
+					this.filterRefresh=false;
+				}
+
+				var addedStories = 0;
+
 				setTimeout(function() {
 					self.storiesCollection.sort(this.comparator).forEach(function(model) {
-						self.insertView(new StoryItemView({model:model})).render();
+						if ( ! self.modelIdsInView[model.get('_id')] ) {
+							self.modelIdsInView[model.get('_id')]=true;
+							self.insertView(new StoryItemView({model:model})).render(function(el) {
+								self.pckry.appended(el);
+							});
+							addedStories++;
+						}
 					});
-
-					self.pckry.appended($(self.el).find('.story-item--view'));
+					if ( addedStories === 0 ) {
+						$('.grid--load-more').addClass('hide');
+					}
 					self.pckry.layout();
-				},500);
+				}, 500);
+			},
+
+			stories_filterChangeHandler: function (argument) {
+				$('.grid--load-more').removeClass('hide');
+				this.filterRefresh=true;
 			},
 
 			beforeRender: function (argument) {
@@ -69,7 +99,9 @@ define([
 				});
 
 				//Insert stories
+				self.modelIdsInView=[];
 				self.storiesCollection.sort(this.comparator).forEach(function(model) {
+					self.modelIdsInView[model.get('_id')]=true;
 					self.insertView(new StoryItemView({model:model}));
 				});
 
@@ -85,9 +117,20 @@ define([
 					stamp:'.tell-your-story--small--view, .filter--view'
 				});
 
-				$(this.el).imagesLoaded(function() {
-					self.pckry.layout();
+				if ( $(this.el).imagesLoaded ) {
+					$(this.el).imagesLoaded(function() {
+						self.pckry.layout();
+					});
+				}
+
+				$('.grid--load-more').on('click touchend', function(e) {
+					self.gridLoadMore_clickHandler(e);
 				});
+			},
+
+			gridLoadMore_clickHandler: function (e) {
+				e.preventDefault();
+				this.storiesCollection.fetchMore();
 			},
 
 			serialize: function() {

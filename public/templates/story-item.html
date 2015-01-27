@@ -2,40 +2,70 @@
 <a href="#" class="close-btn {{#if model.image}}w-media{{/if}}{{#if model.youtube}}w-media{{/if}}"></a>
 {{/if}}
 
-{{#if model.image}}
-<img src="{{model.image.url}}" alt="" width="100%" />
+{{#if poll}}
+	<div class="text">
+		<h3>Stem her</h3>
+		{{model.title}}
+
+		<div class="answers">
+			{{#each pollQuestions}}
+				<div class="answer-item" data-id="{{this.id}}">
+					<div class="answer-items--checkbox"></div>
+					{{this.answer}}
+				</div>
+			{{/each}}
+		</div>
+
+		<div class="answers--results">
+			{{#each pollQuestions}}
+				<div class="answers--results--item {{#if this.selected}}selected{{/if}}">
+					<div class="votes">
+						{{this.procentage}}% /
+						<span>{{this.votes}}</span>
+					</div>
+					<div class="votes-bar" style="width:{{this.procentage}}%"></div>
+					{{this.answer}}
+				</div>
+			{{/each}}
+		</div>
+	</div>
 {{else}}
-	{{#if model.youtube}}
-		<div class="embed-video">
-			<img src="http://img.youtube.com/vi/{{model.youtube}}/mqdefault.jpg" width="100%"/>
-			<div class="play-btn"></div>
-		</div>
-		{{#if singleStory}}
-		<div class="embed-video--player">
-			Player
-		</div>
+	{{#if model.image}}
+	<img src="{{model.image.url}}" alt="" width="100%" />
+	{{else}}
+		{{#if model.youtube}}
+			<div class="embed-video">
+				<img src="http://img.youtube.com/vi/{{model.youtube}}/mqdefault.jpg" width="100%"/>
+				<div class="play-btn"></div>
+			</div>
+			{{#if singleStory}}
+			<div class="embed-video--player">
+				Player
+			</div>
+			{{/if}}
 		{{/if}}
 	{{/if}}
-{{/if}}
-<div class="text">
-	{{#if model.title}}<h3>{{model.title}}</h3>{{/if}}
-	{{#if model.subtitle}}<h4>{{model.subtitle}}</h4>{{/if}}
-	<p>
-	{{#if model.story}}{{model.story}}{{/if}}
-	</p>
-</div>
-
-{{#if model.facebookName}}
-	<div class="author">
-		<img class="author--profile" src="http://graph.facebook.com/{{model.facebookId}}/picture" alt="{{model.facebookName}}" />
-		<div class="author--name">{{model.facebookName}}</div>
+	<div class="text">
+		{{#if model.title}}<h3>{{model.title}}</h3>{{/if}}
+		{{#if model.subtitle}}<h4>{{model.subtitle}}</h4>{{/if}}
+		<p>
+		{{#if model.story}}{{model.story}}{{/if}}
+		</p>
 	</div>
-{{/if}}
 
-{{#if model.email}}
-	<div class="author">
-		<div class="author--name">{{model.email}}</div>
-	</div>
+	{{#if model.facebookName}}
+		<div class="author">
+			<img class="author--profile" src="http://graph.facebook.com/{{model.facebookId}}/picture" alt="{{model.facebookName}}" />
+			<div class="author--name">{{model.facebookName}}</div>
+		</div>
+	{{/if}}
+
+	{{#if model.email}}
+		<div class="author">
+			<div class="author--name">{{model.email}}</div>
+		</div>
+	{{/if}}
+
 {{/if}}
 
 <div class="story-item--view--social">
@@ -50,7 +80,7 @@
 
 {{#if singleStory}}
 <div class="fb-comments">
-	<fb:comments href="http://taligestilling.herokuapp.com/story/{{model._id}}" mobile="auto" numposts="2" colorscheme="light" width="100%"></fb:comments>
+	<fb:comments href="http://taligestilling.herokuapp.com/story/{{model._id}}" mobile="auto" numposts="2" colorscheme="{{#if poll}}dark{{else}}light{{/if}}" width="100%"></fb:comments>
 </div>
 {{else}}
 <div class="hover-overlay">

@@ -32,7 +32,9 @@ require.config({
 
         'imagesloaded': 'libs/imagesloaded.pkgd',
 
-        'modernizr': 'libs/modernizr.min'
+        'modernizr': 'libs/modernizr.min',
+        
+        'jquery.cookie': 'libs/jquery.cookie'
     },
 
     shim: {

@@ -4,6 +4,7 @@ define([
 		"backbone",
 		"handlebars",
 		"app",
+		"jquery.cookie",
 		"jquery.fitvids"
 	],
 	function($, Backbone, Handlebars, app) {
@@ -19,14 +20,23 @@ define([
 
 			active: false,
 
+			pollQuestions: null,
+			pollTotalVotes: 0,
+
 			events: {
 				'click':'this_clickHandler',
 				'click .close-btn':'this_closeHandler',
-				'click .embed-video':'embedVideo_clickHandler'
+				'click .embed-video':'embedVideo_clickHandler',
+				'click .answer-item': 'answerItem_clickHandler'
+			},
+
+			answerItem_clickHandler: function (e) {
+				e.preventDefault();
+				this.model.pollVote(Number($(e.currentTarget).data('id')));
 			},
 
 			this_clickHandler: function () {
-				if ( this.singleStory ) {
+				if ( this.singleStory || this.model.get('type') === 'poll' ) {
 					return false;
 				}
 				app.router.navigate("story/"+this.model.get('_id'), {trigger: true});
@@ -57,6 +67,7 @@ define([
 				this.singleStory = attrs.singleStory;
 
 				this.model.on('fetched:socialCount', this.socialCount_fetchedHandler, this);
+				this.model.on('pollChange', this.render, this);
 			},
 
 			socialCount_fetchedHandler: function () {
@@ -70,6 +81,62 @@ define([
 				if ( ! this.singleStory && this.model.get('featureStory') === true ) {
 					$(this.el).addClass('featured');
 				}
+
+				//Poll
+				if ( this.model.get('type') === 'poll' ) {
+					$(this.el).addClass('poll');
+
+					var cookieVoteId = $.cookie('pollVote'+this.model.get('_id'));
+
+					if ( cookieVoteId ) {
+						$(this.el).addClass('results');
+					}
+
+					this.pollTotalVotes=(this.model.get('answer1Votes') || 0) + (this.model.get('answer2Votes') || 0) + (this.model.get('answer3Votes') || 0) + (this.model.get('answer4Votes') || 0);
+
+					this.pollQuestions=[];
+
+					if ( this.model.get('answer1') ) {
+						this.pollQuestions.push({
+							id:1,
+							answer:this.model.get('answer1'),
+							votes:this.model.get('answer1Votes') || 0,
+							procentage:Math.round((this.model.get('answer1Votes') || 0) / this.pollTotalVotes*100),
+							selected: cookieVoteId == '1' ? true : false
+						});
+					}
+					if ( this.model.get('answer2') ) {
+						this.pollQuestions.push({
+							id:2,
+							answer:this.model.get('answer2'),
+							votes:this.model.get('answer2Votes') || 0,
+							procentage:Math.round((this.model.get('answer2Votes') || 0) / this.pollTotalVotes*100),
+							selected: cookieVoteId == '2' ? true : false
+						});
+					}
+					if ( this.model.get('answer3') ) {
+						this.pollQuestions.push({
+							id:3,
+							answer:this.model.get('answer3'),
+							votes:this.model.get('answer3Votes') || 0,
+							procentage:Math.round((this.model.get('answer3Votes') || 0) / this.pollTotalVotes*100),
+							selected: cookieVoteId == '3' ? true : false
+						});
+					}
+					if ( this.model.get('answer4') ) {
+						this.pollQuestions.push({
+							id:4,
+							answer:this.model.get('answer4'),
+							votes:this.model.get('answer4Votes') || 0,
+							procentage:Math.round((this.model.get('answer4Votes') || 0) / this.pollTotalVotes*100),
+							selected: cookieVoteId == '4' ? true : false
+						});
+					}
+				}
+			},
+
+			afterRender: function () {
+				app.trigger('grid:relayout');
 			},
 
 			setActive: function () {
@@ -93,7 +160,9 @@ define([
 			serialize: function() {
 				return {
 					model:this.model.toJSON(),
-					singleStory: this.singleStory
+					singleStory: this.singleStory,
+					poll: this.model.get('type') === 'poll' ? true : false,
+					pollQuestions: this.pollQuestions
 				};
 			}
 		});

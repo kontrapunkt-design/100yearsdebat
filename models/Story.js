@@ -20,19 +20,19 @@ Story.add({
 
 	//Poll stuff
 	answer1: {type: String, required:false, dependsOn:{'type':'poll'}},
-	answer1Votes: {type: Number, required:false, hidden:true},
+	answer1Votes: {type: Number, required:false, hidden:false, default:0},
 	answer2: {type: String, required:false, dependsOn:{'type':'poll'}},
-	answer2Votes: {type: Number, required:false, hidden:true},
+	answer2Votes: {type: Number, required:false, hidden:false, default:0},
 	answer3: {type: String, required:false, dependsOn:{'type':'poll'}},
-	answer3Votes: {type: Number, required:false, hidden:true},
+	answer3Votes: {type: Number, required:false, hidden:false, default:0},
 	answer4: {type: String, required:false, dependsOn:{'type':'poll'}},
-	answer4Votes: {type: Number, required:false, hidden:true},
+	answer4Votes: {type: Number, required:false, hidden:false, default:0},
 
 	//Story stuff
 	subtitle: { type: String, required: false, dependsOn: {'type':'story'}},
 	story: { type: Types.Html, wysiwyg: false, height: 150, initial: true, index:true, dependsOn: {'type':'story'}},
 	image: { type: Types.CloudinaryImage, label: 'Image', note: 'JPG, PNG, GIF, BMP, ICO, TIFF or PDF', dependsOn: {'type':'story'}},
-	tags: { type: Types.Relationship, ref: 'StoryTag', many: true , dependsOn: {'type':'story'}},
+	tags: { type: Types.Relationship, ref: 'StoryTag', many: true },
 
 	frontpageStory: { type:Boolean, required:false, default:false , dependsOn: {'type':'story'}},
 	frontpageImage: {type: Types.CloudinaryImage, required:false, note: 'Big wide image for frontpage story', dependsOn:{'frontpageStory':true}, dependsOn: {'type':'story'}},
