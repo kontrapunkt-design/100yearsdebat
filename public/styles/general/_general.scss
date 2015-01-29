@@ -49,12 +49,17 @@ strong {
 			padding-left:50px;
 			margin-top: 0;
 			margin-bottom: 13px;
+			text-transform: uppercase;
+			line-height:0.9;
+			position: absolute;
+			top:0;
+			z-index: 1;
 		}
 		.logo {
 			position: absolute;
 			top:68px;
-			width:150px;
-			height:150px;
+			width:88px;
+			height:88px;
 			background-image: url(/images/logo.png);
 			background-image: linear-gradient(transparent, transparent), url(/images/logo.svg);
 			background-size:100% auto;
@@ -92,8 +97,8 @@ strong {
 			}
 			.logo {
 				top: 19px;
-				width: 86px;
-				height: 86px;
+				width: 46px;
+				height: 46px;
 			}
 		}
 		.nav {

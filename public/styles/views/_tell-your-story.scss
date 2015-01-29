@@ -42,6 +42,11 @@
 		}
 	}
 
+	.email-instead-btn {
+		color:$blue;
+		display: block;
+	}
+
 	@include respond-to(handhelds) {
 		h1 {
 			font-size: 26px;
@@ -78,10 +83,10 @@
 			color:$blue;
 		}
 	}
-	.input-email-wrapper {
+	.input-email-wrapper, .input-name-wrapper {
 		border: 2px solid $gray-dark;
 		position: relative;
-		margin:0 $spacing-small;
+		margin:0 0 0 $spacing-small;
 
 		input {
 			border: none;
@@ -105,12 +110,15 @@
 			input {
 				padding-right:10px;
 			}
-			.input-email--indicator {
+			.input--indicator {
 				display: block;
 			}
 		}
 	}
-	.input-email--indicator {
+	.input-name-wrapper {
+		margin:0 $spacing-small 0 0;
+	}
+	.input--indicator {
 		display: none;
 		position: absolute;
 		right:0;
@@ -446,6 +454,7 @@
 	font-size:24px;
 	max-width:442px;
 	width:100%;
+	cursor: default;
 	.embed-video img {
 		width:100%;
 	}

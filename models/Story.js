@@ -42,8 +42,9 @@ Story.add({
 	
 
 	// author: { type: String, required: false , dependsOn: {'type':'story'}},
+	
 	email: { type: String, required: false, index: true, note: 'Gets filled out when a user submits a story with his/her email.', noedit:true , dependsOn: {'type':'story'}},
-	facebookName: { type: String, required: false, index: true, note: 'Gets filled out when a user submits a story with Facebook.', noedit:true, dependsOn: {'type':'story'}},
+	authorName: { type: String, required: false, index: true, note: 'Gets filled out when a user submits a story with Facebook.', noedit:true, dependsOn: {'type':'story'}},
 	facebookId: { type: String, note: 'Gets filled out when a user submits a story with Facebook.', hidden:false , dependsOn: {'type':'story'}},
 
 

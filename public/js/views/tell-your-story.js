@@ -26,6 +26,7 @@ define([
 			facebookEmail: null,
 			youtubeId: null,
 			storyId: null,
+			canSubmit: false,
 
 			events: {
 				'submit .tell-your-story_form':'form_submitHandler',
@@ -39,7 +40,8 @@ define([
 				'click .tell-your-story--video-modal .close-btn': 'videoModalCloseBtn_clickHandler',
 				'submit .tell-your-story_form--video': 'videoModal_submitHandler',
 				'click .tell-your-story--video-modal--submit-btn': 'videoModal_submitHandler',
-				'click .tell-your-story--share' : 'facebookShareBtn_clickHandler'
+				'click .tell-your-story--share' : 'facebookShareBtn_clickHandler',
+				'click .email-instead-btn': 'emailInsteadBtn_clickHandler'
 				// 'focus .input-story': 'inputStory_focusHandler',
 				// 'blur .input-story': 'inputStory_blurHandler'
 			},
@@ -47,13 +49,16 @@ define([
 			checkForm: function () {
 				this.countTags();
 				$(this.el).find('.tell-your-story--submit').removeClass('clickable');
-				if ( $(this.el).find('.input-story').val().length > 0 && ( this.facebookId || $(this.el).find('.input-email-wrapper').hasClass('valid')) ) {
+				this.canSubmit=false;
+				if ( $(this.el).find('.input-story').val().length > 0 && ( this.facebookId || ($(this.el).find('.input-email-wrapper').hasClass('valid') && $(this.el).find('.input-name-wrapper').hasClass('valid'))) ) {
+					this.canSubmit=true;
 					$(this.el).find('.tell-your-story--submit').addClass('clickable');
 				}
 				$(this.el).find('.tell-your-story_form--tags').removeClass('error');
 				if ( this.tags.length === 0 ) {
+					this.canSubmit=false;
 					$(this.el).find('.tell-your-story_form--tags').addClass('error');
-					return false;
+					$(this.el).find('.tell-your-story--submit').removeClass('clickable');
 				}
 			},
 
@@ -70,6 +75,13 @@ define([
 					$inputStory.val($inputStory.data('placeholder'));
 				}
 			},*/
+
+			emailInsteadBtn_clickHandler: function (e) {
+				e.preventDefault();
+				$(this.el).find('.email-wrapper').removeClass('hide');
+				$(this.el).find('.fb-connect').addClass('hide');
+				$(this.el).find('.email-instead-btn').addClass('hide');
+			},
 
 			videoModal_submitHandler: function (e) {
 				e.preventDefault();
@@ -178,6 +190,10 @@ define([
 						return false;
 					}
 
+					if ( !self.canSubmit ) {
+						return false;
+					}
+
 					$.ajax({
 						url: window.location.origin + '/api/stories',
 						type: 'POST',
@@ -186,7 +202,7 @@ define([
 							email:self.facebookId ? self.facebookEmail : $(self.el).find('.input-email').val(),
 							tags:self.tags,
 							facebookId: self.facebookId || null,
-							facebookName: self.facebookName || null,
+							authorName: self.facebookName || $(self.el).find('.input-name').val() || null,
 							youtube: self.youtubeId || null,
 							image:self.imageUpload || null
 						},
@@ -227,10 +243,10 @@ define([
 				}
 
 				if ( story.facebookId ) {
-					$stateDone.find('.author').prepend('<img class="author--profile" src="http://graph.facebook.com/'+story.facebookId+'/picture" alt="'+story.facebookName+'" />');
-					$stateDone.find('.author .author--name').text(story.facebookName);
+					$stateDone.find('.author').prepend('<img class="author--profile" src="http://graph.facebook.com/'+story.facebookId+'/picture" alt="'+story.authorName+'" />');
+					$stateDone.find('.author .author--name').text(story.authorName);
 				} else {
-					$stateDone.find('.author .author--name').text(story.email);
+					$stateDone.find('.author .author--name').text(story.authorName);
 				}
 			},
 
@@ -298,11 +314,19 @@ define([
 							element.closest('.input-email-wrapper').removeClass('valid');
 							element.closest('.input-email-wrapper').addClass('error');
 						}
+						if ( element.hasClass('input-name') && ! self.facebookId ) {
+							element.removeClass('valid');
+							element.closest('.input-name-wrapper').removeClass('valid');
+							element.closest('.input-name-wrapper').addClass('error');
+						}
 						self.checkForm();
 					},
 					success: function (label, element) {
 						if ( $(element).hasClass('input-email') && ! self.facebookId ) {
 							$(element).closest('.input-email-wrapper').removeClass('error').addClass('valid');
+						}
+						if ( $(element).hasClass('input-name') && ! self.facebookId ) {
+							$(element).closest('.input-name-wrapper').removeClass('error').addClass('valid');
 						}
 						self.checkForm();
 					}

@@ -36,7 +36,8 @@ define([
 			},
 
 			this_clickHandler: function () {
-				if ( this.singleStory || this.model.get('type') === 'poll' ) {
+				var cookieVoteId = $.cookie('pollVote'+this.model.get('_id'));
+				if ( this.singleStory ||( this.model.get('type') === 'poll' && ! cookieVoteId) ) {
 					return false;
 				}
 				app.router.navigate("story/"+this.model.get('_id'), {trigger: true});

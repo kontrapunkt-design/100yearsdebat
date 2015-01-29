@@ -6,15 +6,15 @@
 // Variables
 //Placed in bootstrap/variables
 
+// Mxins
+@import "mixins/respond-to";
+
 // Libs
 @import "bootstrap/bootstrap";
 @import "libs/simpletextrotator";
 @import "libs/slick";
 @import "libs/the-modal";
 
-
-// Mxins
-@import "mixins/respond-to";
 
 // General
 @import "general/fonts";

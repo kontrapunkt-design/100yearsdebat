@@ -1,6 +1,7 @@
 .frontpage-story {
 	text-align:center;
 	position: relative;
+	padding-top:118px;
 }
 
 .frontpage-story--text {
@@ -8,7 +9,7 @@
 	display: block;
 	color:$blue;
 	left:0;
-	top:170px;
+	top:295px;
 	text-align:left;
 	max-width:465px;
 	background:white;
@@ -28,7 +29,7 @@
 	}
 
 	@include respond-to(tablets) {
-		top:100px;
+		top:240px;
 	}
 
 	@include respond-to(handhelds) {

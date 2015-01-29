@@ -65,7 +65,14 @@
 		}
 		.answers {
 			color:white;
-			margin: $spacing 0 $spacing-small 0;
+			p {
+				margin-bottom: $spacing-small;
+				color: $red;
+			}
+			h3 {
+				color: $red;
+			}
+			margin: 0 0 $spacing-small 0;
 		}
 		.answer-item {
 			position: relative;
@@ -120,8 +127,10 @@
 
 		.answers--results {
 			display: none;
-			margin: ($spacing - 4px) 0 $spacing-small 0;
-
+			margin: 0 0 $spacing-small 0;
+			p {
+				margin-bottom: $spacing-small;
+			}
 		}
 
 		.answers--results--item {
@@ -151,6 +160,7 @@
 		}
 
 		&.results {
+			cursor: pointer;
 			.answers {
 				display:none;
 			}
@@ -178,9 +188,9 @@
 		&.poll .hover-overlay {
 			display: none;
 		}
-		// &.poll.results .hover-overlay{
-		// 	display: block;
-		// }
+		&.poll.results .hover-overlay{
+			display: block;
+		}
 	}
 
 	.fb-comments {

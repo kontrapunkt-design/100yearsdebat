@@ -22,13 +22,27 @@
 
 				<div class="author-input">
 					<a href="#" class="fb-connect">Login med facebook connect <i class="icon"></i></a>
+
+					<a href="#" class="email-instead-btn">Brug email istedet</a>
 					
-					<div class="input-email-wrapper">
-						<input type="email" class="input-email" name="input-email" placeholder="Eller indtast din email adresse" required/>
-						<div class="input-email--indicator"></div>
-					</div>
-					<div class="input-email-checkbox">
-						<span class="input-email-checkbox--checkbox"></span> Din email adresse vil altid være skjult
+					<div class="email-wrapper hide">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="input-email-wrapper">
+									<input type="email" class="input-email" name="input-email" placeholder="Indtast email" required/>
+									<div class="input--indicator"></div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="input-name-wrapper">
+									<input type="text" class="input-name" name="input-name" placeholder="Indtast navn" minlength="1" required/>
+									<div class="input--indicator"></div>
+								</div>
+							</div>
+						</div>
+						<div class="input-email-checkbox">
+							<span class="input-email-checkbox--checkbox"></span> Din email adresse vil altid være skjult
+						</div>
 					</div>
 				</div>
 				<div class="facebook-author hide">
@@ -55,7 +69,7 @@
 </div>
 <div class="state-done hide">
 	<p>
-		Mange tak for dit bidrag! Du kan dele din historie på: <a href="" target="_blank" class="story-link"></a> eller på facebook
+		Mange tak for dit bidrag! Du kan dele din historie på: <a href="" target="_blank" class="story-link"></a>
 	</p>
 	<div class="story-item--view">
 		<div class="embed-video">

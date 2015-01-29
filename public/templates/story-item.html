@@ -4,10 +4,11 @@
 
 {{#if poll}}
 	<div class="text">
-		<h3>Stem her</h3>
-		{{model.title}}
 
 		<div class="answers">
+			<h3>Stem her</h3>
+			<p>{{model.title}}</p>
+
 			{{#each pollQuestions}}
 				<div class="answer-item" data-id="{{this.id}}">
 					<div class="answer-items--checkbox"></div>
@@ -17,6 +18,9 @@
 		</div>
 
 		<div class="answers--results">
+			<h3>Resultat</h3>
+			<p>{{model.title}}</p>
+
 			{{#each pollQuestions}}
 				<div class="answers--results--item {{#if this.selected}}selected{{/if}}">
 					<div class="votes">
@@ -53,17 +57,17 @@
 		</p>
 	</div>
 
-	{{#if model.facebookName}}
+	{{#if model.facebookId}}
 		<div class="author">
-			<img class="author--profile" src="http://graph.facebook.com/{{model.facebookId}}/picture" alt="{{model.facebookName}}" />
-			<div class="author--name">{{model.facebookName}}</div>
+			<img class="author--profile" src="http://graph.facebook.com/{{model.facebookId}}/picture" alt="{{model.authorName}}" />
+			<div class="author--name">{{model.authorName}}</div>
 		</div>
-	{{/if}}
-
-	{{#if model.email}}
-		<div class="author">
-			<div class="author--name">{{model.email}}</div>
-		</div>
+	{{else}}
+		{{#if model.authorName}}
+			<div class="author">
+				<div class="author--name">{{model.authorName}}</div>
+			</div>
+		{{/if}}
 	{{/if}}
 
 {{/if}}

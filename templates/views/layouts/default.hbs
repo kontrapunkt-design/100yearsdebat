@@ -11,6 +11,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Ta' lige stilling</title>
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" type="image/png" href="/favicon.png" />
+
 		<link href="/styles/site.css" rel="stylesheet">
 
 		<meta property="fb:app_id" content="354297244758727" />
@@ -21,6 +23,13 @@
 		<meta property="og:type" content="article" />
 		<meta property="og:description" content="{{data.singleStory.story}}" />
 		<meta property="og:url" content="http://taligestilling.herokuapp.com/story/{{data.singleStory._id}}" />
+			{{#if data.singleStory.image}}
+				<meta property="og:image" content="{{data.singleStory.image.url}}" />
+			{{else}}
+				<meta property="og:image" content="http://taligestilling.herokuapp.com/images/facebook-share-story.png" />
+			{{/if}}
+		{{else}}
+			<meta property="og:image" content="http://taligestilling.herokuapp.com/images/facebook-share-main.png" />
 		{{/if}}
 		
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor 
