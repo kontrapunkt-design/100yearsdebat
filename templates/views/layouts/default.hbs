@@ -23,7 +23,7 @@
 		<meta property="og:type" content="article" />
 		<meta property="og:description" content="{{data.singleStory.story}}" />
 		<meta property="og:url" content="http://taligestilling.herokuapp.com/story/{{data.singleStory._id}}" />
-			{{#if data.singleStory.image}}
+			{{#if data.singleStory.image.url}}
 				<meta property="og:image" content="{{data.singleStory.image.url}}" />
 			{{else}}
 				<meta property="og:image" content="http://taligestilling.herokuapp.com/images/facebook-share-story.png" />
