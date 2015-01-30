@@ -36,7 +36,7 @@ require.config({
         
         'jquery.cookie': 'libs/jquery.cookie',
         
-        'jquery.clipboard': 'libs/jquery.clipboard'
+        'ZeroClipboard': 'libs/ZeroClipboard'
     },
 
     shim: {
@@ -61,8 +61,6 @@ require.config({
 
         'jquery.fitvids': ['jquery'],
         
-        'jquery.clipboard': ['jquery'],
-
         // Backbone.LayoutManager depends on Backbone.
         'plugins/backbone.layoutmanager': ['backbone'],
         'plugins/backbone.touch': ['backbone']

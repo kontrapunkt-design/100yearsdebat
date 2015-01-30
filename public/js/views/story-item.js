@@ -4,10 +4,11 @@ define([
 		"backbone",
 		"handlebars",
 		"app",
+		"ZeroClipboard",
 		"jquery.cookie",
 		"jquery.fitvids"
 	],
-	function($, Backbone, Handlebars, app) {
+	function($, Backbone, Handlebars, app, ZeroClipboard) {
 		var View = Backbone.LayoutView.extend({
 
 			template: "story-item",
@@ -28,10 +29,10 @@ define([
 				'click .close-btn':'this_closeHandler',
 				'click .embed-video':'embedVideo_clickHandler',
 				'click .answer-item': 'answerItem_clickHandler',
-				'click .hover-overlay .share-btn': 'hoverOverlayShareBtn_clickHandler'
+				'click .share-btn': 'shareBtn_clickHandler'
 			},
 
-			hoverOverlayShareBtn_clickHandler: function (e) {
+			shareBtn_clickHandler: function (e) {
 				e.preventDefault();
 				FB.ui({
 					method: 'share',
@@ -150,7 +151,24 @@ define([
 			},
 
 			afterRender: function () {
+				var self = this;
+
 				app.trigger('grid:relayout');
+
+				//Set copy btn
+				var client = new ZeroClipboard( $(this.el).find('.copy-url-btn')[0] );
+
+				client.on( "ready", function( readyEvent ) {
+					client.on( "copy", function (event) {
+						var clipboard = event.clipboardData;
+						clipboard.setData( "text/plain", window.location.origin + '/story/' + self.model.get('_id') );
+					});
+
+					client.on( "aftercopy", function( event ) {
+						window.alert('URL til historien er kopieret.');
+					});
+				} );
+
 			},
 
 			setActive: function () {
