@@ -73,8 +73,12 @@
 {{/if}}
 
 <div class="story-item--view--social">
-	<div class="social--item">
+	<div class="social--item share-btn">
 		<span class="fb-likes">{{model.shareCount}}</span> <span class="social--item--icon likes"></span>
+	</div>
+
+	<div class="social--item copy-url-btn">
+		kopier URL til historien <span class="social--item--icon comments"></span>
 	</div>
 
 	<div class="social--item">
@@ -95,7 +99,7 @@
 			<span class="expand-social--item--icon comments"></span>
 			<span class="fb-comment-count">{{model.commentCount}}</span> 
 		</div>
-		<div class="expand-social--item">
+		<div class="expand-social--item share-btn">
 			<span class="expand-social--item--icon likes"></span>
 			<span class="fb-likes">{{model.shareCount}}</span> 
 		</div>

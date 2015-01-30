@@ -34,7 +34,9 @@ require.config({
 
         'modernizr': 'libs/modernizr.min',
         
-        'jquery.cookie': 'libs/jquery.cookie'
+        'jquery.cookie': 'libs/jquery.cookie',
+        
+        'jquery.clipboard': 'libs/jquery.clipboard'
     },
 
     shim: {
@@ -58,6 +60,8 @@ require.config({
         'cloudinary': ['jquery','jquery.fileupload'],
 
         'jquery.fitvids': ['jquery'],
+        
+        'jquery.clipboard': ['jquery'],
 
         // Backbone.LayoutManager depends on Backbone.
         'plugins/backbone.layoutmanager': ['backbone'],

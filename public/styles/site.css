@@ -2609,7 +2609,8 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, select
   .slick-prev:hover, .slick-prev:active, .slick-prev.focus, .slick-next:hover, .slick-next:active, .slick-next.focus {
     opacity: 0.8; }
   .slick-prev.slick-disabled, .slick-next.slick-disabled {
-    opacity: 0.2; }
+    opacity: 0.2;
+    cursor: default; }
 
 .slick-next {
   margin-left: 350px;
@@ -3248,6 +3249,8 @@ strong {
   background: #333366;
   color: #cc3333;
   padding: 30px 15px 60px 15px; }
+  .tell-your-story--small--view h3 {
+    font-size: 48px !important; }
   .tell-your-story--small--view .placeholder {
     display: block;
     border: 2px solid white;
@@ -3263,6 +3266,10 @@ strong {
       height: 28px;
       animation: tell-your-story--small--line 1s infinite;
       -webkit-animation: tell-your-story--small--line 1s infinite; }
+  @media only screen and (max-width: 767px) {
+    .tell-your-story--small--view h3 {
+      font-size: 31px !important; }
+ }
 
 @-webkit-keyframes tell-your-story--small--line {
   0% {
@@ -3357,13 +3364,29 @@ strong {
     opacity: 0.5;
     transition: opacity 0.2s; }
     .story--view .story-item--view .story-item--view--social {
-      padding: 15px;
-      padding-top: 0;
-      margin-bottom: 10px; }
+      padding: 0 0 15px 15px;
+      margin-top: 15px;
+      margin-bottom: 3px; }
       .story--view .story-item--view .story-item--view--social .social--item {
         float: none;
         margin-left: 0;
-        margin-right: 15px; }
+        margin-right: 15px;
+        height: 35px;
+        line-height: 35px; }
+        .story--view .story-item--view .story-item--view--social .social--item.copy-url-btn {
+          display: block; }
+        .story--view .story-item--view .story-item--view--social .social--item.share-btn {
+          float: right;
+          margin-right: 0;
+          background-color: #3b5998;
+          color: white;
+          padding: 0 10px;
+          cursor: pointer; }
+          .story--view .story-item--view .story-item--view--social .social--item.share-btn .social--item--icon {
+            background-image: url(/images/facebook-icon_white.png);
+            background-image: linear-gradient(transparent, transparent), url(/images/facebook-icon_white.svg); }
+          .story--view .story-item--view .story-item--view--social .social--item.share-btn:hover {
+            background-color: #2d4373; }
     .story--view .story-item--view .author {
       text-align: left;
       overflow: auto; }
@@ -3851,8 +3874,7 @@ strong {
   z-index: 12;
   opacity: 0;
   transition: opacity 0.4s;
-  transition-delay: 0s;
-  pointer-events: none; }
+  transition-delay: 0s; }
   .hover-overlay .expand-icon {
     position: absolute;
     top: 50%;
@@ -3883,8 +3905,8 @@ strong {
     opacity: 1; }
   .hover-overlay .expand-social {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 0;
+    right: 0;
     color: white; }
   .hover-overlay .expand-social--item {
     margin-left: 15px;
@@ -3892,7 +3914,12 @@ strong {
     font-size: 16px;
     font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
     text-align: center;
-    margin-left: 15px; }
+    margin-left: 0px;
+    padding: 10px; }
+    .hover-overlay .expand-social--item.share-btn {
+      background: #3b5998; }
+      .hover-overlay .expand-social--item.share-btn:hover {
+        background: #466ab5; }
     .hover-overlay .expand-social--item span {
       margin-top: 5px;
       display: block; }
@@ -3961,6 +3988,9 @@ html.touch .hover-overlay {
   text-align: center;
   position: relative;
   padding-top: 118px; }
+  @media only screen and (max-width: 767px) {
+    .frontpage-story {
+      padding-top: 45px; } }
 
 .frontpage-story--text {
   position: absolute;
@@ -4034,6 +4064,12 @@ html.touch .hover-overlay {
       display: inline-block;
       height: 23px;
       line-height: 20px; }
+    .story-item--view--social .social--item.copy-url-btn {
+      display: none;
+      margin-right: 0 !important;
+      background-color: #cccccc;
+      color: white;
+      float: right !important; }
   .story-item--view--social .social--item--icon {
     background-size: 100% auto;
     background-repeat: no-repeat;

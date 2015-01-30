@@ -10,7 +10,7 @@
 	opacity:0;
 	transition:opacity 0.4s;
 	transition-delay: 0s;
-	pointer-events:none;
+	// pointer-events:none;
 	.expand-icon {
 		position: absolute;
 		top:50%;
@@ -43,8 +43,8 @@
 	}
 	.expand-social {
 		position: absolute;
-		bottom:10px;
-		right:10px;
+		bottom:0;
+		right:0;
 		color:white;
 	}
 	.expand-social--item {
@@ -53,7 +53,14 @@
 		font-size:16px;
 		font-family: $font-family-bold;
 		text-align: center;
-		margin-left:15px;
+		margin-left:0px;
+		padding:10px;
+		&.share-btn {
+			background:$blue-special;
+			&:hover {
+				background:lighten($blue-special,8%);
+			}
+		}
 		span {
 			margin-top:5px;
 			display: block;

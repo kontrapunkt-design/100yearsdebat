@@ -2,6 +2,9 @@
 	background:$blue;
 	color:$red;
 	padding:$spacing $spacing-small $spacing-big $spacing-small;
+	h3 {
+		font-size: 48px !important;
+	}
 	.placeholder {
 		display: block;
 		border:2px solid white;
@@ -18,6 +21,11 @@
 			height: 28px;
 			animation:tell-your-story--small--line 1s infinite;
 			-webkit-animation:tell-your-story--small--line 1s infinite;
+		}
+	}
+	@include respond-to(handhelds) {
+		h3 {
+			font-size:31px !important;
 		}
 	}
 }

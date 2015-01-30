@@ -7,7 +7,9 @@ define([
 
 		"views/story-item",
 
-		"slick"
+		"slick",
+
+		"jquery.clipboard"
 	],
 	function($, Backbone, Handlebars, app, StoryItemView) {
 		var View = Backbone.LayoutView.extend({
@@ -63,6 +65,20 @@ define([
 							self.firstSlide.setActive();
 						}
 					});
+				});
+
+				//Set copy btn
+				$(this.el).find('.copy-url-btn').on('click', function(e) {
+					e.preventDefault();
+					console.log('sw');
+				});
+				$(this.el).find('.copy-url-btn').clipboard({
+					path:'/js/libs/jquery.clipboard.swf',
+					copy: function () {
+						window.alert('text copy');
+						console.log('lol');
+			            return 'lolololol';
+					}
 				});
 			},
 

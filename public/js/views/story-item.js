@@ -27,7 +27,16 @@ define([
 				'click':'this_clickHandler',
 				'click .close-btn':'this_closeHandler',
 				'click .embed-video':'embedVideo_clickHandler',
-				'click .answer-item': 'answerItem_clickHandler'
+				'click .answer-item': 'answerItem_clickHandler',
+				'click .hover-overlay .share-btn': 'hoverOverlayShareBtn_clickHandler'
+			},
+
+			hoverOverlayShareBtn_clickHandler: function (e) {
+				e.preventDefault();
+				FB.ui({
+					method: 'share',
+					href: 'http://taligestilling.herokuapp.com/story/'+this.model.get('_id')
+				}, function(response){});
 			},
 
 			answerItem_clickHandler: function (e) {
@@ -35,7 +44,11 @@ define([
 				this.model.pollVote(Number($(e.currentTarget).data('id')));
 			},
 
-			this_clickHandler: function () {
+			this_clickHandler: function (e) {
+				if ( $(e.target).parent().hasClass('share-btn') || $(e.target).hasClass('share-btn') ) {
+					return false;
+				}
+
 				var cookieVoteId = $.cookie('pollVote'+this.model.get('_id'));
 				if ( this.singleStory ||( this.model.get('type') === 'poll' && ! cookieVoteId) ) {
 					return false;
