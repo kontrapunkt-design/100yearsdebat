@@ -25,6 +25,9 @@
 			&:hover {
 				background-color:$gray;
 			}
+			html.touch & {
+				display: none;
+			}
 		}
 	}
 	.social--item--icon {
