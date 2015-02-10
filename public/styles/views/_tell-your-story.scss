@@ -473,6 +473,9 @@
 	.author--name {
 		color:white;
 	}
+	@include respond-to(handhelds) {
+		font-size:18px;
+	}
 }
 
 .tell-your-story--view .state-done {
@@ -482,6 +485,10 @@
 	a.story-link {
 		color:$red;
 		font-size:18px;
+		word-wrap: break-word;
+	}
+	@include respond-to(handhelds) {
+		margin:15px;
 	}
 }
 

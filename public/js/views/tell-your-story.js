@@ -222,6 +222,8 @@ define([
 
 				this.storyId = story._id;
 
+				ga('send', 'pageview', '/tellyourstory/done');
+
 				//Set width
 				$(this.el).css('max-width','708px');
 

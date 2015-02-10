@@ -3,9 +3,35 @@ module.exports = function(app, keystone) {
 	var Story = keystone.list('Story');
 	var StoryTag = keystone.list('StoryTag');
 	var storiesPerPage = 20;
+	var mandrillapi = require('mandrill-api');
+
+	var mandrill = new mandrillapi.Mandrill(keystone.get('mandrill api key'));
 
 	var saveStory = function (argument) {
 		
+	};
+
+	var sendEmail = function (story) {
+		var message = {
+		    "html": "Story: "+story.story+"<br/><br/> Author: "+story.authorName+"<br/><br/> Story on site: <a href=http://debat.100aaret.dk/story/"+story._id+" target=_blank>http://debat.100aaret.dk/story/"+story._id+"</a><br/><br/> See in CMS: <a href=http://debat.100aaret.dk/keystone/stories/"+story._id+" target=_blank>http://debat.100aaret.dk/keystone/stories/"+story._id+"</a>",
+		    "text": "Story: "+story.story+"\n\n Author: "+story.authorName+"\n\n Story on site: http://debat.100aaret.dk/story/"+story._id+"\n\n See in CMS: http://debat.100aaret.dk/keystone/stories/"+story._id,
+		    "subject": "New story from: "+story.authorName,
+		    "from_email": "noreply@100aaret.dk",
+		    "from_name": "Ta lige stilling!",
+		    "to": [{
+		            "email": "madsviktor@gmail.com",
+		            "name": "Mads Viktor",
+		            "type": "to"
+		        }],
+		    "headers": {
+		        "Reply-To": "noreply@100aaret.dk",
+		    }
+		};
+		mandrill.messages.send({"message": message}, function(result) {
+		    console.log(result);
+		}, function(e) {
+		    console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
+		});
 	};
 
 	app.post('/api/stories', function(req, res) {
@@ -54,6 +80,9 @@ module.exports = function(app, keystone) {
 							result:'ok',
 							story: savedStory
 						});
+
+						//Send email
+						sendEmail(savedStory);
 					} else {
 						res.json( {
 							result:'error',

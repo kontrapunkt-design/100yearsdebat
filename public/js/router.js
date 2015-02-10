@@ -109,6 +109,8 @@ define([
 			story: function(storyId) {
 				var self = this;
 
+				ga('send', 'pageview', '/story/'+storyId);
+
 				if ( ! self.storiesCollection.get(storyId) ) {
 					var fetchedStory = new StoryModel({'_id':storyId});
 					fetchedStory.fetch({
@@ -148,6 +150,8 @@ define([
 			openTellYourStory: function (argument) {
 				$('#modal').modal().close();
 				this.modalOpen=false;
+
+				ga('send', 'pageview', '/tellyourstory/');
 
 				$('#layout').append('<div class="modal" id="modal" style="display:none"></div>');
 

@@ -34,14 +34,23 @@ define([
 
 			shareBtn_clickHandler: function (e) {
 				e.preventDefault();
+				var self = this;
+				ga('send', 'event', 'button', 'click', 'shareStoryInit', self.model.get('_id'));
 				FB.ui({
 					method: 'share',
 					href: 'http://taligestilling.herokuapp.com/story/'+this.model.get('_id')
-				}, function(response){});
+				}, function(response){
+					if (response && !response.error_code) {
+						ga('send', 'event', 'button', 'click', 'shareStoryDone', self.model.get('_id'));
+					} else {
+						ga('send', 'event', 'button', 'click', 'shareStoryFailed', self.model.get('_id'));
+					}
+				});
 			},
 
 			answerItem_clickHandler: function (e) {
 				e.preventDefault();
+				ga('send', 'event', 'button', 'click', 'pollVote', {'storyId':this.model.get('_id')});
 				this.model.pollVote(Number($(e.currentTarget).data('id')));
 			},
 
