@@ -37,6 +37,8 @@ exports = module.exports = function(app) {
 	// Views
 	app.get('/', routes.views.index);
 	app.get('/story/:storyId', routes.views.index);
+	app.get('/om', routes.views.index);
+	app.get('/regler', routes.views.index);
 	
 	require('./api')(app, keystone);
 	

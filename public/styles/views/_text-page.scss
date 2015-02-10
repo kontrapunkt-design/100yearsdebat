@@ -1,0 +1,26 @@
+.text-page--view {
+	max-width:610px;
+	border:0;
+	margin:auto;
+	padding-bottom:$spacing-small;
+	position: relative;
+	cursor: default;
+	.close-btn {
+		display: block;
+		width:50px;
+		height:50px;
+		background:$red;
+		background-image: url(/images/close-icon.png);
+		background-image: linear-gradient(transparent, transparent), url(/images/close-icon.svg);
+		background-repeat:no-repeat;
+		background-position:center center;
+		transition:opacity 0.3s;
+		z-index:1;
+		right:0;
+		top:0;
+		position: absolute;
+		&:hover {
+			background-color:darken($red,7%);
+		}
+	}
+}

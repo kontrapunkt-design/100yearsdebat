@@ -6,6 +6,8 @@ define([
 		"views/tell-your-story",
 		"views/grid",
 		"views/story",
+		"views/om-page",
+		"views/regler-page",
 
 		//Models + Collections
 		"models/story",
@@ -21,6 +23,8 @@ define([
 		TellYourStoryView,
 		GridView,
 		StoryView,
+		OmPageView,
+		ReglerPageView,
 		StoryModel,
 		TagsCollection,
 		StoriesCollection
@@ -33,7 +37,9 @@ define([
 
 			routes: {
 				"": "index",
-				"story/:storyId": "story"
+				"story/:storyId": "story",
+				"om" : "openOm",
+				"regler" : "openRegler"
 			},
 
 			initialize: function() {
@@ -161,7 +167,39 @@ define([
 					$('#modal').modal().open();
 					self.modalOpen=true;
 				});
-			}
+			},
+
+			openOm: function () {
+				$('#modal').modal().close();
+				this.modalOpen=false;
+
+				ga('send', 'pageview', '/om/');
+
+				$('#layout').append('<div class="modal" id="modal" style="display:none"></div>');
+
+				app.layout.setView(
+					'#modal', new OmPageView()
+				).render(function() {
+					$('#modal').modal().open();
+					self.modalOpen=true;
+				});
+			},
+
+			openRegler: function () {
+				$('#modal').modal().close();
+				this.modalOpen=false;
+
+				ga('send', 'pageview', '/om/');
+
+				$('#layout').append('<div class="modal" id="modal" style="display:none"></div>');
+
+				app.layout.setView(
+					'#modal', new ReglerPageView()
+				).render(function() {
+					$('#modal').modal().open();
+					self.modalOpen=true;
+				});
+			},
 		});
 
 		return Router;
