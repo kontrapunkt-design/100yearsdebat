@@ -2639,13 +2639,13 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, select
 
 @media only screen and (max-width: 767px) {
   .slick-next, .slick-prev {
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: 20px;
     margin-top: -10px;
-    background-size: auto 60%;
+    background-size: auto 43%;
     background-color: #cc3333;
-    opacity: 1; }
+    opacity: 0.7; }
  }
 
 /* Dots */
@@ -2912,6 +2912,9 @@ strong {
       color: #cc3333; }
     .tell-your-story--story-box textarea:focus {
       color: #333366; }
+    @media only screen and (max-width: 767px) {
+      .tell-your-story--story-box textarea {
+        font-size: 16px; } }
   .tell-your-story--story-box .input-email-wrapper, .tell-your-story--story-box .input-name-wrapper {
     border: 2px solid #999999;
     position: relative;
@@ -2933,6 +2936,9 @@ strong {
       padding-right: 45px !important; }
     .tell-your-story--story-box .input-email-wrapper.valid .input--indicator, .tell-your-story--story-box .input-name-wrapper.valid .input--indicator {
       display: block; }
+    @media only screen and (max-width: 767px) {
+      .tell-your-story--story-box .input-email-wrapper, .tell-your-story--story-box .input-name-wrapper {
+        margin: 15px !important; } }
   .tell-your-story--story-box .input-name-wrapper {
     margin: 0 15px 0 0; }
   .tell-your-story--story-box .input--indicator {
@@ -3380,6 +3386,9 @@ strong {
         line-height: 35px; }
         .story--view .story-item--view .story-item--view--social .social--item.copy-url-btn {
           display: block; }
+          @media only screen and (max-width: 991px) {
+            .story--view .story-item--view .story-item--view--social .social--item.copy-url-btn {
+              display: none; } }
         .story--view .story-item--view .story-item--view--social .social--item.share-btn {
           float: right;
           margin-right: 0;

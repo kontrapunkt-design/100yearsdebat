@@ -82,6 +82,9 @@
 		&:focus {
 			color:$blue;
 		}
+		@include respond-to(handhelds) {
+			font-size:16px;
+		}
 	}
 	.input-email-wrapper, .input-name-wrapper {
 		border: 2px solid $gray-dark;
@@ -113,6 +116,10 @@
 			.input--indicator {
 				display: block;
 			}
+		}
+
+		@include respond-to(handhelds){
+			margin: 15px !important;
 		}
 	}
 	.input-name-wrapper {

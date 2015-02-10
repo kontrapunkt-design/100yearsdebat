@@ -19,7 +19,7 @@ function(Backbone,app) {
 			var self = this;
 			$.get('http://graph.facebook.com/?id=http://taligestilling.herokuapp.com/story/'+this.get('_id'), function(data) {
 				self.set('commentCount',data.comments || 0);
-				self.set('shareCount',data.shares > 0 ? Number(Number(data.shares)-Number(data.comments)) : 0);
+				self.set('shareCount',data.shares && data.shares > 0 ? Number(Number(data.shares)-Number(data.comments)) : 0);
 				self.trigger('fetched:socialCount');
 			});
 		},

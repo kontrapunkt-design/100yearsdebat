@@ -21,6 +21,9 @@
 				line-height:35px;
 				&.copy-url-btn {
 					display: block;
+					@include respond-to(handhelds-tablets) {
+						display: none;
+					}
 				}
 				&.share-btn {
 					float:right;

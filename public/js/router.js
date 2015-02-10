@@ -78,7 +78,7 @@ define([
 					var frontpageStoryId = $('.frontpage-story').data('id');
 
 					//Make sure story opens correctly
-					$('.frontpage-story a').on('click touchend', function (e) {
+					$('.frontpage-story a').on('click', function (e) {
 						e.preventDefault();
 						app.router.navigate('story/'+frontpageStoryId, {trigger: true});
 					});
