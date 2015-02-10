@@ -2930,7 +2930,7 @@ strong {
       border-color: #cc3333;
       color: #cc3333; }
     .tell-your-story--story-box .input-email-wrapper.valid input, .tell-your-story--story-box .input-name-wrapper.valid input {
-      padding-right: 10px; }
+      padding-right: 45px !important; }
     .tell-your-story--story-box .input-email-wrapper.valid .input--indicator, .tell-your-story--story-box .input-name-wrapper.valid .input--indicator {
       display: block; }
   .tell-your-story--story-box .input-name-wrapper {
@@ -2944,6 +2944,7 @@ strong {
     bottom: 0;
     width: 45px;
     border-left: 2px solid #999999;
+    background-color: white;
     background-image: url(/images/checkbox-icon.png);
     background-image: linear-gradient(transparent, transparent), url(/images/checkbox-icon.svg);
     background-repeat: no-repeat;
@@ -3195,7 +3196,11 @@ strong {
   top: 0;
   width: 50px;
   height: 50px;
-  background-color: #52cc52; }
+  background-color: #52cc52;
+  background-image: url(/images/checkbox-icon_white.png);
+  background-image: linear-gradient(transparent, transparent), url(/images/checkbox-icon_white.svg);
+  background-repeat: no-repeat;
+  background-position: center center; }
   .tell-your-story--video-modal--submit-btn:hover, .tell-your-story--video-modal--submit-btn:active, .tell-your-story--video-modal--submit-btn:focus {
     background-color: #2a8e2a; }
 
@@ -4074,6 +4079,8 @@ html.touch .hover-overlay {
       cursor: pointer; }
       .story-item--view--social .social--item.copy-url-btn:hover {
         background-color: #b3b3b3; }
+      html.touch .story-item--view--social .social--item.copy-url-btn {
+        display: none; }
   .story-item--view--social .social--item--icon {
     background-size: 100% auto;
     background-repeat: no-repeat;

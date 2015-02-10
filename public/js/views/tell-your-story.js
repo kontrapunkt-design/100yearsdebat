@@ -231,7 +231,7 @@ define([
 				$stateDone.find('.text p').text(story.story);
 				
 				$stateDone.find('.story-link').text('taligestilling.herokuapp.com/story/'+this.storyId);
-				$stateDone.find('.story-link').attr('href', 'http://www.taligestilling.dk/story/'+this.storyId);
+				$stateDone.find('.story-link').attr('href', 'http://taligestilling.herokuapp.com/story/'+this.storyId);
 
 				if ( story.image ) {
 					$stateDone.find('.embed-video').prepend($.cloudinary.image(story.image.public_id, { width: 453 }));

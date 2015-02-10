@@ -108,7 +108,7 @@
 
 		&.valid {
 			input {
-				padding-right:10px;
+				padding-right:45px !important;
 			}
 			.input--indicator {
 				display: block;
@@ -127,6 +127,7 @@
 		bottom:0;
 		width:45px;
 		border-left:2px solid $gray-dark;
+		background-color:white;
 		background-image: url(/images/checkbox-icon.png);
 		background-image: linear-gradient(transparent, transparent), url(/images/checkbox-icon.svg);
 		background-repeat:no-repeat;
@@ -430,6 +431,10 @@
 	width:50px;
 	height:50px;
 	background-color:$green;
+	background-image: url(/images/checkbox-icon_white.png);
+	background-image: linear-gradient(transparent, transparent), url(/images/checkbox-icon_white.svg);
+	background-repeat:no-repeat;
+	background-position:center center;
 	&:hover, &:active, &:focus {
 		background-color:darken($green,20%);
 	}

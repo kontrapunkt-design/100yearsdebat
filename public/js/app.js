@@ -6,8 +6,8 @@ define([
         "handlebars",
 
         // Plugins.
-        "plugins/backbone.layoutmanager",
-        "plugins/backbone.touch"
+        "plugins/backbone.layoutmanager"
+        // "plugins/backbone.touch"
     ],
 
     function($, _, Backbone, Handlebars, Utils) {
