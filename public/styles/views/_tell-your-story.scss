@@ -345,10 +345,10 @@
 		}
 	}
 	.custom-tag {
-		margin-top:$spacing-small;
 		width:100%;
 		display: block;
 		padding:8px 10px;
+		padding-right:41px;
 		text-align:center;
 		background:$blue;
 		color:white;
@@ -371,7 +371,24 @@
 		&:-ms-input-placeholder {  
 			color: lighten($blue,40%);
 		}
-
+	}
+	.custom-tag-wrapper {
+		margin-top:$spacing-small;
+		position: relative;
+	}
+	.custom-tag-wrapper--btn {
+		position: absolute;
+		right:0;
+		top:0;
+		width:41px;
+		height:41px;
+		background-image: url(/images/checkbox-icon_white.png);
+		background-image: linear-gradient(transparent, transparent), url(/images/checkbox-icon_white.svg);
+		background-repeat:no-repeat;
+		background-position:center center;
+		&:hover, &:active, &:focus {
+			background-color:lighten($blue,10%);
+		}
 	}
 }
 

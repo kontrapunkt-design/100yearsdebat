@@ -3131,10 +3131,10 @@ strong {
 .tell-your-story_form--tags.error .error-msg {
   display: block; }
 .tell-your-story_form--tags .custom-tag {
-  margin-top: 15px;
   width: 100%;
   display: block;
   padding: 8px 10px;
+  padding-right: 41px;
   text-align: center;
   background: #333366;
   color: white;
@@ -3152,6 +3152,21 @@ strong {
     color: #9999cc; }
   .tell-your-story_form--tags .custom-tag:-ms-input-placeholder {
     color: #9999cc; }
+.tell-your-story_form--tags .custom-tag-wrapper {
+  margin-top: 15px;
+  position: relative; }
+.tell-your-story_form--tags .custom-tag-wrapper--btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 41px;
+  height: 41px;
+  background-image: url(/images/checkbox-icon_white.png);
+  background-image: linear-gradient(transparent, transparent), url(/images/checkbox-icon_white.svg);
+  background-repeat: no-repeat;
+  background-position: center center; }
+  .tell-your-story_form--tags .custom-tag-wrapper--btn:hover, .tell-your-story_form--tags .custom-tag-wrapper--btn:active, .tell-your-story_form--tags .custom-tag-wrapper--btn:focus {
+    background-color: #444488; }
 
 .tell-your-story--tags a {
   display: inline-block;

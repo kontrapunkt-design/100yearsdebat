@@ -189,7 +189,7 @@ define([
 				$('#modal').modal().close();
 				this.modalOpen=false;
 
-				ga('send', 'pageview', '/om/');
+				ga('send', 'pageview', '/regler/');
 
 				$('#layout').append('<div class="modal" id="modal" style="display:none"></div>');
 

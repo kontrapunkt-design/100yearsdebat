@@ -32,6 +32,7 @@ define([
 				'submit .tell-your-story_form':'form_submitHandler',
 				'click .tell-your-story--submit':'form_submitHandler',
 				'submit .tell-your-story_form--tags': 'customTags_submit',
+				'click .custom-tag-wrapper--btn': 'customTags_submit',
 				'click .close-btn.modal-close':'this_closeHandler',
 				'click .tell-your-story--tags a': 'tag_clickHandler',
 				'click a.add-video': 'addVideo_clickHandler',
