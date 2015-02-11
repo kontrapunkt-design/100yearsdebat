@@ -62,7 +62,7 @@ module.exports = function(app, keystone) {
 		}, function(err) {
 			if ( ! err ) {
 				var story = new Story.model({
-					state:'submitted',
+					state:'published',
 					tags: tags,
 					story: data.story,
 					email:data.email,
