@@ -34,6 +34,7 @@ module.exports = function(app, keystone) {
 		});
 	};
 
+
 	app.post('/api/stories', function(req, res) {
 		var data = req.body;
 		var postedTags = data.tags;
