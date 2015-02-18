@@ -19,10 +19,10 @@ module.exports = function(app, keystone) {
 		    "from_email": "noreply@100aaret.dk",
 		    "from_name": "Ta lige stilling!",
 		    "to": [{
-		            "email": "madsviktor@gmail.com",
-		            "name": "Mads Viktor",
+		            "email": "kvinde100@kontrapunkt.com",
+		            "name": "Kvinde100",
 		            "type": "to"
-		        }],
+		        },],
 		    "headers": {
 		        "Reply-To": "noreply@100aaret.dk",
 		    }
