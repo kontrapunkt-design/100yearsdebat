@@ -5,7 +5,7 @@ module.exports = function(app, keystone) {
 	var storiesPerPage = 20;
 	var mandrillapi = require('mandrill-api');
 
-	var mandrill = new mandrillapi.Mandrill(keystone.get('mandrill api key'));
+	var mandrill = new mandrillapi.Mandrill('WjjsRHeZFPYaUafDf4A3gw');
 
 	var saveStory = function (argument) {
 		
