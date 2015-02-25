@@ -10,7 +10,7 @@ define([
 	function($, Backbone, Handlebars, app) {
 		var View = Backbone.LayoutView.extend({
 
-			template: "regler-page",
+			template: "text-page",
 
 			className: "text-page--view story-item--view",
 
@@ -24,7 +24,9 @@ define([
 			},
 
 			serialize: function() {
-				return {};
+				return {
+					model:this.model.toJSON()
+				};
 			}
 		});
 

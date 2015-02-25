@@ -12,7 +12,7 @@ module.exports = function(app, keystone) {
 	};
 
 	var sendEmail = function (story) {
-		var message = {
+		var adminMessage = {
 		    "html": "Story: "+story.story+"<br/><br/> Author: "+story.authorName+"<br/><br/> Story on site: <a href=http://debat.100aaret.dk/story/"+story._id+" target=_blank>http://debat.100aaret.dk/story/"+story._id+"</a><br/><br/> See in CMS: <a href=http://debat.100aaret.dk/keystone/stories/"+story._id+" target=_blank>http://debat.100aaret.dk/keystone/stories/"+story._id+"</a>",
 		    "text": "Story: "+story.story+"\n\n Author: "+story.authorName+"\n\n Story on site: http://debat.100aaret.dk/story/"+story._id+"\n\n See in CMS: http://debat.100aaret.dk/keystone/stories/"+story._id,
 		    "subject": "New story from: "+story.authorName,
@@ -27,7 +27,22 @@ module.exports = function(app, keystone) {
 		        "Reply-To": "noreply@100aaret.dk",
 		    }
 		};
-		mandrill.messages.send({"message": message}, function(result) {
+		var userMessage = {
+		    "html": "Din historie er medvirkende til at holde liv i den vigtige dialog om ligestilling, demokrati og deltagelse. <br/><br/>Du finder dit personlige bidrag her <a href=http://debat.100aaret.dk/story/"+story._id+" target=_blank>http://debat.100aaret.dk/story/"+story._id+"</a><br/><br/>Har du spørgsmål kan du finde svaret i vores FAQ: <a href=http://debat.100aaret.dk/#hvem target=_blank>http://debat.100aaret.dk/#hvem</a><br/><br/>Alternativt er du velkommen til at sende en mail til websitets moderator, som vil besvare din henvendelse inden for 3 arbejdsdage: moderator@kontrapunkt.com<br/><br/>Tak for din deltagelse. <br/><br/>Med Venlig Hilsen<br/><br/>Ministeriet for Børn,Ligestilling, Integration og Sociale Forhold",
+		    "text": "Din historie er medvirkende til at holde liv i den vigtige dialog om ligestilling, demokrati og deltagelse. \n\nDu finder dit personlige bidrag her http://debat.100aaret.dk/story/"+story._id+"\n\nHar du spørgsmål kan du finde svaret i vores FAQ: http://debat.100aaret.dk/#hvem\n\nAlternativt er du velkommen til at sende en mail til websitets moderator, som vil besvare din henvendelse inden for 3 arbejdsdage: moderator@kontrapunkt.com\n\nTak for din deltagelse. \n\nMed Venlig Hilsen\n\nMinisteriet for Børn,Ligestilling, Integration og Sociale Forhold",
+		    "subject": "Tak for dit bidrag!",
+		    "from_email": "noreply@100aaret.dk",
+		    "from_name": "Ta lige stilling!",
+		    "to": [{
+		            "email": story.email,
+		            "name": story.authorName,
+		            "type": "to"
+		        },],
+		    "headers": {
+		        "Reply-To": "noreply@100aaret.dk",
+		    }
+		};
+		mandrill.messages.send([{"message": adminMessage},{"message": userMessage}], function(result) {
 		    console.log(result);
 		}, function(e) {
 		    console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);

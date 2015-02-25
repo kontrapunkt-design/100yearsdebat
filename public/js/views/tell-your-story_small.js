@@ -4,6 +4,7 @@ define([
 		"backbone",
 		"handlebars",
 		"app",
+		'text-rotator',
 
 		// Plugins.
 		"validate",
@@ -35,6 +36,10 @@ define([
 			},
 
 			afterRender: function() {
+				$(this.el).find('.rotate').textrotator({
+					animation: "flipUp",
+					speed: 1750
+				});
 			},
 
 			serialize: function() {

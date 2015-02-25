@@ -9,7 +9,7 @@
 		display: block;
 		border:2px solid white;
 		padding:5px 10px;
-		font-size:24px;
+		font-size:19px;
 		color:white;
 
 		.line{
@@ -17,10 +17,15 @@
 			width:1px;
 			height:100%;
 			background:white;
-			margin: -4px 0;
+			margin: -7px 0;
 			height: 28px;
 			animation:tell-your-story--small--line 1s infinite;
 			-webkit-animation:tell-your-story--small--line 1s infinite;
+		}
+	}
+	@include respond-to(tablets) {
+		.placeholder {
+			font-size:18px;
 		}
 	}
 	@include respond-to(handhelds) {

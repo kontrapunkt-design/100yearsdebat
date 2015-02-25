@@ -31,6 +31,14 @@ exports = module.exports = function(req, res) {
 		});
 	});
 
+	// Load pages
+	view.on('init', function(next) {
+		keystone.list('Page').model.find().exec(function(err, pages) {
+			locals.data.pagesJson=JSON.stringify(pages);
+			next(err);
+		});
+	});
+
 	//Load specific story (for SEO and FB deeplinking)
 	view.on('init', function(next) {
 		keystone.list('Story').model.findOne({'_id':req.params.storyId}).exec(function(err, story) {

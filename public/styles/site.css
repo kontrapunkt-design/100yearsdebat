@@ -2845,6 +2845,9 @@ strong {
       padding: 0;
       margin-bottom: 10px; }
       .container .nav a {
+        margin-left: 30px;
+        margin-right: 0px;
+        display: inline-block;
         font-size: 12px; }
  }
 
@@ -3291,17 +3294,21 @@ strong {
     display: block;
     border: 2px solid white;
     padding: 5px 10px;
-    font-size: 24px;
+    font-size: 19px;
     color: white; }
     .tell-your-story--small--view .placeholder .line {
       display: inline-block;
       width: 1px;
       height: 100%;
       background: white;
-      margin: -4px 0;
+      margin: -7px 0;
       height: 28px;
       animation: tell-your-story--small--line 1s infinite;
       -webkit-animation: tell-your-story--small--line 1s infinite; }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .tell-your-story--small--view .placeholder {
+      font-size: 18px; }
+ }
   @media only screen and (max-width: 767px) {
     .tell-your-story--small--view h3 {
       font-size: 31px !important; }

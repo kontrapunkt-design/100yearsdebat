@@ -6,13 +6,13 @@ define([
 		"views/tell-your-story",
 		"views/grid",
 		"views/story",
-		"views/om-page",
-		"views/regler-page",
+		"views/text-page",
 
 		//Models + Collections
 		"models/story",
 		"collections/tags",
 		"collections/stories",
+		"collections/pages",
 
 		"cloudinary",
 		"modal"
@@ -23,11 +23,11 @@ define([
 		TellYourStoryView,
 		GridView,
 		StoryView,
-		OmPageView,
-		ReglerPageView,
+		TextPage,
 		StoryModel,
 		TagsCollection,
-		StoriesCollection
+		StoriesCollection,
+		PagesCollection
 		) {
 		// Defining the application router, you can attach sub routers here.
 		var Router = Backbone.Router.extend({
@@ -39,7 +39,8 @@ define([
 				"": "index",
 				"story/:storyId": "story",
 				"om" : "openOm",
-				"regler" : "openRegler"
+				"regler" : "openRegler",
+				"hvem" : "openHvem"
 			},
 
 			initialize: function() {
@@ -53,6 +54,7 @@ define([
 				//Set tags-collection
 				self.tagsCollection = new TagsCollection(window.app.tags);
 				self.storiesCollection = new StoriesCollection(window.app.stories);
+				self.pagesCollection = new PagesCollection(window.app.pages);
 
 				//Story view
 				$.modal({
@@ -170,6 +172,7 @@ define([
 			},
 
 			openOm: function () {
+				var self = this;
 				$('#modal').modal().close();
 				this.modalOpen=false;
 
@@ -178,7 +181,7 @@ define([
 				$('#layout').append('<div class="modal" id="modal" style="display:none"></div>');
 
 				app.layout.setView(
-					'#modal', new OmPageView()
+					'#modal', new TextPage({model:self.pagesCollection.get('om')})
 				).render(function() {
 					$('#modal').modal().open();
 					self.modalOpen=true;
@@ -186,6 +189,7 @@ define([
 			},
 
 			openRegler: function () {
+				var self = this;
 				$('#modal').modal().close();
 				this.modalOpen=false;
 
@@ -194,12 +198,29 @@ define([
 				$('#layout').append('<div class="modal" id="modal" style="display:none"></div>');
 
 				app.layout.setView(
-					'#modal', new ReglerPageView()
+					'#modal', new TextPage({model:self.pagesCollection.get('regler')})
 				).render(function() {
 					$('#modal').modal().open();
 					self.modalOpen=true;
 				});
 			},
+
+			openHvem: function () {
+				var self = this;
+				$('#modal').modal().close();
+				this.modalOpen=false;
+
+				ga('send', 'pageview', '/regler/');
+
+				$('#layout').append('<div class="modal" id="modal" style="display:none"></div>');
+
+				app.layout.setView(
+					'#modal', new TextPage({model:self.pagesCollection.get('hvem')})
+				).render(function() {
+					$('#modal').modal().open();
+					self.modalOpen=true;
+				});
+			}
 		});
 
 		return Router;

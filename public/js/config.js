@@ -35,6 +35,8 @@ require.config({
         'modernizr': 'libs/modernizr.min',
         
         'jquery.cookie': 'libs/jquery.cookie',
+
+        'text-rotator': 'libs/jquery-simple-text-rotator',
         
         'ZeroClipboard': 'libs/ZeroClipboard'
     },
@@ -58,6 +60,7 @@ require.config({
         'jquery.iframe-transport': ['jquery'],
         'jquery.fileupload': ['jquery','jquery.iframe-transport','jquery.ui.widget'],
         'cloudinary': ['jquery','jquery.fileupload'],
+        'text-rotator':['jquery'],
 
         'jquery.fitvids': ['jquery'],
         

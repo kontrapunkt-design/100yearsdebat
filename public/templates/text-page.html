@@ -1,0 +1,13 @@
+<a href="#" class="close-btn {{#if model.image}}w-media{{/if}}"></a>
+
+{{#if model.image}}
+<img src="{{model.image.url}}" alt="" width="100%" />
+{{/if}}
+
+<div class="text">
+	<h3>{{model.title}}</h3>
+	<h4>{{model.subtitle}}</h4>
+	<p>
+		{{{model.text}}}
+	</p>
+</div>

@@ -24,9 +24,10 @@ exports.initLocals = function(req, res, next) {
 	var locals = res.locals;
 	
 	locals.navLinks = [
-		{ label: 'Historier',		key: 'home',		href: '/' },
-		{ label: 'Om',		key: 'home',		href: 'om' },
-		{ label: 'Regler',		key: 'home',		href: 'regler' }
+		//{ label: 'Historier',		key: 'home',		href: '/' },
+		{ label: 'Hvad går det ud på?',		key: 'home',		href: 'om' },
+		{ label: 'Hvem står bag?',		key: 'home',		href: 'hvem' },
+		{ label: 'Debatregler',		key: 'home',		href: 'regler' }
 	];
 	
 	locals.user = req.user;
