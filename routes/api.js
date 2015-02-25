@@ -5,7 +5,7 @@ module.exports = function(app, keystone) {
 	var storiesPerPage = 20;
 	var mandrillapi = require('mandrill-api');
 
-	var mandrill = new mandrillapi.Mandrill('WjjsRHeZFPYaUafDf4A3gw');
+	var mandrill = new mandrillapi.Mandrill(keystone.get('mandrill api key'));
 
 	var saveStory = function (argument) {
 		
@@ -42,8 +42,13 @@ module.exports = function(app, keystone) {
 		        "Reply-To": "noreply@100aaret.dk",
 		    }
 		};
-		mandrill.messages.send([{"message": adminMessage},{"message": userMessage}], function(result) {
+		mandrill.messages.send({"message": adminMessage}, function(result) {
 		    console.log(result);
+			mandrill.messages.send({"message": userMessage}, function(result) {
+			    console.log(result);
+			}, function(e) {
+			    console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
+			});
 		}, function(e) {
 		    console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
 		});
