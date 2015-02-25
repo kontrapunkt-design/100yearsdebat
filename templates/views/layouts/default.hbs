@@ -22,14 +22,15 @@
 		{{#if data.singleStory}}
 		<meta property="og:type" content="article" />
 		<meta property="og:description" content="{{data.singleStory.story}}" />
-		<meta property="og:url" content="http://taligestilling.herokuapp.com/story/{{data.singleStory._id}}" />
+		<meta property="og:url" content="http://debat.100aaret.dk/story/{{data.singleStory._id}}" />
 			{{#if data.singleStory.image.url}}
 				<meta property="og:image" content="{{data.singleStory.image.url}}" />
 			{{else}}
-				<meta property="og:image" content="http://taligestilling.herokuapp.com/images/facebook-share-story.png" />
+				<meta property="og:image" content="http://debat.100aaret.dk/images/facebook-share-story.png" />
 			{{/if}}
 		{{else}}
-			<meta property="og:image" content="http://taligestilling.herokuapp.com/images/facebook-share-main.png" />
+			<meta property="og:description" content="I år er det 100 år siden, at kvinder fik ret til at stemme og stille op til valg. En rettighed mange i dag tager for givet og ikke skænker en tanke, men som har krævet mange års kamp. En kamp for demokratiet og lige rettigheder til at deltage uanset om man er kvinde eller mand." />
+			<meta property="og:image" content="http://debat.100aaret.dk/images/facebook-share-main.png" />
 		{{/if}}
 		
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor 
