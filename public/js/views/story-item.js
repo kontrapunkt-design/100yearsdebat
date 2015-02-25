@@ -38,7 +38,7 @@ define([
 				ga('send', 'event', 'button', 'click', 'shareStoryInit', self.model.get('_id'));
 				FB.ui({
 					method: 'share',
-					href: 'http://taligestilling.herokuapp.com/story/'+this.model.get('_id')
+					href: 'http://debat.100aaret.dk/story/'+this.model.get('_id')
 				}, function(response){
 					if (response && !response.error_code) {
 						ga('send', 'event', 'button', 'click', 'shareStoryDone', self.model.get('_id'));

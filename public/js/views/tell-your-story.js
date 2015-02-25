@@ -233,8 +233,8 @@ define([
 
 				$stateDone.find('.text p').text(story.story);
 				
-				$stateDone.find('.story-link').text('taligestilling.herokuapp.com/story/'+this.storyId);
-				$stateDone.find('.story-link').attr('href', 'http://taligestilling.herokuapp.com/story/'+this.storyId);
+				$stateDone.find('.story-link').text('debat.100aaret.dk/story/'+this.storyId);
+				$stateDone.find('.story-link').attr('href', 'http://debat.100aaret.dk/story/'+this.storyId);
 
 				if ( story.image ) {
 					$stateDone.find('.embed-video').prepend($.cloudinary.image(story.image.public_id, { width: 453 }));
@@ -257,7 +257,7 @@ define([
 				e.preventDefault();
 				FB.ui({
 					method: 'share',
-					href: 'http://taligestilling.herokuapp.com/story/'+this.storyId
+					href: 'http://debat.100aaret.dk/story/'+this.storyId
 				}, function(response){});
 			},
 
@@ -339,9 +339,9 @@ define([
 				$('#addPicture').unsigned_cloudinary_upload('userstory', 
 					{
 						cloud_name: 'diin',
-						callback: 'http://taligestilling.herokuapp.com/cloudinary_cors.html'
+						callback: 'http://debat.100aaret.dk/cloudinary_cors.html'
 					}, 
-					{ multiple: false, callback: 'http://taligestilling.herokuapp.com/cloudinary_cors.html' }
+					{ multiple: false, callback: 'http://debat.100aaret.dk/cloudinary_cors.html' }
 				).bind('cloudinarydone', function(e, data) {
 					console.log('hello hello');
 					self.imageUpload=null;
