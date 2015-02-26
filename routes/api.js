@@ -63,15 +63,17 @@ module.exports = function(app, keystone) {
 		var image = {};
 
 		if ( data.image ) {
-			public_id: data.image.public_id,
-			version: data.image.version,
-			signature: data.image.signature,
-			width: data.image.width,
-			height: data.image.height,
-			format: data.image.format,
-			resource_type: data.image.resource_type,
-			url: data.image.url,
-			secure_url: data.image.secure_url
+			image = {
+				public_id: data.image.public_id,
+				version: data.image.version,
+				signature: data.image.signature,
+				width: data.image.width,
+				height: data.image.height,
+				format: data.image.format,
+				resource_type: data.image.resource_type,
+				url: data.image.url,
+				secure_url: data.image.secure_url
+			}
 		}
 
 		//Populate tags
