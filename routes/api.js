@@ -87,7 +87,6 @@ module.exports = function(app, keystone) {
 					tags: tags,
 					story: data.story,
 					email:data.email,
-					image:data.image,
 					facebookId:data.facebookId,
 					authorName:data.authorName,
 					youtube:data.youtube,
