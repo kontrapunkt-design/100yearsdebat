@@ -2851,6 +2851,21 @@ strong {
         font-size: 12px; }
  }
 
+header .share-btn {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 32px; }
+  header .share-btn.facebook {
+    background-image: url(/images/share-btn_facebook.jpg);
+    background-repeat: no-repeat; }
+  @media only screen and (max-width: 767px) {
+    header .share-btn {
+      right: auto;
+      left: 10px; } }
+
 .tell-your-story--view {
   position: relative;
   margin: auto;

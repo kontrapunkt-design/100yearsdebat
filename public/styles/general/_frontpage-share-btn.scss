@@ -1,0 +1,15 @@
+header .share-btn {
+	display: block;
+	position: absolute;
+	top:0;
+	right:0;
+	width:32px;
+	height:32px;
+	&.facebook {
+		background-image: url(/images/share-btn_facebook.jpg);
+		background-repeat: no-repeat;
+	}
+	@include respond-to(handhelds) {
+		display: none;
+	}
+}
