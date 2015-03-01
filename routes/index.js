@@ -33,6 +33,15 @@ var routes = {
 
 // Setup Route Bindings
 exports = module.exports = function(app) {
+
+	// Redirect www. to http
+	app.get('*', function(req, res, next) {
+		if (req.headers.host.indexOf('www') > -1 ) {
+			res.redirect('http://' + req.headers.host.split('www').join('') + req.url, 301);
+		} else {
+			next();
+		}
+	});
 	
 	// Views
 	app.get('/', routes.views.index);
