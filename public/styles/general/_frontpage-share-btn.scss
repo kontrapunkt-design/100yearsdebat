@@ -1,10 +1,11 @@
-header .share-btn {
+.frontpage-share-btn {
 	display: block;
 	position: absolute;
 	top:0;
 	right:0;
 	width:32px;
 	height:32px;
+	z-index:100;
 	&.facebook {
 		background-image: url(/images/share-btn_facebook.jpg);
 		background-repeat: no-repeat;

@@ -98,6 +98,22 @@ define([
 						$('.frontpage-story').find('.fb-likes').text(frontpageStoryModel.get('shareCount'));
 					}, this);
 					frontpageStoryModel.getShareCount();
+
+					$('.frontpage-story .share-btn').click(function(e) {
+						e.preventDefault();
+						var self = this;
+						ga('send', 'event', 'button', 'click', 'shareStoryInit', frontpageStoryModel.get('_id'));
+						FB.ui({
+							method: 'share',
+							href: 'http://debat.100aaret.dk/story/'+frontpageStoryModel.get('_id')
+						}, function(response){
+							if (response && !response.error_code) {
+								ga('send', 'event', 'button', 'click', 'shareStoryDone', frontpageStoryModel.get('_id'));
+							} else {
+								ga('send', 'event', 'button', 'click', 'shareStoryFailed', frontpageStoryModel.get('_id'));
+							}
+						});
+					});
 				}
 			},
 

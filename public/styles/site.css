@@ -2851,20 +2851,20 @@ strong {
         font-size: 12px; }
  }
 
-header .share-btn {
+.frontpage-share-btn {
   display: block;
   position: absolute;
   top: 0;
   right: 0;
   width: 32px;
-  height: 32px; }
-  header .share-btn.facebook {
+  height: 32px;
+  z-index: 100; }
+  .frontpage-share-btn.facebook {
     background-image: url(/images/share-btn_facebook.jpg);
     background-repeat: no-repeat; }
   @media only screen and (max-width: 767px) {
-    header .share-btn {
-      right: auto;
-      left: 10px; } }
+    .frontpage-share-btn {
+      display: none; } }
 
 .tell-your-story--view {
   position: relative;
@@ -3327,6 +3327,12 @@ header .share-btn {
   @media only screen and (max-width: 767px) {
     .tell-your-story--small--view h3 {
       font-size: 31px !important; }
+
+    .tell-your-story--small--view .placeholder {
+      font-size: 12px !important; }
+      .tell-your-story--small--view .placeholder .line {
+        margin: -5px 0;
+        height: 20px; }
  }
 
 @-webkit-keyframes tell-your-story--small--line {
