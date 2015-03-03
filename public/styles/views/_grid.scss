@@ -46,7 +46,8 @@
 	font-family:$font-family-bold;
 	text-align:center;
 	margin:auto;
-	margin-top:$spacing;
+	margin-top:80px;
+	margin-bottom:$spacing;
 	&:hover, &:active, &:focus {
 		text-decoration: none;
 		color:white;
