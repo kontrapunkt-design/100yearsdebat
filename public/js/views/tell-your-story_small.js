@@ -37,7 +37,7 @@ define([
 
 			afterRender: function() {
 				$(this.el).find('.rotate').textrotator({
-					animation: "flipUp",
+					animation: "dissolve",
 					speed: 1750
 				});
 			},

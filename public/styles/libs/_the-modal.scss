@@ -1,5 +1,6 @@
 .modal {
 	height:100%;
+	margin-top:50px;
 }
 
 // .main-content {
@@ -62,5 +63,11 @@
 	}
 	100% {
 		opacity: 1;
+	}
+}
+
+@include respond-to(handhelds) {
+	.modal {
+		margin-top:0px;
 	}
 }

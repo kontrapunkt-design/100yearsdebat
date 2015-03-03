@@ -2414,95 +2414,35 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, select
 
 .rotating {
   display: inline-block;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transform: rotateX(0) rotateY(0) rotateZ(0);
-  -moz-transform: rotateX(0) rotateY(0) rotateZ(0);
-  -ms-transform: rotateX(0) rotateY(0) rotateZ(0);
-  -o-transform: rotateX(0) rotateY(0) rotateZ(0);
   transform: rotateX(0) rotateY(0) rotateZ(0);
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
   transition: 0.5s;
   -webkit-transform-origin-x: 50%; }
-
-.rotating.flip {
-  position: relative; }
-
-.rotating .front, .rotating .back {
-  left: 0;
-  top: 0;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  backface-visibility: hidden; }
-
-.rotating .front {
-  position: absolute;
-  display: inline-block;
-  -webkit-transform: translate3d(0, 0, 1px);
-  -moz-transform: translate3d(0, 0, 1px);
-  -ms-transform: translate3d(0, 0, 1px);
-  -o-transform: translate3d(0, 0, 1px);
-  transform: translate3d(0, 0, 1px); }
-
-.rotating.flip .front {
-  z-index: 1; }
-
-.rotating .back {
-  display: block;
-  opacity: 0; }
-
-.rotating.spin {
-  -webkit-transform: rotate(360deg) scale(0);
-  -moz-transform: rotate(360deg) scale(0);
-  -ms-transform: rotate(360deg) scale(0);
-  -o-transform: rotate(360deg) scale(0);
-  transform: rotate(360deg) scale(0); }
-
-.rotating.flip .back {
-  z-index: 2;
-  display: block;
-  opacity: 1;
-  -webkit-transform: rotateY(180deg) translate3d(0, 0, 0);
-  -moz-transform: rotateY(180deg) translate3d(0, 0, 0);
-  -ms-transform: rotateY(180deg) translate3d(0, 0, 0);
-  -o-transform: rotateY(180deg) translate3d(0, 0, 0);
-  transform: rotateY(180deg) translate3d(0, 0, 0); }
-
-.rotating.flip.up .back {
-  -webkit-transform: rotateX(180deg) translate3d(0, 0, 0);
-  -moz-transform: rotateX(180deg) translate3d(0, 0, 0);
-  -ms-transform: rotateX(180deg) translate3d(0, 0, 0);
-  -o-transform: rotateX(180deg) translate3d(0, 0, 0);
-  transform: rotateX(180deg) translate3d(0, 0, 0); }
-
-.rotating.flip.cube .front {
-  -webkit-transform: translate3d(0, 0, 100px) scale(0.9, 0.9);
-  -moz-transform: translate3d(0, 0, 100px) scale(0.85, 0.85);
-  -ms-transform: translate3d(0, 0, 100px) scale(0.85, 0.85);
-  -o-transform: translate3d(0, 0, 100px) scale(0.85, 0.85);
-  transform: translate3d(0, 0, 100px) scale(0.85, 0.85); }
-
-.rotating.flip.cube .back {
-  -webkit-transform: rotateY(180deg) translate3d(0, 0, 100px) scale(0.9, 0.9);
-  -moz-transform: rotateY(180deg) translate3d(0, 0, 100px) scale(0.85, 0.85);
-  -ms-transform: rotateY(180deg) translate3d(0, 0, 100px) scale(0.85, 0.85);
-  -o-transform: rotateY(180deg) translate3d(0, 0, 100px) scale(0.85, 0.85);
-  transform: rotateY(180deg) translate3d(0, 0, 100px) scale(0.85, 0.85); }
-
-.rotating.flip.cube.up .back {
-  -webkit-transform: rotateX(180deg) translate3d(0, 0, 100px) scale(0.9, 0.9);
-  -moz-transform: rotateX(180deg) translate3d(0, 0, 100px) scale(0.85, 0.85);
-  -ms-transform: rotateX(180deg) translate3d(0, 0, 100px) scale(0.85, 0.85);
-  -o-transform: rotateX(180deg) translate3d(0, 0, 100px) scale(0.85, 0.85);
-  transform: rotateX(180deg) translate3d(0, 0, 100px) scale(0.85, 0.85); }
+  .rotating.flip {
+    position: relative; }
+    .rotating.flip .front {
+      z-index: 1; }
+    .rotating.flip .back {
+      z-index: 2;
+      display: block;
+      opacity: 1;
+      transform: rotateY(180deg) translate3d(0, 0, 0); }
+    .rotating.flip.up .back {
+      transform: rotateX(180deg) translate3d(0, 0, 0); }
+  .rotating .front, .rotating .back {
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out; }
+  .rotating .front {
+    position: absolute;
+    display: inline-block;
+    transform: translate3d(0, 0, 1px);
+    display: none;
+    opacity: 1; }
+  .rotating .back {
+    display: block;
+    opacity: 0; }
 
 /* Slider */
 .slick-slider {
@@ -2707,7 +2647,8 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, select
   opacity: 0.75; }
 
 .modal {
-  height: 100%; }
+  height: 100%;
+  margin-top: 50px; }
 
 .themodal-lock {
   overflow: hidden; }
@@ -2742,6 +2683,11 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, select
 
   100% {
     opacity: 1; } }
+
+@media only screen and (max-width: 767px) {
+  .modal {
+    margin-top: 0px; }
+ }
 
 @font-face {
   font-family: 'EuclidFlex-Regular';
@@ -2858,7 +2804,7 @@ strong {
   right: 0;
   width: 32px;
   height: 32px;
-  z-index: 100; }
+  z-index: 99; }
   .frontpage-share-btn.facebook {
     background-image: url(/images/share-btn_facebook.jpg);
     background-repeat: no-repeat; }
@@ -3115,12 +3061,23 @@ strong {
   opacity: 0.5;
   text-decoration: none !important;
   cursor: default; }
+  .tell-your-story--submit i.submit-arrow {
+    display: inline-block;
+    width: 43px;
+    height: 16px;
+    background-image: url(/images/submit-arrow.png);
+    background-image: linear-gradient(transparent, transparent), url(/images/submit-arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center center; }
   .tell-your-story--submit.clickable {
     cursor: pointer;
     opacity: 1; }
     .tell-your-story--submit.clickable:hover {
       color: white !important;
       background: #cc3333; }
+      .tell-your-story--submit.clickable:hover i.submit-arrow {
+        background-image: url(/images/submit-arrow_white.png);
+        background-image: linear-gradient(transparent, transparent), url(/images/submit-arrow_white.svg); }
 
 .tell-your-story--share {
   display: block;
@@ -3393,6 +3350,9 @@ strong {
   text-align: center;
   margin: auto;
   margin-top: 30px; }
+  .grid--load-more:hover {
+    text-decoration: none;
+    color: white; }
 
 @media only screen and (max-width: 991px) {
   .grid--view .item {

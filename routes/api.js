@@ -19,12 +19,12 @@ module.exports = function(app, keystone) {
 		    "from_email": "noreply@100aaret.dk",
 		    "from_name": "Ta lige stilling!",
 		    "to": [{
-		            "email": "kvinde100@kontrapunkt.com",
-		            "name": "Kvinde100",
+		            "email": "tagligestilling@kontrapunkt.com",
+		            "name": "Tag lige stilling!",
 		            "type": "to"
 		        },],
 		    "headers": {
-		        "Reply-To": "noreply@100aaret.dk",
+		        "Reply-To": "tagligestilling@kontrapunkt.com",
 		    }
 		};
 		var userMessage = {

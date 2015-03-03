@@ -47,6 +47,10 @@
 	text-align:center;
 	margin:auto;
 	margin-top:$spacing;
+	&:hover {
+		text-decoration: none;
+		color:white;
+	}
 }
 
 @include respond-to(handhelds-tablets) {

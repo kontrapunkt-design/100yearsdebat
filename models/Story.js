@@ -38,7 +38,7 @@ Story.add({
 	frontpageImage: {type: Types.CloudinaryImage, required:false, note: 'Big wide image for frontpage story', dependsOn:{'frontpageStory':true}, dependsOn: {'type':'story'}},
 
 	
-	youtube: { type: String , dependsOn: {'type':'story'}},
+	youtube: { type: String , dependsOn: {'type':'story'}, note: 'Use Youtube ID, not URL'},
 	
 
 	// author: { type: String, required: false , dependsOn: {'type':'story'}},

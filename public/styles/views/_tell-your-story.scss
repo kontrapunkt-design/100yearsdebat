@@ -301,12 +301,25 @@
 	opacity:0.5;
 	text-decoration:none !important;
 	cursor: default;
+	i.submit-arrow {
+		display: inline-block;
+		width:43px;
+		height:16px;
+		background-image: url(/images/submit-arrow.png);
+		background-image: linear-gradient(transparent, transparent), url(/images/submit-arrow.svg);
+		background-repeat:no-repeat;
+		background-position:center center;
+	}
 	&.clickable {
 		cursor: pointer;
 		opacity: 1;
 		&:hover {
 			color:white !important;
 			background:$red;
+			i.submit-arrow {
+				background-image: url(/images/submit-arrow_white.png);
+				background-image: linear-gradient(transparent, transparent), url(/images/submit-arrow_white.svg);
+			}
 		}
 	}
 }

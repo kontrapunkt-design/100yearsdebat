@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="42.5px" height="16.457px" viewBox="0 0 42.5 16.457" enable-background="new 0 0 42.5 16.457" xml:space="preserve">
+<symbol  id="comp-icon-arrow" viewBox="-21.5 -7.942 43 15.883">
+	<line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="-21.5" y1="0.442" x2="18.5" y2="0.442"/>
+	<polyline fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="11.748,6.883 18.58,0.016 11.735,-6.886 	
+		"/>
+	<polygon display="none" fill="none" points="-21.5,6.942 21.5,6.942 21.5,-7.058 -21.5,-7.058 	"/>
+</symbol>
+<use xlink:href="#comp-icon-arrow"  width="43" height="15.883" id="XMLID_198_" x="-21.5" y="-7.942" transform="matrix(1 0 0 -1 21.5 8.1729)" overflow="visible"/>
+</svg>
