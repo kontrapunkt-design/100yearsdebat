@@ -47,7 +47,7 @@
 	text-align:center;
 	margin:auto;
 	margin-top:$spacing;
-	&:hover {
+	&:hover, &:active, &:focus {
 		text-decoration: none;
 		color:white;
 	}
