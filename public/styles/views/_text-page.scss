@@ -17,10 +17,15 @@
 		transition:opacity 0.3s;
 		z-index:1;
 		right:0;
-		top:0;
+		top:-50px;
 		position: absolute;
 		&:hover {
 			background-color:darken($red,7%);
+		}
+	}
+	@include respond-to(handhelds) {
+		.close-btn {
+			top:0px;
 		}
 	}
 }

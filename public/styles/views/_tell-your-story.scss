@@ -15,6 +15,10 @@
 	-webkit-animation: tell-your-story--animate-in 0.5s;
 	-webkit-animation-fill-mode: both;
 
+	.close-btn {
+		top:0 !important;
+	}
+
 	h1 {
 		color:$red;
 		font-size:60px;
@@ -28,7 +32,7 @@
 		display: block;
 		position: absolute;
 		right:0;
-		top:0;
+		top:-50px;
 		width:50px;
 		height:50px;
 		background:$red;
@@ -48,6 +52,9 @@
 	}
 
 	@include respond-to(handhelds) {
+		.close-btn {
+			top:0px !important;
+		}
 		h1 {
 			font-size: 26px;
 			margin-top: 11px;
@@ -438,6 +445,7 @@
 	.close-btn {
 		right:auto;
 		left:0;
+		top:-50px;
 	}
 	display:none;
 	&.open {

@@ -2504,7 +2504,8 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, select
   float: left;
   height: 100%;
   min-height: 1px;
-  display: none; }
+  display: none;
+  margin-top: 50px; }
 
 [dir="rtl"] .slick-slide {
   float: right; }
@@ -2586,6 +2587,9 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, select
     background-size: auto 43%;
     background-color: #cc3333;
     opacity: 0.7; }
+
+  .slick-slide {
+    margin-top: 0; }
  }
 
 /* Dots */
@@ -2826,6 +2830,8 @@ strong {
   animation-fill-mode: both;
   -webkit-animation: tell-your-story--animate-in 0.5s;
   -webkit-animation-fill-mode: both; }
+  .tell-your-story--view .close-btn {
+    top: 0 !important; }
   .tell-your-story--view h1 {
     color: #cc3333;
     font-size: 60px; }
@@ -2836,7 +2842,7 @@ strong {
     display: block;
     position: absolute;
     right: 0;
-    top: 0;
+    top: -50px;
     width: 50px;
     height: 50px;
     background: #cc3333;
@@ -2851,6 +2857,9 @@ strong {
     color: #333366;
     display: block; }
   @media only screen and (max-width: 767px) {
+    .tell-your-story--view .close-btn {
+      top: 0px !important; }
+
     .tell-your-story--view h1 {
       font-size: 26px;
       margin-top: 11px;
@@ -3170,7 +3179,8 @@ strong {
   display: none; }
   .tell-your-story--video-modal .close-btn {
     right: auto;
-    left: 0; }
+    left: 0;
+    top: -50px; }
   .tell-your-story--video-modal.open {
     display: block; }
 
@@ -3349,8 +3359,9 @@ strong {
   font-family: 'EuclidFlex-Bold', Helvetica, Arial, Verdana;
   text-align: center;
   margin: auto;
-  margin-top: 30px; }
-  .grid--load-more:hover {
+  margin-top: 80px;
+  margin-bottom: 30px; }
+  .grid--load-more:hover, .grid--load-more:active, .grid--load-more:focus {
     text-decoration: none;
     color: white; }
 
@@ -3425,7 +3436,6 @@ strong {
       padding-top: 14px; }
     .story--view .story-item--view .close-btn {
       display: block;
-      float: right;
       width: 50px;
       height: 50px;
       background: #cc3333;
@@ -3435,14 +3445,12 @@ strong {
       background-position: center center;
       opacity: 0;
       transition: opacity 0.3s;
-      z-index: 1; }
+      z-index: 1;
+      position: absolute;
+      right: 0;
+      top: -50px; }
       .story--view .story-item--view .close-btn:hover {
         background-color: #af2c2c; }
-      .story--view .story-item--view .close-btn.w-media {
-        position: absolute;
-        right: 0;
-        top: 0;
-        float: none; }
     .story--view .story-item--view.slick-center {
       opacity: 1; }
       .story--view .story-item--view.slick-center .fb-comments {
@@ -3456,7 +3464,9 @@ strong {
       .story--view .story-item--view {
         width: 280px;
         animation: none !important;
-        -webkit-animation: none !important; } }
+        -webkit-animation: none !important; }
+      .story--view .close-btn {
+        top: 0px !important; } }
 
 .story-item--view {
   background: white;
@@ -4137,7 +4147,11 @@ html.touch .hover-overlay {
     transition: opacity 0.3s;
     z-index: 1;
     right: 0;
-    top: 0;
+    top: -50px;
     position: absolute; }
     .text-page--view .close-btn:hover {
       background-color: #af2c2c; }
+  @media only screen and (max-width: 767px) {
+    .text-page--view .close-btn {
+      top: 0px; }
+ }

@@ -14,7 +14,7 @@
 .slick-track:after { clear: both; }
 .slick-loading .slick-track { visibility: hidden; }
 
-.slick-slide { float: left; height: 100%; min-height: 1px; display: none; }
+.slick-slide { float: left; height: 100%; min-height: 1px; display: none; margin-top:50px;}
 [dir="rtl"] .slick-slide { float: right; }
 .slick-slide img { display: block; }
 .slick-slide.slick-loading img { display: none; }
@@ -86,6 +86,9 @@
 		background-size: auto 43%;
 		background-color:$red;
 		opacity: 0.7;
+	}
+	.slick-slide {
+		margin-top:0;
 	}
 }
 

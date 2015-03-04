@@ -59,7 +59,6 @@
 
 		.close-btn {
 			display: block;
-			float:right;
 			width:50px;
 			height:50px;
 			background:$red;
@@ -70,14 +69,13 @@
 			opacity:0;
 			transition:opacity 0.3s;
 			z-index:1;
+			position: absolute;
+			right:0;
+			top:-50px;
 			&:hover {
 				background-color:darken($red,7%);
 			}
 			&.w-media {
-				position: absolute;
-				right:0;
-				top:0;
-				float:none;
 			}
 		}
 
@@ -99,6 +97,9 @@
 			width:280px;
 			animation:none !important;
 			-webkit-animation:none !important;
+		}
+		.close-btn {
+			top:0px !important;
 		}
 		padding-top:0;
 	}
