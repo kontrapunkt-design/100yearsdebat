@@ -76,7 +76,7 @@ define([
 				if ( this.singleStory && this.model.get('youtube') ) {
 					$(this.el).find('.embed-video').addClass('playing');
 					$(this.el).find('.embed-video--player').addClass('playing');
-					$(this.el).find('.embed-video--player').html('<iframe width="600" height="337" src="http://www.youtube.com/embed/'+this.model.get('youtube')+'?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+					$(this.el).find('.embed-video--player').html('<iframe width="600" height="337" src="http://www.youtube.com/embed/'+this.model.get('youtube')+'?autoplay=1" frameborder="0" allowfullscreen="allowfullscreen"></iframe>');
 					$(this.el).find('.embed-video--player').fitVids();
 				}
 			},
